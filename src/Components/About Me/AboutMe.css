@@ -1,0 +1,82 @@
+.about-section {
+  margin-top: 5rem;
+}
+
+.about-card {
+  animation: slide-in-left 1s ease-out;
+}
+
+.skill-card {
+  animation: slide-in-top 1s ease-out;
+}
+
+.education-card {
+  animation: slide-in-bottom 1s ease-out;
+}
+
+.card-content {
+  transition: transform 0.3s ease-in-out;
+}
+
+.card-content:hover {
+  transform: translateY(-10px);
+}
+
+.skill-item {
+  display: flex;
+  align-items: center;
+  background-color: #f0f0f0;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.skill-item:hover {
+  background-color: #e0e0e0;
+}
+
+@keyframes slide-in-left {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-top {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-bottom {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Added styles to differentiate heading sizes */
+h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}

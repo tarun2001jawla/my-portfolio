@@ -1,0 +1,39 @@
+/* Navbar.css */
+
+.nav-link {
+  text-decoration: none;
+  color: black;
+  transition: color 0.3s ease-in-out;
+  font-weight: bold;
+  margin: 0 1rem;
+  position: relative;
+}
+
+/* Hover effect for all links except "My Portfolio" */
+.nav-link:not(.my-portfolio)::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background-color: #f2c94c;
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  transition: width 0.3s ease-in-out;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.my-portfolio {
+  color: black;
+}
+
+.my-portfolio:hover {
+  color: #f2c94c;
+}
+
+.my-portfolio:hover::after {
+  content: none;
+}
