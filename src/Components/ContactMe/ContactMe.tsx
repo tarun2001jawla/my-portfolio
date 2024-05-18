@@ -86,60 +86,32 @@ const ContactForm: React.FC<{ id: string }> = ({ id })=> {
   };
 
   return (
-    <Box id={id}
-      maxW="800px"
-      mx="auto"
-      my={8}
-      p={6}
-      bg="white"
-      borderRadius="md"
-      boxShadow="0 0 10px rgba(0, 0, 0, 0.15)"
-      transition="box-shadow 0.3s ease-in-out"
-      _hover={{ boxShadow: '0 0 20px rgba(0, 0, 0, 0.25)' }}
-    >
+    <Box id={id} maxW="800px" mx="auto" my={8} p={6} bg="white" borderRadius="md" boxShadow="md" transition="box-shadow 0.3s ease-in-out" _hover={{ boxShadow: '0 0 20px rgba(0, 0, 0, 0.25)' }}>
       <Heading as="h2" mb={6} textAlign="center">
         Contact Me
       </Heading>
       <form onSubmit={handleSubmit}>
-        <Flex justify="space-between" flexWrap="wrap" mb={4}>
-          <FormControl mb={4} mr={4} flex="1">
+        <Flex direction={{ base: 'column', md: 'row' }} mb={4}>
+          <FormControl mb={{ base: 4, md: 0 }} mr={{ base: 0, md: 4 }} flex="1">
             <FormLabel display="flex" alignItems="center">
               <Icon as={FaUserAlt} mr={2} color="blue.500" />
               Name
             </FormLabel>
-            <Input
-              type="text"
-              name="name"
-              placeholder="Enter your name"
-              value={formData.name}
-              onChange={handleChange}
-            />
+            <Input type="text" name="name" placeholder="Enter your name" value={formData.name} onChange={handleChange} />
           </FormControl>
-          <FormControl mb={4} mr={4} flex="1">
+          <FormControl mb={{ base: 4, md: 0 }} mr={{ base: 0, md: 4 }} flex="1">
             <FormLabel display="flex" alignItems="center">
               <Icon as={FaEnvelope} mr={2} color="blue.500" />
               Email
             </FormLabel>
-            <Input
-              type="email"
-              name="email"
-              placeholder="Enter your email"
-              value={formData.email}
-              onChange={handleChange}
-            />
+            <Input type="email" name="email" placeholder="Enter your email" value={formData.email} onChange={handleChange} />
           </FormControl>
-          <FormControl mb={4} flex="1">
+          <FormControl mb={{ base: 4, md: 0 }} flex="1">
             <FormLabel display="flex" alignItems="center">
               <Icon as={FaPhoneAlt} mr={2} color="blue.500" />
               Phone
             </FormLabel>
-            <Input
-              type="tel"
-              name="phone"
-              placeholder="Enter your phone number"
-              value={formData.phone}
-              onChange={handleChange}
-            />
+            <Input type="tel" name="phone" placeholder="Enter your phone number" value={formData.phone} onChange={handleChange} />
           </FormControl>
         </Flex>
         <FormControl mb={4}>
@@ -155,23 +127,9 @@ const ContactForm: React.FC<{ id: string }> = ({ id })=> {
         </FormControl>
         <FormControl mb={6}>
           <FormLabel>Query</FormLabel>
-          <Textarea
-            name="query"
-            placeholder="Enter your query"
-            value={formData.query}
-            onChange={handleChange}
-            rows={4}
-          />
+          <Textarea name="query" placeholder="Enter your query" value={formData.query} onChange={handleChange} rows={4} />
         </FormControl>
-        <Button
-          type="submit"
-          rightIcon={<FaArrowRight />}
-          colorScheme="teal"
-          variant="solid"
-          w="full"
-          transition="transform 0.3s ease-in-out"
-          _hover={{ transform: 'translateY(-2px)' }}
-        >
+        <Button type="submit" rightIcon={<FaArrowRight />} colorScheme="teal" variant="solid" w="full" transition="transform 0.3s ease-in-out" _hover={{ transform: 'translateY(-2px)' }}>
           Submit
         </Button>
       </form>

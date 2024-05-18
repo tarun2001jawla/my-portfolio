@@ -1,36 +1,52 @@
-import React, { useEffect, useRef } from 'react';
-import Quill from 'quill';
-import 'quill/dist/quill.snow.css';
+import React, { useState } from "react";
+import Editor from "@monaco-editor/react";
+import { Button, Box } from "@chakra-ui/react";
 
-const CodeEditor: React.FC = () => {
-  const editorRef = useRef<HTMLDivElement>(null);
+const CodeEditor = () => {
+  const [code, setCode] = useState("console.log('Hello, Monaco!');");
+  const [output, setOutput] = useState("");
 
-  useEffect(() => {
-    if (editorRef.current) {
-      const quillEditor = new Quill(editorRef.current, {
-        modules: {
-          syntax: true,
-          toolbar: '#toolbar',
-        },
-        placeholder: 'Type your code here...',
-        theme: 'snow',
-      });
+  const runCode = () => {
+    let capturedOutput = "";
+    const originalConsoleLog = console.log;
 
-      return () => {
-        quillEditor.off("he");
-      };
+    console.log = (...args) => {
+      capturedOutput += args.join(" ") + "\n";
+      originalConsoleLog(...args);
+    };
+
+    try {
+      eval(code);
+      setOutput(capturedOutput || "Code executed successfully.");
+    } catch (error) {
+      setOutput(error.message);
     }
-  }, []);
+
+    console.log = originalConsoleLog; // Restore original console.log
+  };
 
   return (
-    <div>
-      <div id="toolbar">
-        <button className="ql-bold">Bold</button>
-        <button className="ql-italic">Italic</button>
-        {/* Add more toolbar buttons as needed */}
-      </div>
-      <div ref={editorRef} style={{ height: '500px' }} />
-    </div>
+    <Box>
+      <Editor
+        height="300px"
+        language="javascript"
+        theme="vs-dark"
+        value={code}
+        onChange={(newValue) => setCode(newValue || "")}
+        options={{
+          fontSize: 16,
+          formatOnType: true,
+          autoClosingBrackets: "always",
+          minimap: { enabled: false }
+        }}
+      />
+      <Button mt={4} colorScheme="teal" onClick={runCode}>
+        Run Code
+      </Button>
+      <Box mt={4} p={4} border="1px solid #ddd" borderRadius="md" bg="gray.100">
+        <pre>{output}</pre>
+      </Box>
+    </Box>
   );
 };
 
