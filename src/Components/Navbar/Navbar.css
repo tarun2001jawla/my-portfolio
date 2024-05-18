@@ -37,3 +37,6 @@
 .my-portfolio:hover::after {
   content: none;
 }
+.nav-link {
+  cursor: pointer;
+}

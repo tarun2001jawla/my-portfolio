@@ -34,7 +34,7 @@ const ServicesSection: React.FC<{ id: string }> = ({ id }) => {
       icon: FaPencilAlt,
       title: 'Graphic Design',
       description:
-        'Captivating designs reflecting your brand identity.',
+        'Captivating designs reflecting your brand identity. Get aweosome designed graphics',
       color: '#CCFFCC', // Light Green
       iconColor: '#66FF66', // Lighter Green
     },
@@ -65,7 +65,8 @@ const ServicesSection: React.FC<{ id: string }> = ({ id }) => {
 
     const whatsappLink = `https://wa.me/${phoneNumber}?text=${message}`;
 
-    window.location.href = whatsappLink; // Redirect to WhatsApp
+    window.open(whatsappLink, '_blank'); // Open in new tab
+     
   };
 
   return (
@@ -76,7 +77,12 @@ const ServicesSection: React.FC<{ id: string }> = ({ id }) => {
       <Flex flexWrap="wrap" justifyContent="center">
         <Flex flexWrap="wrap" justifyContent="center" width="100%">
           {servicesAbove.map((service, index) => (
-            <Box key={index} className="service-card" style={{ backgroundColor: service.color }}>
+            <Box key={index}
+            className="service-card"
+            style={{ backgroundColor: service.color }}
+            maxW={{ base: '100%', md: '300px' }} // Adjusted max width
+            m={4}
+            >
               <Box className="service-icon" style={{ color: service.iconColor }}>
                 <service.icon size={48} />
               </Box>
@@ -89,7 +95,12 @@ const ServicesSection: React.FC<{ id: string }> = ({ id }) => {
         </Flex>
         <Flex flexWrap="wrap" justifyContent="center" width="100%">
           {servicesBelow.map((service, index) => (
-            <Box key={index} className="service-card" style={{ backgroundColor: service.color }}>
+            <Box key={index}
+            className="service-card"
+            style={{ backgroundColor: service.color }}
+            maxW={{ base: '100%', md: '300px' }} // Adjusted max width
+            m={4}
+            >
               <Box className="service-icon" style={{ color: service.iconColor }}>
                 <service.icon size={48} />
               </Box>

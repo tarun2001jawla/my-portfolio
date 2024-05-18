@@ -8,8 +8,14 @@ import './Navbar.css';
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
+  const toggleMenu = (link: string) => {
+    if (link) {
+      setTimeout(() => {
+        setIsMenuOpen(false);
+      }, 300); // Adjust the delay as needed
+    } else {
+      setIsMenuOpen(!isMenuOpen);
+    }
   };
 
   return (
@@ -28,7 +34,7 @@ const Navbar: React.FC = () => {
           to="home"
           spy={true}
           smooth={true}
-          offset={-70} // Adjust as needed
+          offset={0} // Adjusted offset to 0
           duration={500}
           className="nav-link my-portfolio"
         >
@@ -42,7 +48,7 @@ const Navbar: React.FC = () => {
             to="home"
             spy={true}
             smooth={true}
-            offset={-70} // Adjust as needed
+            offset={0} // Adjusted offset to 0
             duration={500}
             className="nav-link"
           >
@@ -52,17 +58,27 @@ const Navbar: React.FC = () => {
             to="about"
             spy={true}
             smooth={true}
-            offset={-10} // Adjust as needed
+            offset={0} // Adjusted offset to 0
             duration={500}
             className="nav-link"
           >
             About Me
           </ScrollLink>
           <ScrollLink
+            to="services"
+            spy={true}
+            smooth={true}
+            offset={0} // Adjusted offset to 0
+            duration={500}
+            className="nav-link"
+          >
+            Services
+          </ScrollLink>
+          <ScrollLink
             to="projects"
             spy={true}
             smooth={true}
-            offset={-70} // Adjust as needed
+            offset={0} // Adjusted offset to 0
             duration={500}
             className="nav-link"
           >
@@ -72,7 +88,7 @@ const Navbar: React.FC = () => {
             to="contact"
             spy={true}
             smooth={true}
-            offset={-70} // Adjust as needed
+            offset={0} // Adjusted offset to 0
             duration={500}
             className="nav-link"
           >
@@ -92,10 +108,10 @@ const Navbar: React.FC = () => {
                 to="home"
                 spy={true}
                 smooth={true}
-                offset={-70} // Adjust as needed
+                offset={0} // Adjusted offset to 0
                 duration={500}
                 className="nav-link"
-                onClick={toggleMenu}
+                onClick={() => toggleMenu('home')}
               >
                 Home
               </ScrollLink>
@@ -105,10 +121,10 @@ const Navbar: React.FC = () => {
                 to="about"
                 spy={true}
                 smooth={true}
-                offset={-70} // Adjust as needed
+                offset={0} // Adjusted offset to 0
                 duration={500}
                 className="nav-link"
-                onClick={toggleMenu}
+                onClick={() => toggleMenu('about')}
               >
                 About Me
               </ScrollLink>
@@ -118,10 +134,10 @@ const Navbar: React.FC = () => {
                 to="projects"
                 spy={true}
                 smooth={true}
-                offset={-70} // Adjust as needed
+                offset={0} // Adjusted offset to 0
                 duration={500}
                 className="nav-link"
-                onClick={toggleMenu}
+                onClick={() => toggleMenu('projects')}
               >
                 Projects
               </ScrollLink>
@@ -131,10 +147,10 @@ const Navbar: React.FC = () => {
                 to="contact"
                 spy={true}
                 smooth={true}
-                offset={-70} // Adjust as needed
+                offset={0} // Adjusted offset to 0
                 duration={500}
                 className="nav-link"
-                onClick={toggleMenu}
+                onClick={() => toggleMenu('contact')}
               >
                 Contact Me
               </ScrollLink>

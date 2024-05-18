@@ -2,12 +2,38 @@
   margin-top: 5rem;
 }
 
+
+.about-section {
+  background-color: #f9f9f9;
+}
 .about-card {
-  animation: slide-in-left 1s ease-out;
+  animation: slide-in-left  1s ease-out;
+}
+.skill-card {
+  animation: slide-in-top  1s ease-out;
+}
+.about-card, .skill-card, .education-card {
+  transition: box-shadow 0.3s ease-in-out;
 }
 
-.skill-card {
-  animation: slide-in-top 1s ease-out;
+.about-card:hover, .skill-card:hover, .education-card:hover {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+}
+
+.skill-item {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.skill-item:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .education-card {
