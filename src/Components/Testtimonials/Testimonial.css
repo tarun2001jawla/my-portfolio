@@ -1,3 +1,5 @@
+/* Testimonial.css */
+
 .testimonials {
   max-width: 100%;
   overflow-x: hidden;
@@ -73,31 +75,3 @@
 .glide__arrow:hover {
   background: rgba(0, 0, 0, 0.7);
 }
-
-.testimonials {
-  max-width: 100%;
-  overflow-x: hidden;
-}
-
-.review-card {
-  background-color: rgba(29, 161, 242, 0.2);
-  border: 2px solid black;
-  padding: 1.5rem;
-  margin: 1rem;
-  border-radius: 0.5rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-}
-
-.review-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-}
-
-.review-profile {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  margin-right: 1rem;
-}
-
