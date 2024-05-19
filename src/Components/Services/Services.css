@@ -28,4 +28,9 @@
   .service-card:nth-child(even) {
     background-color: #f0f0f0; /* Lighter Gray */
   }
+  .no-select {
+    user-select: none;
+    -webkit-user-select: none; 
+    -moz-user-select: none; 
+  }
   

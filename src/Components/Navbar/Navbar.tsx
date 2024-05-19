@@ -19,7 +19,8 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <Flex
+    <Flex 
+     fontFamily="Poppins, sans-serif"
       as="nav"
       align="center"
       justify="space-between"
@@ -29,7 +30,7 @@ const Navbar: React.FC = () => {
       bg="transparent" 
       boxShadow="none" 
     >
-      <Heading as="h1" size="lg" letterSpacing={'-.1rem'} marginLeft="1rem" className="my-portfolio">
+      <Heading as="h1" size="lg" letterSpacing={'-.1rem'} marginLeft="1rem" className="my-portfolio"  fontFamily="Poppins, sans-serif">
         <ScrollLink
           to="home"
           spy={true}
@@ -37,8 +38,9 @@ const Navbar: React.FC = () => {
           offset={0} // Adjusted offset to 0
           duration={500}
           className="nav-link my-portfolio"
+          
         >
-          My Portfolio
+          Tarun Jawla
         </ScrollLink>
       </Heading>
 

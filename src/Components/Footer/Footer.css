@@ -14,4 +14,9 @@
     padding: 1rem 2rem;
     border-top: 1px solid #4a5568;
   }
+  .no-select {
+    user-select: none;
+    -webkit-user-select: none; 
+    -moz-user-select: none; 
+  }
   

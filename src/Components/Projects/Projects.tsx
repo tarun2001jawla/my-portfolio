@@ -1,8 +1,7 @@
 import React, { useEffect } from "react";
-import { Box, Heading, Text, Image, IconButton, Link } from "@chakra-ui/react";
+import { Box, Heading, Text, Image, Link } from "@chakra-ui/react";
 import Glide from "@glidejs/glide";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import "./Projects.css";
 
 const projects = [
@@ -47,16 +46,40 @@ const ProjectsSection: React.FC<{ id: string }> = ({ id }) => {
           perView: 1,
         },
       },
-      autoplay:1000,
-      hoverpause:true,
+      autoplay: 1500,
+      hoverpause: true,
       animationDuration: 1000,
       animationTimingFunc: "cubic-bezier(0.165, 0.840, 0.440, 1.000)", // Cubic bezier curve for smoother animation
     }).mount();
+
+    const handleCopy = (e: ClipboardEvent) => {
+      e.preventDefault();
+    };
+
+    const handleContextMenu = (e: MouseEvent) => {
+      e.preventDefault();
+    };
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.ctrlKey && (e.key === 'c' || e.key === 'C')) {
+        e.preventDefault();
+      }
+    };
+
+    document.addEventListener('copy', handleCopy);
+    document.addEventListener('contextmenu', handleContextMenu);
+    document.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.removeEventListener('copy', handleCopy);
+      document.removeEventListener('contextmenu', handleContextMenu);
+      document.removeEventListener('keydown', handleKeyDown);
+    };
   }, []);
 
   return (
-    <Box id={id} py={16} className="projects-section">
-      <Heading as="h2" textAlign="center" mb={8}>
+    <Box id={id} py={16} className="projects-section no-select">
+      <Heading as="h2" textAlign="center" mb={8} fontFamily="Poppins, sans-serif" fontWeight="600" mt="0.5em">
         My Projects
       </Heading>
       <div className="glide">
@@ -64,7 +87,7 @@ const ProjectsSection: React.FC<{ id: string }> = ({ id }) => {
           <ul className="glide__slides">
             {projects.map((project, index) => (
               <li key={index} className="glide__slide">
-                <Box className="project-card" p={4} borderRadius="md" style={{ backgroundColor: project.bgColor }}>
+                <Box className="project-card" p={4} borderRadius="md" style={{ backgroundColor: project.bgColor }} fontFamily="Inter, sans-serif">
                   <Image src={project.image} alt={project.title} borderRadius="md" mb={4} />
                   <Box textAlign="left">
                     <Heading as="h3" size="md" mb={2} color="#333">
@@ -86,18 +109,12 @@ const ProjectsSection: React.FC<{ id: string }> = ({ id }) => {
           </ul>
         </div>
         <div className="glide__arrows" data-glide-el="controls">
-          <IconButton
-            className="glide__arrow glide__arrow--left"
-            data-glide-dir="<"
-            aria-label="Previous"
-            icon={<FontAwesomeIcon icon={faChevronLeft} />}
-          />
-          <IconButton
-            className="glide__arrow glide__arrow--right"
-            data-glide-dir=">"
-            aria-label="Next"
-            icon={<FontAwesomeIcon icon={faChevronRight} />}
-          />
+          <button className="glide__arrow glide__arrow--left" data-glide-dir="<">
+            <FaArrowLeft />
+          </button>
+          <button className="glide__arrow glide__arrow--right" data-glide-dir=">">
+            <FaArrowRight />
+          </button>
         </div>
       </div>
     </Box>

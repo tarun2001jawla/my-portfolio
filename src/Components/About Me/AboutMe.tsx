@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Box,
   Flex,
@@ -14,6 +14,9 @@ import {
   FaGraduationCap,
   FaGithub,
   FaPython,
+  FaInstagram,
+  FaTwitter,
+  FaLinkedin,
 } from "react-icons/fa";
 import {
   SiJavascript,
@@ -26,6 +29,32 @@ import {
 import "./AboutMe.css";
 
 const AboutMe: React.FC<{ id: string }> = ({ id }) => {
+  useEffect(() => {
+    const handleCopy = (e: ClipboardEvent) => {
+      e.preventDefault();
+    };
+
+    const handleContextMenu = (e: MouseEvent) => {
+      e.preventDefault();
+    };
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.ctrlKey && (e.key === 'c' || e.key === 'C')) {
+        e.preventDefault();
+      }
+    };
+
+    document.addEventListener('copy', handleCopy);
+    document.addEventListener('contextmenu', handleContextMenu);
+    document.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.removeEventListener('copy', handleCopy);
+      document.removeEventListener('contextmenu', handleContextMenu);
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, []);
+
   const skills = [
     { name: "Java", icon: FaJava, color: "#007396" }, // Java original color
     { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" }, // JavaScript original color
@@ -38,9 +67,9 @@ const AboutMe: React.FC<{ id: string }> = ({ id }) => {
   ];
 
   return (
-    <Box py={16} className="about-section" id={id}>
+    <Box py={20} className="about-section no-select" id={id}>
       <Box textAlign="center" mb={8}>
-        <Heading as="h1" mb={4}>
+        <Heading as="h1" mb={4} fontFamily= "Poppins, sans-serif" fontWeight= "600">
           About Me
         </Heading>
       </Box>
@@ -68,9 +97,9 @@ const AboutMe: React.FC<{ id: string }> = ({ id }) => {
             <Icon as={FaUser} color="#333" mr={2} />
             Personal Info
           </Heading>
-          <Flex alignItems="center" mt={4}>
+          <Flex alignItems="center" mt={8}>
             <Image
-              src="https://via.placeholder.com/150"
+              src="/gamer (1).png"
               alt="Profile Picture"
               borderRadius="md"
               boxSize="150px"
@@ -96,7 +125,7 @@ const AboutMe: React.FC<{ id: string }> = ({ id }) => {
               </Flex>
             </Box>
           </Flex>
-          <Text mt={4} color="#333">
+          <Text mt={8} color="#333" fontFamily=  "Inter, sans-serif" fontWeight={600}>
             Hey there, I'm Tarun, a passionate technologist based in Jaipur. I
             recently graduated with a BTech in Information Technology,
             specializing in Java, MERN development, and UX/UI design, from the
@@ -107,6 +136,28 @@ const AboutMe: React.FC<{ id: string }> = ({ id }) => {
             persona and the curiosity that drives me to explore and excel in
             both the technological and creative domains.
           </Text>
+          <Flex mt={8}>
+            <Box mr={4}>
+              <a href="https://www.github.com/tarunjawla">
+                <Icon as={FaGithub} boxSize={8} color="#333" />
+              </a>
+            </Box>
+            <Box mr={4}>
+              <a href="https://www.instagram.com/tarunjawla">
+                <Icon as={FaInstagram} boxSize={8} color="#333" />
+              </a>
+            </Box>
+            <Box mr={4}>
+              <a href="https://www.twitter.com/tarunjawla">
+                <Icon as={FaTwitter} boxSize={8} color="#333" />
+              </a>
+            </Box>
+            <Box>
+              <a href="https://www.linkedin.com/in/tarunjawla">
+                <Icon as={FaLinkedin} boxSize={8} color="#333" />
+              </a>
+            </Box>
+          </Flex>
         </Box>
         {/* Right side: Skills and Education */}
         <Box>
@@ -124,10 +175,10 @@ const AboutMe: React.FC<{ id: string }> = ({ id }) => {
             height="auto"
           >
             <Heading as="h3" mb={4} color="#333">
-              <Icon as={FaGithub} color="#333" mr={2} />
+            <Icon as={FaGithub} color="#333" mr={2} />
               Tech Stack
             </Heading>
-            <Flex flexWrap="wrap">
+            <Flex flexWrap="wrap" fontFamily=  "Inter, sans-serif">
               {skills.map((skill) => (
                 <Flex
                   key={skill.name}
@@ -166,16 +217,16 @@ const AboutMe: React.FC<{ id: string }> = ({ id }) => {
               <Icon as={FaGraduationCap} color="#333" mr={2} />
               Educational Background
             </Heading>
-            <Text mb={2}>
+            <Text mb={2} fontFamily=  "Inter, sans-serif" >
               <strong>Degree:</strong> B.Tech. 
             </Text>
-            <Text mb={2}>
+            <Text mb={2} fontFamily=  "Inter, sans-serif">
               <strong>University:</strong> Galgotias College Of Engineering & Technology
             </Text>
-            <Text mb={2}>
+            <Text mb={2} fontFamily=  "Inter, sans-serif">
               <strong>Graduation Year:</strong> 2023
             </Text>
-            <Text>
+            <Text fontFamily=  "Inter, sans-serif">
               <strong>Specialization:</strong> Information Technology
             </Text>
           </Box>
@@ -186,3 +237,4 @@ const AboutMe: React.FC<{ id: string }> = ({ id }) => {
 };
 
 export default AboutMe;
+

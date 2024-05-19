@@ -29,12 +29,13 @@ const HeroSection: React.FC = () => {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+    document.body.removeChild(link);
   };
 
   return (
-    <Box
+    <Box  fontFamily="Poppins, sans-serif"
       className="hero-section"
-      backgroundImage="url('/HeroSectionImage.jpg')" // Adjusted path
+      backgroundImage="url('/public/IMG_9087.ARW')" // Adjusted path
       backgroundSize="cover"
       backgroundPosition="center"
       height="100vh"
@@ -45,10 +46,11 @@ const HeroSection: React.FC = () => {
     >
       <Box position="absolute" top="0" left="0" width="100%" height="100%" bg="rgba(0, 0, 0, 0.5)" zIndex={0} />
       <Flex direction="column" alignItems="center" textAlign="center" zIndex={1}>
-        <Heading as="h1" size="4xl" fontWeight="bold" color="white" mb={4}>
+        <Heading as="h1" size="4xl" fontWeight="bold" color="white" mb={4} fontFamily="Poppins, sans-serif">
           Hey! I'm Tarun Jawla
         </Heading>
         <Text
+          mt={5}
           fontSize="2xl"
           fontWeight="bold"
           color="white"

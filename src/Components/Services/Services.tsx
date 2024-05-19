@@ -1,5 +1,4 @@
-// ServicesSection.tsx
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Box, Flex, Heading, Text, Button } from '@chakra-ui/react';
 import { FaLaptopCode, FaPalette, FaMobileAlt, FaPencilAlt, FaChartBar, FaPhoneAlt } from 'react-icons/fa';
 import './Services.css';
@@ -62,26 +61,50 @@ const ServicesSection: React.FC<{ id: string }> = ({ id }) => {
   const handleScheduleCall = () => {
     const phoneNumber = '8279202574'; 
     const message = encodeURIComponent('Hello! I want to schedule a call.'); 
-
     const whatsappLink = `https://wa.me/${phoneNumber}?text=${message}`;
-
     window.open(whatsappLink, '_blank'); // Open in new tab
-     
   };
 
+  useEffect(() => {
+    const handleCopy = (e: ClipboardEvent) => {
+      e.preventDefault();
+    };
+
+    const handleContextMenu = (e: MouseEvent) => {
+      e.preventDefault();
+    };
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.ctrlKey && (e.key === 'c' || e.key === 'C')) {
+        e.preventDefault();
+      }
+    };
+
+    document.addEventListener('copy', handleCopy);
+    document.addEventListener('contextmenu', handleContextMenu);
+    document.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.removeEventListener('copy', handleCopy);
+      document.removeEventListener('contextmenu', handleContextMenu);
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, []);
+
   return (
-    <Box py={16} className="services-section" id={id}>
-      <Heading as="h2" textAlign="center" mb={8}>
+    <Box py={16} className="services-section no-select" id={id}  mt="0.5em">
+      <Heading as="h2" textAlign="center" mb={8} fontFamily="Poppins, sans-serif" fontWeight="600"  mt="0.5em">
         Our Services
       </Heading>
-      <Flex flexWrap="wrap" justifyContent="center">
+      <Flex flexWrap="wrap" justifyContent="center" fontFamily="Inter, sans-serif">
         <Flex flexWrap="wrap" justifyContent="center" width="100%">
           {servicesAbove.map((service, index) => (
-            <Box key={index}
-            className="service-card"
-            style={{ backgroundColor: service.color }}
-            maxW={{ base: '100%', md: '300px' }} // Adjusted max width
-            m={4}
+            <Box
+              key={index}
+              className="service-card"
+              style={{ backgroundColor: service.color }}
+              maxW={{ base: '100%', md: '300px' }} // Adjusted max width
+              m={4}
             >
               <Box className="service-icon" style={{ color: service.iconColor }}>
                 <service.icon size={48} />
@@ -95,11 +118,12 @@ const ServicesSection: React.FC<{ id: string }> = ({ id }) => {
         </Flex>
         <Flex flexWrap="wrap" justifyContent="center" width="100%">
           {servicesBelow.map((service, index) => (
-            <Box key={index}
-            className="service-card"
-            style={{ backgroundColor: service.color }}
-            maxW={{ base: '100%', md: '300px' }} // Adjusted max width
-            m={4}
+            <Box
+              key={index}
+              className="service-card"
+              style={{ backgroundColor: service.color }}
+              maxW={{ base: '100%', md: '300px' }} // Adjusted max width
+              m={4}
             >
               <Box className="service-icon" style={{ color: service.iconColor }}>
                 <service.icon size={48} />

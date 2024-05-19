@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import Editor from "@monaco-editor/react";
-import { Button, Box, Flex, Textarea, VStack, Heading, Select } from "@chakra-ui/react";
-import { FaPlay, FaCloudDownloadAlt } from "react-icons/fa";
+import { Button, Box, Flex, Textarea, VStack, Heading, Select, Text } from "@chakra-ui/react";
+import { FaPlay, FaCloudDownloadAlt, FaJs } from "react-icons/fa";
 
 const CodeEditor: React.FC = () => {
-  const [code, setCode] = useState("console.log('Hello, Monaco!');");
+  const [code, setCode] = useState("console.log('👋 Hello World!');");
   const [output, setOutput] = useState("");
   const [fontSize, setFontSize] = useState(16);
   const [fontFamily, setFontFamily] = useState("Courier New");
@@ -38,28 +38,52 @@ const CodeEditor: React.FC = () => {
     const file = new Blob([code], { type: "text/plain" });
     element.href = URL.createObjectURL(file);
     element.download = "code.txt";
-    document.body.appendChild(element); // Required for this to work in Firefox
+    document.body.appendChild(element); 
     element.click();
   };
 
   return (
     <Flex direction="column" align="center" p={4}>
-      <Heading mb={4}>Let's have some fun with coding...</Heading>
-      <Flex mb={4} w="100%" maxW="1200px" justify="flex-start">
-        <Box mr={4}>
+      <Heading mb={4}  mt="3em" fontSize="4xl"
+        fontWeight= {700}
+        textAlign="center"
+        color="blue.500"
+        fontFamily= "Orbitron, sans-serif"
+        textDecoration="underline">
+        Let's have some fun with coding...
+      </Heading>
+      <Flex
+        mb={4}
+        w="100%"
+        maxW="1200px"
+        justify="flex-start"
+        align="center"
+        mt={10}
+        direction={{ base: "column", md: "row" }}
+      >
+        <Flex align="center" mr={{ base: 0, md: 4 }} mb={{ base: -5, md: 0 }}>
+          <Text fontSize="lg" fontWeight="bold" color="yellow.500" mr={2} ml={2} mb={-1}>
+            <FaJs />
+          </Text>
+          <Text fontSize="lg" fontWeight="bold" color="yellow.500" mb={-1}>
+            JS
+          </Text>
+        </Flex>
+
+        <Box mr={{ base: 0, md: 4 }} mb={{ base: 4, md: 0 }}>
           <Select
-            width="150px"
+            width={{ base: "100%", md: "150px" }}
             value={fontFamily}
             onChange={(e) => setFontFamily(e.target.value)}
           >
             <option value="Courier New">Courier New</option>
             <option value="Consolas">Consolas</option>
-            <option value="Monaco">Monaco</option>
+            <option value="Times New Roman">Times New Roman</option>
           </Select>
         </Box>
-        <Box mr={4}>
+        <Box mr={{ base: 0, md: 4 }} mb={{ base: 4, md: 0 }}>
           <Select
-            width="100px"
+            width={{ base: "100%", md: "100px" }}
             value={fontSize}
             onChange={(e) => setFontSize(parseInt(e.target.value))}
           >
@@ -71,7 +95,7 @@ const CodeEditor: React.FC = () => {
         </Box>
         <Box>
           <Select
-            width="150px"
+            width={{ base: "100%", md: "150px" }}
             value={theme}
             onChange={(e) => setTheme(e.target.value)}
           >
@@ -81,8 +105,13 @@ const CodeEditor: React.FC = () => {
           </Select>
         </Box>
       </Flex>
-      <Flex w="100%" maxW="1200px" justify="flex-start">
-        <VStack spacing={4} w="50%">
+      <Flex
+        w="100%"
+        maxW="1200px"
+        justify="flex-start"
+        direction={{ base: "column", md: "row" }}
+      >
+        <VStack spacing={4} w={{ base: "100%", md: "50%" }} mb={{ base: 4, md: 0 }}>
           <Box
             w="100%"
             border="1px solid"
@@ -125,12 +154,12 @@ const CodeEditor: React.FC = () => {
             </Button>
           </Flex>
         </VStack>
-        <Box w="50%">
+        <Box w={{ base: "100%", md: "50%" }}>
           <Textarea
-            ml={10}
+            ml={{ base: 0, md: 10 }}
             isReadOnly
             value={output}
-            placeholder="Output will be displayed here..."
+            placeholder="👋 Hello World!"
             height="400px"
             bg="gray.100"
             p={4}

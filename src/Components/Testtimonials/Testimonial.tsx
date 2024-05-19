@@ -30,7 +30,7 @@ const Reviews: Review[] = [
   {
     name: "Alice Johnson",
     username: "@alicej_webdesign",
-    profile: "../../../public/woman.png",
+    profile: "/boy.png",
     platform: "instagram",
     review:
       "Their web design service is top-notch! The team was creative, and they delivered beyond my expectations. Highly recommended for anyone looking to build a stunning website.",
@@ -40,7 +40,7 @@ const Reviews: Review[] = [
   {
     name: "Mark Davis",
     username: "@markd_appdev",
-    profile: "../../../public/man (1).png",
+    profile: "/boy.png",
     platform: "twitter",
     review:
       "I hired them for my app development project, and I must say, I'm impressed! The app they built is sleek, user-friendly, and bug-free. Great job, team!",
@@ -50,7 +50,7 @@ const Reviews: Review[] = [
   {
     name: "Rachel Green",
     username: "@rachelg_graphicdesign",
-    profile: "../../../public/gamer (1).png",
+    profile: "/gamer (1).png",
     platform: "pinterest",
     review:
       "Their graphic design skills are exceptional! They transformed my ideas into visually stunning graphics. I couldn't be happier with the results. Thank you!",
@@ -60,7 +60,7 @@ const Reviews: Review[] = [
   {
     name: "Michael Brown",
     username: "@michaelb_e-commerce",
-    profile: "../../../public/bussiness-man.png",
+    profile: "/dinosaur.png",
     platform: "facebook",
     review:
       "They helped me set up my e-commerce website, and the results are outstanding! My online store looks professional, and I've seen a significant increase in sales. Highly recommend their services!",
@@ -70,7 +70,7 @@ const Reviews: Review[] = [
   {
     name: "Sarah Thompson",
     username: "@sarahthompson",
-    profile: "../../../public/boy.png",
+    profile: "/boy.png",
     platform: "facebook",
     review:
       "Highly recommended for business travelers! I rented a car for a work trip, and the service was exceptional. The car was clean, and the staff was professional and accommodating.",
@@ -80,7 +80,7 @@ const Reviews: Review[] = [
   {
     name: "John Doe",
     username: "@johndoe",
-    profile: "../../../public/man.png",
+    profile: "/boy.png",
     platform: "instagram",
     review:
       "I had an amazing experience renting a car from this company. The rates were competitive, and the car was in excellent condition. I can't wait to use their services again on my next adventure!",
@@ -130,11 +130,12 @@ const ClientTestimonials: React.FC = () => {
   }, []);
 
   return (
-    <Box mt={10}>
+    <Box  mt="0.5em" fontFamily=  "Inter, sans-serif" >
       {/* Heading */}
-      <Heading
+      <Heading  mt="1.2em"
+      fontFamily= "Poppins, sans-serif" 
         fontSize="4xl"
-        fontWeight="extrabold"
+        fontWeight = {700}
         textAlign="center"
         color="blue.500"
         textDecoration="underline"

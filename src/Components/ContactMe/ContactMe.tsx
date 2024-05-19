@@ -1,5 +1,4 @@
-// ContactForm.tsx
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Box,
   Heading,
@@ -15,8 +14,9 @@ import {
 } from '@chakra-ui/react';
 import { FaUserAlt, FaEnvelope, FaPhoneAlt, FaArrowRight } from 'react-icons/fa';
 import { sendEmail } from '../../Utils/EmailService';
+import './ContactMe.css';
 
-const ContactForm: React.FC<{ id: string }> = ({ id })=> {
+const ContactForm: React.FC<{ id: string }> = ({ id }) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -27,10 +27,37 @@ const ContactForm: React.FC<{ id: string }> = ({ id })=> {
 
   const toast = useToast();
 
+  useEffect(() => {
+    const handleCopy = (e: ClipboardEvent) => {
+      e.preventDefault();
+    };
+
+    const handleContextMenu = (e: MouseEvent) => {
+      e.preventDefault();
+    };
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.ctrlKey && (e.key === 'c' || e.key === 'C')) {
+        e.preventDefault();
+      }
+    };
+
+    document.addEventListener('copy', handleCopy);
+    document.addEventListener('contextmenu', handleContextMenu);
+    document.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.removeEventListener('copy', handleCopy);
+      document.removeEventListener('contextmenu', handleContextMenu);
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, []);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
   };
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.query) {
@@ -43,9 +70,19 @@ const ContactForm: React.FC<{ id: string }> = ({ id })=> {
       });
       return;
     }
-
+  
+    if (!validateEmail(formData.email)) { // Add email validation
+      toast({
+        title: 'Invalid Email',
+        description: 'Please enter a valid email address.',
+        status: 'error',
+        duration: 3000,
+        isClosable: true,
+      });
+      return;
+    }
+  
     try {
-      // Send email using EmailJS
       const templateParams = {
         name: formData.name,
         email: formData.email,
@@ -53,10 +90,9 @@ const ContactForm: React.FC<{ id: string }> = ({ id })=> {
         service: formData.service,
         query: formData.query,
       };
-
+  
       await sendEmail(templateParams);
-
-      // Display success toast
+  
       toast({
         title: 'Thank you!',
         description: 'We have received your query and will get back to you soon.',
@@ -64,8 +100,7 @@ const ContactForm: React.FC<{ id: string }> = ({ id })=> {
         duration: 5000,
         isClosable: true,
       });
-
-      // Reset form data
+  
       setFormData({
         name: '',
         email: '',
@@ -84,14 +119,21 @@ const ContactForm: React.FC<{ id: string }> = ({ id })=> {
       });
     }
   };
+  
+  // Function to validate email format
+  const validateEmail = (email: string): boolean => {
+    const re = /\S+@\S+\.\S+/;
+    return re.test(email);
+  };
+  
 
   return (
-    <Box id={id} maxW="800px" mx="auto" my={8} p={6} bg="white" borderRadius="md" boxShadow="md" transition="box-shadow 0.3s ease-in-out" _hover={{ boxShadow: '0 0 20px rgba(0, 0, 0, 0.25)' }}>
-      <Heading as="h2" mb={6} textAlign="center">
+    <Box id={id} maxW="800px" mx="auto" my={8} p={6} bg="white" borderRadius="md" boxShadow="md" className="no-select" transition="box-shadow 0.3s ease-in-out" _hover={{ boxShadow: '0 0 20px rgba(0, 0, 0, 0.25)' }}  mt="2em">
+      <Heading as="h2" mb={6} textAlign="center" fontFamily="Poppins, sans-serif" fontWeight="600">
         Contact Me
       </Heading>
       <form onSubmit={handleSubmit}>
-        <Flex direction={{ base: 'column', md: 'row' }} mb={4}>
+        <Flex direction={{ base: 'column', md: 'row' }} mb={4} fontFamily="Inter, sans-serif">
           <FormControl mb={{ base: 4, md: 0 }} mr={{ base: 0, md: 4 }} flex="1">
             <FormLabel display="flex" alignItems="center">
               <Icon as={FaUserAlt} mr={2} color="blue.500" />
@@ -127,7 +169,7 @@ const ContactForm: React.FC<{ id: string }> = ({ id })=> {
         </FormControl>
         <FormControl mb={6}>
           <FormLabel>Query</FormLabel>
-          <Textarea name="query" placeholder="Enter your query" value={formData.query} onChange={handleChange} rows={4} />
+          <Textarea name="query" placeholder="Enter your query" value={formData.query} onChange={handleChange} rows={4} resize="none" />
         </FormControl>
         <Button type="submit" rightIcon={<FaArrowRight />} colorScheme="teal" variant="solid" w="full" transition="transform 0.3s ease-in-out" _hover={{ transform: 'translateY(-2px)' }}>
           Submit
