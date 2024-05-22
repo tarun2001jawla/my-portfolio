@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from 'react';
-import { Box, Flex, Heading, Text, Button} from '@chakra-ui/react';
+import { Box, Flex, Heading, Text, Button } from '@chakra-ui/react';
 import { FaCloudDownloadAlt } from 'react-icons/fa';
 import Typed from 'typed.js';
-import './HeroSection.css'; 
+import './HeroSection.css';
 
 const HeroSection: React.FC = () => {
   const typedRef = useRef<Typed | null>(null);
@@ -33,7 +33,8 @@ const HeroSection: React.FC = () => {
   };
 
   return (
-    <Box  fontFamily="Poppins, sans-serif"
+    <Box
+      fontFamily="Poppins, sans-serif"
       className="hero-section"
       backgroundImage="url('/static/images/IMG_9087.ARW')" // Adjusted path
       backgroundSize="cover"
@@ -58,27 +59,28 @@ const HeroSection: React.FC = () => {
         >
           I am a <span id="typed"></span>
         </Text>
-        <Flex mt={8}>
-          <Button
-            colorScheme="blue"
-            size="lg"
-            mr={4}
-            _hover={{ transform: 'scale(1.05)', boxShadow: 'lg' }}
-          >
-            Contact Me
-          </Button>
-          <Button
-            variant="outline"
-            colorScheme="blue"
-            size="lg"
-            onClick={handleDownloadResume}
-            leftIcon={<FaCloudDownloadAlt />}
-            _hover={{ transform: 'translateY(-5px)', boxShadow: 'lg', bg: 'blue.500', color: 'white' }}
-            transition="all 0.3s ease"
-          >
-            Download Resume
-          </Button>
-        </Flex>
+        <Flex mt={8} direction={{ base: 'column', md: 'row' }} align="center">
+  <Button
+    colorScheme="blue"
+    size="lg"
+    mb={{ base: 4, md: 0 }}
+    mr={{ md: 4 }}
+    _hover={{ transform: 'scale(1.05)', boxShadow: 'lg' }}
+  >
+    Contact Me
+  </Button>
+  <Button
+    variant="outline"
+    colorScheme="blue"
+    size="lg"
+    onClick={handleDownloadResume}
+    leftIcon={<FaCloudDownloadAlt />}
+    _hover={{ transform: 'translateY(-5px)', boxShadow: 'lg', bg: 'blue.500', color: 'white' }}
+    transition="all 0.3s ease"
+  >
+    Download Resume
+  </Button>
+</Flex>
       </Flex>
     </Box>
   );
