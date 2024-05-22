@@ -151,8 +151,8 @@ const AboutMe: React.FC<{ id: string }> = ({ id }) => {
                 <Icon as={FaGithub} boxSize={8} style={{ color: "#333" }} />
               </a>
             </Box>
-            <Box mr={4} className="social-icon">
-              <a href="https://www.instagram.com/tarun_jawla/">
+            <Box mr={4} className="social-icon" >
+              <a href="https://www.instagram.com/tarun_jawla/" target="blank">
                 <Icon
                   as={FaInstagram}
                   boxSize={8}
@@ -161,12 +161,12 @@ const AboutMe: React.FC<{ id: string }> = ({ id }) => {
               </a>
             </Box>
             <Box mr={4} className="social-icon">
-              <a href="https://twitter.com/tarun_jawla">
+              <a href="https://twitter.com/tarun_jawla" target="blank">
                 <Icon as={FaTwitter} boxSize={8} style={{ color: "#1da1f2" }} />
               </a>
             </Box>
             <Box className="social-icon">
-              <a href="https://www.linkedin.com/in/tarunjawlajaipur/">
+              <a href="https://www.linkedin.com/in/tarunjawlajaipur/" target="blank">
                 <Icon
                   as={FaLinkedin}
                   boxSize={8}
