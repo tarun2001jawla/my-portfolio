@@ -28,66 +28,48 @@ interface Review {
 // Customer reviews data
 const Reviews: Review[] = [
   {
-    name: "Alice Johnson",
-    username: "@alicej_webdesign",
-    profile: "/boy.png",
+    name: "Emma Parker",
+    username: "@emma_parker",
+    profile: "/static/images/revived_9042174.png",
     platform: "instagram",
     review:
-      "Their web design service is top-notch! The team was creative, and they delivered beyond my expectations. Highly recommended for anyone looking to build a stunning website.",
+      "I hired Tarun for app development, and I'm extremely impressed with the results! He created a sleek and user-friendly app that perfectly meets my requirements. Highly recommend his services for anyone looking to bring their app idea to life!",
     rating: 5,
     date: "May 23, 2023",
   },
   {
-    name: "Mark Davis",
-    username: "@markd_appdev",
-    profile: "/boy.png",
+    name: "David Johnson",
+    username: "@david_j",
+    profile: "/static/images/gamer (1).png",
     platform: "twitter",
     review:
-      "I hired them for my app development project, and I must say, I'm impressed! The app they built is sleek, user-friendly, and bug-free. Great job, team!",
-    rating: 4.5,
+      "Tarun's web development skills are top-notch! He built a stunning website for my business, and I couldn't be happier with the outcome. The website is fast, responsive, and beautifully designed. Thank you, Tarun!",
+    rating: 5,
     date: "May 20, 2023",
   },
   {
-    name: "Rachel Green",
-    username: "@rachelg_graphicdesign",
-    profile: "/gamer (1).png",
-    platform: "pinterest",
+    name: "Sophie Adams",
+    username: "@sophie_a",
+    profile: "/static/images/call-center-agent_3462517.png",
+    platform: "instagram",
     review:
-      "Their graphic design skills are exceptional! They transformed my ideas into visually stunning graphics. I couldn't be happier with the results. Thank you!",
+      "I collaborated with Tarun on a graphic design project, and he delivered exceptional results! His creativity and attention to detail brought my vision to life. I highly recommend Tarun for any graphic design needs!",
     rating: 5,
     date: "May 18, 2023",
   },
   {
-    name: "Michael Brown",
-    username: "@michaelb_e-commerce",
-    profile: "/dinosaur.png",
+    name: "John Smith",
+    username: "@john_s",
+    profile: "/static/images/boy.png",
     platform: "facebook",
     review:
-      "They helped me set up my e-commerce website, and the results are outstanding! My online store looks professional, and I've seen a significant increase in sales. Highly recommend their services!",
+      "Tarun is a talented full-stack developer! He tackled my project with professionalism and expertise, delivering a high-quality solution that exceeded my expectations. I'm grateful for his dedication and skill.",
     rating: 5,
     date: "May 15, 2023",
-  },
-  {
-    name: "Sarah Thompson",
-    username: "@sarahthompson",
-    profile: "/boy.png",
-    platform: "facebook",
-    review:
-      "Highly recommended for business travelers! I rented a car for a work trip, and the service was exceptional. The car was clean, and the staff was professional and accommodating.",
-    rating: 5,
-    date: "May 15, 2023",
-  },
-  {
-    name: "John Doe",
-    username: "@johndoe",
-    profile: "/boy.png",
-    platform: "instagram",
-    review:
-      "I had an amazing experience renting a car from this company. The rates were competitive, and the car was in excellent condition. I can't wait to use their services again on my next adventure!",
-    rating: 4.5,
-    date: "May 12, 2023",
   },
 ];
+
+
 
 // Function to get platform icon based on platform type
 const getPlatformIcon = (

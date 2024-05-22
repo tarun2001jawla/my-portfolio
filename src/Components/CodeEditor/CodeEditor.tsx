@@ -49,7 +49,7 @@ const CodeEditor: React.FC = () => {
         textAlign="center"
         color="blue.500"
         fontFamily= "Orbitron, sans-serif"
-        textDecoration="underline">
+        textDecoration="underline wavy"  >
         Let's have some fun with coding...
       </Heading>
       <Flex

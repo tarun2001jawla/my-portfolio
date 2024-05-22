@@ -103,7 +103,7 @@ const Footer: React.FC = () => {
           <Heading as="h3" size="lg" mb={4}>
             Tarun Jawla
           </Heading>
-          <Text>Full Stack Web Developer</Text>
+          <Text>Software Developer</Text>
         </Box>
 
         <Box mb={6}>
@@ -196,6 +196,7 @@ const Footer: React.FC = () => {
         maxW="1200px"
         mx="auto"
       >
+        
         <Text display="flex" alignItems="center" fontWeight={500}>
           Made with{" "}
           <Icon
@@ -211,6 +212,7 @@ const Footer: React.FC = () => {
           />{" "}
           By Tarun Jawla
         </Text>
+        
       </Flex>
 
       {showHeartRain && (

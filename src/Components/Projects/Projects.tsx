@@ -10,23 +10,23 @@ const projects = [
     description: "This web app allows users to easily search for and rent cars of different categories without the hassle of traditional methods. It provides a user-friendly interface for renting cars, managing bookings, and exploring various car options",
     techStack: "React,Chakra UI, NodeJs, Express, MongoDb",
     githubLink: "https://github.com/tarun2001jawla/Car_Rental_App.git",
-    image: "../../../public/Screenshot (184).png",
+    image: "/static/images/Screenshot (184).png",
     bgColor: "#ffe680", // Light Yellow
   },
   {
     title: "GitStream",
     description: "GitHub Activity Tracker is a web application that allows users to track the recent activity of GitHub users. It provides information about the user's repositories, gists, followers, and following, along with their most recent GitHub events.",
-    techStack: "React GitHub API, CSS",
+    techStack: "React , GitHub API, CSS",
     githubLink: "https://tarun2001jawla.github.io/github-activity-tracker/",
-    image: "../../../public/gitstare .png",
+    image: "/static/images/gitstare .png",
     bgColor: "#b2fab4", // Light Green
   },
   {
-    title: "URL Shortener ",
-    description: "This is a simple URL shortener web application built using Node.js, Express, and EJS templates. The project allows users to generate short URLs for long URLs, making it easier to share and manage links.",
-    techStack: "NodeJs, ExpressJs, EJS, MongoDB",
+    title: "Smart Attendance System",
+    description: "This Smart Attendance System system is designed to streamline the process of attendance management in universities. It provides a comprehensive portal for both teachers and students, utilizing modern web technologies.",
+    techStack: "NodeJs, ExpressJs, MongoDB, ReactJs",
     githubLink: "https://github.com/your-username/project-3",
-    image: "https://via.placeholder.com/200",
+    image: "/static/images/Screenshot (210).png",
     bgColor: "#c0e0f4", // Light Blue
   },
   // Add more projects as needed

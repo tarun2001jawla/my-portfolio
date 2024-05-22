@@ -24,7 +24,7 @@ const HeroSection: React.FC = () => {
 
   const handleDownloadResume = () => {
     const link = document.createElement('a');
-    link.href = '/TarunJawlaResume.pdf';
+    link.href = '/static/images/TarunJawlaResume.pdf';
     link.setAttribute('download', 'TarunJawlaResume.pdf');
     document.body.appendChild(link);
     link.click();
@@ -35,7 +35,7 @@ const HeroSection: React.FC = () => {
   return (
     <Box  fontFamily="Poppins, sans-serif"
       className="hero-section"
-      backgroundImage="url('/public/IMG_9087.ARW')" // Adjusted path
+      backgroundImage="url('/static/images/IMG_9087.ARW')" // Adjusted path
       backgroundSize="cover"
       backgroundPosition="center"
       height="100vh"

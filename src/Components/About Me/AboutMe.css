@@ -110,3 +110,32 @@ h3 {
   font-weight: bold;
   margin-bottom: 1rem;
 }
+.social-icon {
+  display: flex;
+  align-items: center;
+}
+
+.social-icon a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #f0f0f0;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.social-icon a:hover {
+  background-color: #646464; /* Change the background color on hover */
+  transform: scale(1.1);
+}
+
+.social-icon a .chakra-icon {
+  color: #ffffff; /* Default icon color, overridden in specific classes below */
+}
+
+.social-icon a:hover .chakra-icon {
+  color: #ffffff; /* Maintain white color on hover */
+}
+

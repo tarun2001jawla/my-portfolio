@@ -1,12 +1,5 @@
 import React, { useEffect } from "react";
-import {
-  Box,
-  Flex,
-  Heading,
-  Text,
-  Icon,
-  Image,
-} from "@chakra-ui/react";
+import { Box, Flex, Heading, Text, Icon, Image } from "@chakra-ui/react";
 import {
   FaJava,
   FaNodeJs,
@@ -39,19 +32,19 @@ const AboutMe: React.FC<{ id: string }> = ({ id }) => {
     };
 
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.ctrlKey && (e.key === 'c' || e.key === 'C')) {
+      if (e.ctrlKey && (e.key === "c" || e.key === "C")) {
         e.preventDefault();
       }
     };
 
-    document.addEventListener('copy', handleCopy);
-    document.addEventListener('contextmenu', handleContextMenu);
-    document.addEventListener('keydown', handleKeyDown);
+    document.addEventListener("copy", handleCopy);
+    document.addEventListener("contextmenu", handleContextMenu);
+    document.addEventListener("keydown", handleKeyDown);
 
     return () => {
-      document.removeEventListener('copy', handleCopy);
-      document.removeEventListener('contextmenu', handleContextMenu);
-      document.removeEventListener('keydown', handleKeyDown);
+      document.removeEventListener("copy", handleCopy);
+      document.removeEventListener("contextmenu", handleContextMenu);
+      document.removeEventListener("keydown", handleKeyDown);
     };
   }, []);
 
@@ -69,7 +62,12 @@ const AboutMe: React.FC<{ id: string }> = ({ id }) => {
   return (
     <Box py={20} className="about-section no-select" id={id}>
       <Box textAlign="center" mb={8}>
-        <Heading as="h1" mb={4} fontFamily= "Poppins, sans-serif" fontWeight= "600">
+        <Heading
+          as="h1"
+          mb={4}
+          fontFamily="Poppins, sans-serif"
+          fontWeight="600"
+        >
           About Me
         </Heading>
       </Box>
@@ -99,7 +97,7 @@ const AboutMe: React.FC<{ id: string }> = ({ id }) => {
           </Heading>
           <Flex alignItems="center" mt={8}>
             <Image
-              src="/gamer (1).png"
+              src="/static/images/pp4.JPG"
               alt="Profile Picture"
               borderRadius="md"
               boxSize="150px"
@@ -108,53 +106,72 @@ const AboutMe: React.FC<{ id: string }> = ({ id }) => {
             />
             <Box lineHeight="1.2">
               <Flex alignItems="center">
-                <Text fontWeight="bold" mr={2}>Name:</Text>
+                <Text fontWeight="bold" mr={2}>
+                  Name:
+                </Text>
                 <Text>Tarun Jawla</Text>
               </Flex>
               <Flex alignItems="center">
-                <Text fontWeight="bold" mr={2}>Email:</Text>
+                <Text fontWeight="bold" mr={2}>
+                  Email:
+                </Text>
                 <Text>tarunjawla2@gmail.com</Text>
               </Flex>
               <Flex alignItems="center">
-                <Text fontWeight="bold" mr={2}>Phone:</Text>
+                <Text fontWeight="bold" mr={2}>
+                  Phone:
+                </Text>
                 <Text>+91-8279202574</Text>
               </Flex>
               <Flex alignItems="center">
-                <Text fontWeight="bold" mr={2}>Address:</Text>
+                <Text fontWeight="bold" mr={2}>
+                  Address:
+                </Text>
                 <Text>Jaipur, Rajasthan, India</Text>
               </Flex>
             </Box>
           </Flex>
-          <Text mt={8} color="#333" fontFamily=  "Inter, sans-serif" fontWeight={600}>
+          <Text
+            mt={8}
+            color="#333"
+            fontFamily="Nanum Gothic Coding, monospace"
+            fontWeight={700}
+          >
             Hey there, I'm Tarun, a passionate technologist based in Jaipur. I
             recently graduated with a BTech in Information Technology,
             specializing in Java, MERN development, and UX/UI design, from the
             2023 batch. Apart from immersing myself in the world of technology,
             I also have a flair for diving into the realms of literature,
             enjoying a good game of cricket, and experimenting with various
-            culinary creations. My diverse interests reflect my multifaceted
-            persona and the curiosity that drives me to explore and excel in
-            both the technological and creative domains.
+            culinary creations. 
           </Text>
           <Flex mt={8}>
-            <Box mr={4}>
-              <a href="https://www.github.com/tarunjawla">
-                <Icon as={FaGithub} boxSize={8} color="#333" />
+            <Box mr={4} className="social-icon">
+              <a href="https://github.com/tarun2001jawla" target="blank">
+                <Icon as={FaGithub} boxSize={8} style={{ color: "#333" }} />
               </a>
             </Box>
-            <Box mr={4}>
-              <a href="https://www.instagram.com/tarunjawla">
-                <Icon as={FaInstagram} boxSize={8} color="#333" />
+            <Box mr={4} className="social-icon">
+              <a href="https://www.instagram.com/tarun_jawla/">
+                <Icon
+                  as={FaInstagram}
+                  boxSize={8}
+                  style={{ color: "#833ab4" }}
+                />
               </a>
             </Box>
-            <Box mr={4}>
-              <a href="https://www.twitter.com/tarunjawla">
-                <Icon as={FaTwitter} boxSize={8} color="#333" />
+            <Box mr={4} className="social-icon">
+              <a href="https://twitter.com/tarun_jawla">
+                <Icon as={FaTwitter} boxSize={8} style={{ color: "#1da1f2" }} />
               </a>
             </Box>
-            <Box>
-              <a href="https://www.linkedin.com/in/tarunjawla">
-                <Icon as={FaLinkedin} boxSize={8} color="#333" />
+            <Box className="social-icon">
+              <a href="https://www.linkedin.com/in/tarunjawlajaipur/">
+                <Icon
+                  as={FaLinkedin}
+                  boxSize={8}
+                  style={{ color: "#0077b5" }}
+                />
               </a>
             </Box>
           </Flex>
@@ -175,10 +192,10 @@ const AboutMe: React.FC<{ id: string }> = ({ id }) => {
             height="auto"
           >
             <Heading as="h3" mb={4} color="#333">
-            <Icon as={FaGithub} color="#333" mr={2} />
+              <Icon as={FaGithub} color="#333" mr={2} />
               Tech Stack
             </Heading>
-            <Flex flexWrap="wrap" fontFamily=  "Inter, sans-serif">
+            <Flex flexWrap="wrap" fontFamily="Inter, sans-serif">
               {skills.map((skill) => (
                 <Flex
                   key={skill.name}
@@ -191,10 +208,16 @@ const AboutMe: React.FC<{ id: string }> = ({ id }) => {
                   borderRadius="md"
                   border="1px solid #ddd"
                   boxShadow="sm"
+                  fontWeight={500}
                   transition="background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out"
                   _hover={{ bg: `${skill.color}20`, boxShadow: "md" }} // Hover color with 20% opacity
                 >
-                  <Icon as={skill.icon} boxSize={6} color={skill.color} mr={2} />
+                  <Icon
+                    as={skill.icon}
+                    boxSize={6}
+                    color={skill.color}
+                    mr={2}
+                  />
                   <Text>{skill.name}</Text>
                 </Flex>
               ))}
@@ -213,20 +236,27 @@ const AboutMe: React.FC<{ id: string }> = ({ id }) => {
             maxW={{ base: "100%", md: "600px" }}
             height="auto"
           >
-            <Heading as="h3" mb={4} color="#333" display="flex" alignItems="center">
+            <Heading
+              as="h3"
+              mb={4}
+              color="#333"
+              display="flex"
+              alignItems="center"
+            >
               <Icon as={FaGraduationCap} color="#333" mr={2} />
               Educational Background
             </Heading>
-            <Text mb={2} fontFamily=  "Inter, sans-serif" >
-              <strong>Degree:</strong> B.Tech. 
+            <Text mb={2} fontFamily="Inter, sans-serif">
+              <strong>Degree:</strong> B.Tech.
             </Text>
-            <Text mb={2} fontFamily=  "Inter, sans-serif">
-              <strong>University:</strong> Galgotias College Of Engineering & Technology
+            <Text mb={2} fontFamily="Inter, sans-serif">
+              <strong>University:</strong> Galgotias College Of Engineering &
+              Technology
             </Text>
-            <Text mb={2} fontFamily=  "Inter, sans-serif">
+            <Text mb={2} fontFamily="Inter, sans-serif">
               <strong>Graduation Year:</strong> 2023
             </Text>
-            <Text fontFamily=  "Inter, sans-serif">
+            <Text fontFamily="Inter, sans-serif">
               <strong>Specialization:</strong> Information Technology
             </Text>
           </Box>
@@ -237,4 +267,3 @@ const AboutMe: React.FC<{ id: string }> = ({ id }) => {
 };
 
 export default AboutMe;
-
