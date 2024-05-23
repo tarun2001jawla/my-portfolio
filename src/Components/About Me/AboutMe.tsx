@@ -197,21 +197,25 @@ const AboutMe: React.FC<{ id: string }> = ({ id }) => {
             </Heading>
             <Flex flexWrap="wrap" fontFamily="Inter, sans-serif">
               {skills.map((skill) => (
-                <Flex
-                  key={skill.name}
-                  mr={4}
-                  mb={4}
-                  className="skill-item"
-                  alignItems="center"
-                  bg="white"
-                  p={2}
-                  borderRadius="md"
-                  border="1px solid #ddd"
-                  boxShadow="sm"
-                  fontWeight={500}
-                  transition="background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out"
-                  _hover={{ bg: `${skill.color}20`, boxShadow: "md" }} // Hover color with 20% opacity
-                >
+                 <Flex
+                 key={skill.name}
+                 mr={4}
+                 mb={4}
+                 className="skill-item"
+                 alignItems="center"
+                 bg="white"
+                 p={2}
+                 borderRadius="md"
+                 border="1px solid #ddd"
+                 boxShadow="sm"
+                 fontWeight={500}
+                 transition="background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out"
+                 sx={{
+                   "@media (hover: hover) and (pointer: fine)": {
+                     _hover: { bg: `${skill.color}20`, boxShadow: "md" },
+                   },
+                 }}
+               >
                   <Icon
                     as={skill.icon}
                     boxSize={6}
