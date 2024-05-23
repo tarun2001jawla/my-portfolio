@@ -10,6 +10,7 @@ import ContactForm from '../../Components/ContactMe/ContactMe';
 import ClientTestimonials from '../../Components/Testtimonials/Testimonial';
 import CodeEditor from '../../Components/CodeEditor/CodeEditor';
 import BlogSection from '../../Components/BlogSection/BlogSection';
+import FeedbackNotification from '../../Components/FeedbackNotification/FeedbackNotification';
 import './Home.css';
 
 const HomePage: React.FC<{ id: string }> = ({ id }) => {
@@ -27,6 +28,7 @@ const HomePage: React.FC<{ id: string }> = ({ id }) => {
       <ContactForm id='contact' />
       <BackToTopButton />
       <Footer />
+      <FeedbackNotification /> 
     </Flex>
   );
 };
