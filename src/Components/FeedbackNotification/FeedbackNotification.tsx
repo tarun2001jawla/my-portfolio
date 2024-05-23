@@ -14,6 +14,15 @@ const fadeInUp = keyframes`
   }
 `;
 
+const fadeOut = keyframes`
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+`;
+
 const FeedbackNotification: React.FC = () => {
   const [show, setShow] = useState(false);
 
@@ -25,13 +34,15 @@ const FeedbackNotification: React.FC = () => {
     }
 
     const timer = setTimeout(() => {
-      setShow(false);
+      handleClose();
     }, 15000); // Hide after 15 seconds
 
     return () => clearTimeout(timer);
   }, []);
 
-  if (!show) return null;
+  const handleClose = () => {
+    setShow(false);
+  };
 
   return (
     <Box
@@ -45,7 +56,9 @@ const FeedbackNotification: React.FC = () => {
       boxShadow="2xl"
       zIndex="1000"
       maxW="350px"
-      animation={`${fadeInUp} 0.5s ease-out`}
+      animation={`${show ? fadeInUp : fadeOut} 0.5s ease-out`}
+      onAnimationEnd={!show ? handleClose : undefined}
+      style={{ opacity: show ? 1 : 0, visibility: show ? 'visible' : 'hidden' }}
     >
       <Flex alignItems="center" justifyContent="space-between">
         <Box>
@@ -53,7 +66,7 @@ const FeedbackNotification: React.FC = () => {
             Enjoying this website?
           </Text>
           <Text mb="2" fontSize="md">
-            Take a moment to fill out our feedback form!
+            Take a moment to fill out the feedback form!
           </Text>
           <Link
             href="https://forms.gle/r7JLzzxafUJ7Lfg1A"
@@ -73,7 +86,7 @@ const FeedbackNotification: React.FC = () => {
           color="white"
           _hover={{ bg: 'transparent', color: 'red.400' }}
           _active={{ bg: 'transparent' }}
-          onClick={() => setShow(false)}
+          onClick={handleClose}
         />
       </Flex>
     </Box>
