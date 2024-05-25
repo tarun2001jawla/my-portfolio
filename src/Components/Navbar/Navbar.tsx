@@ -3,6 +3,7 @@ import { Box, Flex, Heading, Button, Menu, MenuButton, MenuList, MenuItem } from
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { Link as ScrollLink } from 'react-scroll';
+
 import './Navbar.css';
 
 const Navbar: React.FC = () => {

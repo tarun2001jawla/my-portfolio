@@ -1,5 +1,5 @@
 import { ChakraProvider } from '@chakra-ui/react';
-import { BrowserRouter,Routes } from 'react-router-dom';
+import { BrowserRouter, Routes } from 'react-router-dom';
 import 'antd/dist/reset.css';
 import Navbar from './Components/Navbar/Navbar';
 import './App.css';
@@ -7,8 +7,13 @@ import { useEffect } from 'react';
 import HomePage from './Pages/Home/Home';
 
 
+
+
 function App() {
-   useEffect(() => {
+  
+
+ 
+  useEffect(() => {
     const handleCopy = (e: ClipboardEvent) => {
       e.preventDefault();
     };
@@ -39,22 +44,17 @@ function App() {
       document.removeEventListener('keydown', handleKeyDown);
     };
   }, []);
+
   return (
-    <BrowserRouter>
-      <ChakraProvider>
-  
-        <Navbar />
-        <HomePage id="Home" /> 
-        
-        <Routes>
-          
-        </Routes>
-      
-        
-        
-       
-      </ChakraProvider>
-    </BrowserRouter>
+   
+      <BrowserRouter>
+        <ChakraProvider>
+          <Navbar />
+          <HomePage id="Home" />
+          <Routes></Routes>
+        </ChakraProvider>
+      </BrowserRouter>
+    
   );
 }
 
