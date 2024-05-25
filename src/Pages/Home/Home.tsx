@@ -26,8 +26,9 @@ const HomePage: React.FC<{ id: string }> = ({ id }) => {
       <CodeEditor />
       <BlogSection/>
       <ContactForm id='contact' />
-      <BackToTopButton />
+      
       <Footer />
+      <BackToTopButton />
       <FeedbackNotification /> 
     </Flex>
   );
