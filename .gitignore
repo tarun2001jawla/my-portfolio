@@ -24,5 +24,6 @@ dist-ssr
 *.sw?
 
 .vercel
-C:\Users\Tarun\Desktop\Portfolio WebSite\client\portfolio-app\src\Components\Terminal\Terminal.tsx
-C:\Users\Tarun\Desktop\Portfolio WebSite\client\portfolio-app\src\Components\Terminal/Terminal.css
+# Ignore Terminal.tsx and Terminal.css
+src/Components/Terminal/Terminal.tsx
+src/Components/Terminal/Terminal.css
