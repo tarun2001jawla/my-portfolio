@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { IconButton } from '@chakra-ui/react';
 import { ArrowUpIcon } from '@chakra-ui/icons';
 
-const BackToTopButton: React.FC = () => {
+const BackToTopButton:React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   const handleScroll = () => {
@@ -42,13 +42,13 @@ const BackToTopButton: React.FC = () => {
             transform: 'scale(1.1)',
             boxShadow: '0px 0px 20px rgba(0, 0, 0, 0.3)',
             '@media (hover: hover) and (pointer: fine)': {
-              backgroundImage: 'linear-gradient(90deg, #00c6ff, #0072ff)',
+              backgroundImage: 'linear-gradient(90deg, #ff6b6b, #ffa500)',
             },
           }}
           _active={{
             transform: 'scale(0.9)',
           }}
-          bg="linear-gradient(45deg, #00c6ff, #0072ff)"
+          bg="linear-gradient(45deg, #ff416c, #ff4b2b)"
           color="white"
         />
       )}
