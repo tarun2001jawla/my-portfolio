@@ -1,3 +1,4 @@
+import './Scrollbar.css'
 import { ChakraProvider } from '@chakra-ui/react';
 import { BrowserRouter, Routes } from 'react-router-dom';
 import 'antd/dist/reset.css';
