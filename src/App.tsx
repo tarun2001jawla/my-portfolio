@@ -6,7 +6,7 @@ import Navbar from './Components/Navbar/Navbar';
 import './App.css';
 import { useEffect } from 'react';
 import HomePage from './Pages/Home/Home';
-
+import './Scrollbar.css'
 
 
 
