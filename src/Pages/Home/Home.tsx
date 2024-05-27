@@ -23,7 +23,7 @@ const HomePage: React.FC<{ id: string }> = ({ id }) => {
       <ServicesSection id="services" />
       <ClientTestimonials />
       <CodeEditor />
-      <Terminal />
+    
       <BlogSection />
       <ContactForm id="contact" />
 
