@@ -11,7 +11,6 @@ import ClientTestimonials from "../../Components/Testtimonials/Testimonial";
 import CodeEditor from "../../Components/CodeEditor/CodeEditor";
 import BlogSection from "../../Components/BlogSection/BlogSection";
 import FeedbackNotification from "../../Components/FeedbackNotification/FeedbackNotification";
-import Terminal from "../../Components/Terminal/Terminal";
 import "./Home.css";
 
 const HomePage: React.FC<{ id: string }> = ({ id }) => {
