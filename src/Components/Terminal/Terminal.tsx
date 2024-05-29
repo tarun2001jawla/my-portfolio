@@ -67,16 +67,16 @@ const Terminal: React.FC = () => {
   }, [output]);
 
   return (
-    <Box m="auto" width="1200px"    color="white" mt={12}>
+    <Box m="auto" width="1200px" color="white" mt={12} fontFamily="Share Tech Mono, monospace">
       <Flex align="center" mb={4}>
         <Text color="rgb(56, 204, 119)" fontWeight="bold" mr={2}>
-          -
+          <Box as="span" display="inline-block" width="60px" height="2px" bg="rgb(56, 204, 119)" />
         </Text>
         <Heading as="h2" color="rgb(56, 204, 119)" fontWeight="bold">
           Terminal
         </Heading>
       </Flex>
-      <Box className="terminal-container" bgColor="rgb(33, 37, 41)" border="4px solid green">
+      <Box className="terminal-container" bgColor="rgb(33, 37, 41)">
         <Box id="terminal" className="terminal">
           <Flex direction="row" align="center" justify="space-between" mb={4}>
             <Box className="terminal-dots">
@@ -86,11 +86,17 @@ const Terminal: React.FC = () => {
             </Box>
           </Flex>
           <Flex direction="column" align="start" className="terminal-output">
-            {output.map((line, index) => (
-              <Text key={index} className="terminal-line" color={line.startsWith('$') ? 'rgb(56, 204, 119)' : 'white'}>
-                {line}
-              </Text>
-            ))}
+            {output.map((line, index) => {
+              const isCommand = commands.some((command) => line.startsWith(command.command));
+              const isDescription = line.includes(': ');
+              const lineColor = isCommand ? 'rgb(56, 204, 119)' : isDescription ? 'rgb(128, 141, 173)' : 'white';
+
+              return (
+                <Text key={index} className="terminal-line" color={lineColor}>
+                  {line}
+                </Text>
+              );
+            })}
             <Input
               value={input}
               onChange={handleInputChange}

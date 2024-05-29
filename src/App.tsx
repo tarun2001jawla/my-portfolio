@@ -4,15 +4,23 @@ import { BrowserRouter, Routes } from 'react-router-dom';
 import 'antd/dist/reset.css';
 import Navbar from './Components/Navbar/Navbar';
 import './App.css';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import HomePage from './Pages/Home/Home';
+import LoadingBall from './Components/LoadingBall/LoadingBall';
 import './Scrollbar.css'
 
 
 
-function App() {
-  
 
+function App() {
+  const [isLoading, setIsLoading] = useState(true);
+  
+  useEffect(() => {
+    // Simulate a loading period
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 3000); // Change this to the actual loading time needed
+  }, []);
  
   useEffect(() => {
     const handleCopy = (e: ClipboardEvent) => {
@@ -47,15 +55,19 @@ function App() {
   }, []);
 
   return (
-   
-      <BrowserRouter>
-        <ChakraProvider>
-          <Navbar />
-          <HomePage id="Home" />
-          <Routes></Routes>
-        </ChakraProvider>
-      </BrowserRouter>
-    
+    <BrowserRouter>
+      <ChakraProvider>
+        {isLoading ? (
+          <LoadingBall />
+        ) : (
+          <>
+            <Navbar />
+            <HomePage id="Home" />
+            <Routes></Routes>
+          </>
+        )}
+      </ChakraProvider>
+    </BrowserRouter>
   );
 }
 

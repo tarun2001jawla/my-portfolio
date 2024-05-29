@@ -26,9 +26,10 @@ const Navbar: React.FC = () => {
       align="center"
       justify="space-between"
       padding="1rem"
-      className="navbar"
+      className="navbar navbarContainer dropShadow"
       wrap="wrap"
-      bg="transparent" 
+      borderRadius= "2px solid black"
+      
       boxShadow="none" 
     >
       <Heading as="h1" size="lg" letterSpacing={'-.1rem'} marginLeft="1rem" className="my-portfolio"  fontFamily="Poppins, sans-serif">

@@ -1,0 +1,38 @@
+.loading-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #ff6600, #ff99cc); /* Background gradient while loading */
+  animation: gradientAnimation 5s ease alternate infinite; /* Background animation */
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+.ball {
+  width: 40px; /* Reduced size */
+  height: 40px; /* Reduced size */
+  border-radius: 50%;
+  position: relative;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  
+}
+
+
+
+.loading-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.5); /* Background color while loading */
+}
