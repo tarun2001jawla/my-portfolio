@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Box, Flex, Heading, Text, Button, Image } from "@chakra-ui/react";
 import { FaCloudDownloadAlt } from "react-icons/fa";
 import Typed from "typed.js";
@@ -6,6 +6,18 @@ import "./HeroSection.css";
 
 const HeroSection: React.FC = () => {
   const typedRef = useRef<Typed | null>(null);
+  const [currentLanguageIndex, setCurrentLanguageIndex] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
+
+  const helloInDifferentLanguages = [
+    { language: "English", word: "Hello", color: "#FF6347" }, // Tomato
+    { language: "French", word: "Bonjour", color: "#7B68EE" }, // MediumSlateBlue
+    { language: "Japanese", word: "こんにちは", color: "#FFD700" }, // Gold
+    { language: "Hindi", word: "नमस्ते", color: "#98FB98" }, // PaleGreen
+    { language: "Spanish", word: "Hola", color: "#FF69B4" }, // HotPink
+    { language: "German", word: "Hallo", color: "#00BFFF" }, // DeepSkyBlue
+    { language: "Italian", word: "Ciao", color: "#FF8C00" }, // DarkOrange
+  ];
 
   useEffect(() => {
     const options = {
@@ -17,8 +29,19 @@ const HeroSection: React.FC = () => {
 
     typedRef.current = new Typed("#typed", options);
 
+    const interval = setInterval(() => {
+      setIsAnimating(true);
+      setTimeout(() => {
+        setCurrentLanguageIndex((prevIndex) =>
+          prevIndex === helloInDifferentLanguages.length - 1 ? 0 : prevIndex + 1
+        );
+        setIsAnimating(false);
+      }, 500); // Animation duration
+    }, 3000); // Change language every 3 seconds
+
     return () => {
       typedRef.current?.destroy();
+      clearInterval(interval);
     };
   }, []);
 
@@ -60,7 +83,15 @@ const HeroSection: React.FC = () => {
             mb={4}
             fontFamily="Poppins, sans-serif"
           >
-            <span className="hola">Hola!</span> <br />
+            <span
+              className={`hello-animation ${isAnimating ? "animate" : ""}`}
+              style={{
+                color: helloInDifferentLanguages[currentLanguageIndex].color,
+              }}
+            >
+              {helloInDifferentLanguages[currentLanguageIndex].word}!
+            </span>{" "}
+            <br />
             I'm <span className="colorful-name">Tarun Jawla</span>
           </Heading>
           <Text
@@ -71,7 +102,10 @@ const HeroSection: React.FC = () => {
           >
             I am a <span id="typed"></span>
           </Text>
-          <Flex direction={{ base: "column", md: "row" }} align={{ base: "center", md: "flex-start" }}>
+          <Flex
+            direction={{ base: "column", md: "row" }}
+            align={{ base: "center", md: "flex-start" }}
+          >
             <Button
               colorScheme="purple"
               size="lg"
@@ -115,7 +149,11 @@ const HeroSection: React.FC = () => {
         </Box>
         {/* Right side: Character Image */}
         <Box mt={{ base: 8, md: 0 }} ml={{ base: 0, md: 8 }}>
-          <Image src="https://placehold.co/600x400" alt="Character Image" maxW="400px" />
+          <Image
+            src="https://placehold.co/600x400"
+            alt="Character Image"
+            maxW="400px"
+          />
         </Box>
       </Flex>
     </Box>
