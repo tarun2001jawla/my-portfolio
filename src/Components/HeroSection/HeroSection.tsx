@@ -75,7 +75,7 @@ const HeroSection: React.FC = () => {
         mx="auto"
       >
         {/* Left side: Text, Heading, and Buttons */}
-        <Box textAlign={{ base: "center", md: "left" }}>
+        <Box textAlign={{ base: "center", md: "left" }} mb={{ base: 8, md: 0 }}>
           <Heading
             size={{ base: "3xl", md: "4xl" }}
             as="h1"
