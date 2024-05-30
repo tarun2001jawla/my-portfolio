@@ -1,18 +1,77 @@
 .hero-section {
-    position: relative;
-  }
+  position: relative;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color:#FAF9F6
+}
+
+.hero-section > * {
+  z-index: 1;
+}
+
+
+
+
+
+.colorful-name {
+  color: #ff1493; /* Original color for "Tarun Jawla" */
+  position: relative;
+  display: inline-block;
+  transition: color 0.3s ease;
+  margin-top: 10px;
+}
+
+.colorful-name:hover::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 20, 147, 0.3); /* Background color for the glow */
+  border-radius: 4px;
+  filter: blur(8px);
+  z-index: -1;
+  transition: all 0.3s ease;
+}
+
+.hello-animation {
+  transition: all 0.5s ease-in-out;
   
-  .hero-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-  }
-  
-  .hero-section > * {
-    z-index: 1;
-  }
-  
+}
+
+.hello-animation.animate {
+  transform: scale(1.2) rotate(360deg);
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.wave-emoji {
+  margin-right: 0.5rem;
+}
+.wave-emoji {
+  animation-name: wave-animation;  /* Refers to the name of your @keyframes element below */
+  animation-duration: 2.5s;        /* Change to speed up or slow down */
+  animation-iteration-count: infinite;  /* Never stop waving :) */
+  transform-origin: 70% 70%;       /* Pivot around the bottom-left palm */
+  display: inline-block;
+}
+
+@keyframes wave-animation {
+    0% { transform: rotate( 0.0deg) }
+   10% { transform: rotate(14.0deg) }  /* The following five values can be played with to make the waving more or less extreme */
+   20% { transform: rotate(-8.0deg) }
+   30% { transform: rotate(14.0deg) }
+   40% { transform: rotate(-4.0deg) }
+   50% { transform: rotate(10.0deg) }
+   60% { transform: rotate( 0.0deg) }  /* Reset for the last half to pause */
+  100% { transform: rotate( 0.0deg) }
+}
+
+

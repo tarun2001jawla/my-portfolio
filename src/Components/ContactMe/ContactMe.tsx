@@ -1,3 +1,5 @@
+// ContactForm.tsx
+
 import React, { useState, useEffect } from 'react';
 import {
   Box,
@@ -71,7 +73,7 @@ const ContactForm: React.FC<{ id: string }> = ({ id }) => {
       return;
     }
   
-    if (!validateEmail(formData.email)) { // Add email validation
+    if (!validateEmail(formData.email)) {
       toast({
         title: 'Invalid Email',
         description: 'Please enter a valid email address.',
@@ -120,7 +122,6 @@ const ContactForm: React.FC<{ id: string }> = ({ id }) => {
     }
   };
   
-  // Function to validate email format
   const validateEmail = (email: string): boolean => {
     const re = /\S+@\S+\.\S+/;
     return re.test(email);
@@ -128,8 +129,8 @@ const ContactForm: React.FC<{ id: string }> = ({ id }) => {
   
 
   return (
-    <Box id={id} maxW="800px" mx="auto" my={8} p={6} bg="white" borderRadius="md" boxShadow="md" className="no-select" transition="box-shadow 0.3s ease-in-out" _hover={{ boxShadow: '0 0 20px rgba(0, 0, 0, 0.25)' }}  mt="2em">
-      <Heading as="h2" mb={6} textAlign="center" fontFamily="Poppins, sans-serif" fontWeight="600">
+    <Box id={id} maxW="800px" mx="auto" my={8} p={6} bg="gray.100" borderRadius="md" boxShadow="lg" className="contact-form" mt="2em">
+      <Heading as="h2" mb={6} textAlign="center" fontFamily="Poppins, sans-serif" fontWeight="600" color="blue.500">
         Contact Me
       </Heading>
       <form onSubmit={handleSubmit}>
@@ -158,8 +159,7 @@ const ContactForm: React.FC<{ id: string }> = ({ id }) => {
         </Flex>
         <FormControl mb={4}>
           <FormLabel>Service</FormLabel>
-          <Select name="service" value={formData.service} onChange={handleChange}>
-            <option value="">Choose service</option>
+          <Select name="service" value={formData.service} onChange={handleChange} placeholder="Choose service" color="blue.500">
             <option value="webdev">Web Development</option>
             <option value="graphicdesign">Graphic Design</option>
             <option value="uxdesign">UX Design</option>
@@ -169,9 +169,9 @@ const ContactForm: React.FC<{ id: string }> = ({ id }) => {
         </FormControl>
         <FormControl mb={6}>
           <FormLabel>Query</FormLabel>
-          <Textarea name="query" placeholder="Enter your query" value={formData.query} onChange={handleChange} rows={4} resize="none" />
+          <Textarea name="query" placeholder="Enter your query" value={formData.query} onChange={handleChange} rows={4} resize="none" color="blue.500" />
         </FormControl>
-        <Button type="submit" rightIcon={<FaArrowRight />} colorScheme="teal" variant="solid" w="full" transition="transform 0.3s ease-in-out" _hover={{ transform: 'translateY(-2px)' }}>
+        <Button type="submit" rightIcon={<FaArrowRight />}  variant="solid" w="full" transition="transform 0.3s ease-in-out"  bgGradient="linear(to-r, #FF6347, #D63AF9)" color="white" _hover={{ bgGradient: 'linear(to-r, #D63AF9, #FF6347)', transform: 'translateY(-2px)' }}>
           Submit
         </Button>
       </form>

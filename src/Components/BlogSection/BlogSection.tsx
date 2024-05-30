@@ -70,14 +70,18 @@ const BlogSection: React.FC = () => {
   }, []);
 
   return (
-    <Flex 
+    <Flex
       direction="column"
       align="center"
       p={8}
       className="no-select"
       fontFamily="Inter, sans-serif"
     >
-      <Heading mb={8} fontFamily="Poppins, sans-serif" fontWeight="600"  mt="1.2em">
+      <Heading
+        mb={8}
+        fontFamily="Space Mono,monospace"
+        fontWeight="600" textDecoration= "  4px underline #67fd67 "
+      >
         Check out the latest tech blogs
       </Heading>
       <Flex justify="center" flexWrap="wrap" fontFamily="Inter, sans-serif">

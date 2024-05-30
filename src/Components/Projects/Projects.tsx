@@ -25,7 +25,7 @@ const projects = [
     title: "Smart Attendance System",
     description: "This Smart Attendance System system is designed to streamline the process of attendance management in universities. It provides a comprehensive portal for both teachers and students, utilizing modern web technologies.",
     techStack: "NodeJs, ExpressJs, MongoDB, ReactJs",
-    githubLink: "https://github.com/your-username/project-3",
+    githubLink: "https://github.com/tarun2001jawla/smart-attendance-system.git",
     image: "/static/images/Screenshot (210).png",
     bgColor: "#c0e0f4", // Light Blue
   },
@@ -79,7 +79,9 @@ const ProjectsSection: React.FC<{ id: string }> = ({ id }) => {
 
   return (
     <Box id={id} py={16} className="projects-section no-select">
-      <Heading as="h2" textAlign="center" mb={8} fontFamily="Poppins, sans-serif" fontWeight="600" mt="0.5em">
+      <Heading as="h2" textAlign="center" mb={8} fontFamily="Space Mono,monospace"
+          fontWeight="600" textDecoration= "  4px underline #67fd67 " 
+          mt="0.5em">
         My Projects
       </Heading>
       <div className="glide">

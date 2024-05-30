@@ -1,7 +1,6 @@
 .about-section {
-  margin-top: 5rem;
+  margin-top: 2rem;
 }
-
 
 .no-select {
   user-select: none;
@@ -11,17 +10,17 @@
 }
 
 .about-card {
-  animation: slide-in-left  1s ease-out;
-}
-.skill-card {
-  animation: slide-in-top  1s ease-out;
-}
-.about-card, .skill-card, .education-card {
-  transition: box-shadow 0.3s ease-in-out;
+  animation: slide-in-left 1s ease-out;
 }
 
-.about-card:hover, .skill-card:hover, .education-card:hover {
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+.skill-card {
+  animation: slide-in-top 1s ease-out;
+}
+
+.about-card,
+.skill-card,
+.education-card {
+  transition: box-shadow 0.3s ease-in-out;
 }
 
 .skill-item {
@@ -35,21 +34,12 @@
   transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-.skill-item:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
 .education-card {
   animation: slide-in-bottom 1s ease-out;
 }
 
 .card-content {
   transition: transform 0.3s ease-in-out;
-}
-
-.card-content:hover {
-  transform: translateY(-10px);
 }
 
 .skill-item {
@@ -59,10 +49,6 @@
   padding: 0.5rem 1rem;
   border-radius: 0.25rem;
   transition: background-color 0.3s ease-in-out;
-}
-
-.skill-item:hover {
-  background-color: #e0e0e0;
 }
 
 @keyframes slide-in-left {
@@ -110,6 +96,7 @@ h3 {
   font-weight: bold;
   margin-bottom: 1rem;
 }
+
 .social-icon {
   display: flex;
   align-items: center;
@@ -126,16 +113,33 @@ h3 {
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.social-icon a:hover {
-  background-color: #646464; /* Change the background color on hover */
-  transform: scale(1.1);
-}
-
 .social-icon a .chakra-icon {
   color: #ffffff; /* Default icon color, overridden in specific classes below */
 }
 
-.social-icon a:hover .chakra-icon {
-  color: #ffffff; /* Maintain white color on hover */
+@media (hover: hover) and (pointer: fine) {
+  .about-card:hover,
+  .skill-card:hover,
+  .education-card:hover {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+  }
+
+  .skill-item:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .card-content:hover {
+    transform: translateY(-10px);
+  }
+
+  .social-icon a:hover {
+    background-color: #646464; /* Change the background color on hover */
+    transform: scale(1.1);
+  }
+
+  .social-icon a:hover .chakra-icon {
+    color: #ffffff; /* Maintain white color on hover */
+  }
 }
 

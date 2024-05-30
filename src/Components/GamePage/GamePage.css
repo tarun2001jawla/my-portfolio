@@ -1,0 +1,88 @@
+body {
+    background-color: #f0f4f8;
+    font-family: 'Arial', sans-serif;
+}
+
+.game-card {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 20px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 500px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.game-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.6);
+}
+
+.game-card:before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    left: -20%;
+    width: 150%;
+    height: 150%;
+    background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.2), transparent 70%);
+    animation: shimmer 5s infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%) rotate(0deg);
+    }
+    100% {
+        transform: translateX(100%) rotate(360deg);
+    }
+}
+
+.game-card-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    margin-bottom: 15px; /* Add some margin to separate the title from the description */
+}
+
+.game-card-description {
+    color: #fff;
+    font-size: 1.4rem;
+    margin-bottom: 25px; /* Increase the margin for better readability */
+}
+
+.back-to-home-button {
+    font-size: 1.4rem;
+    padding: 1rem 2rem;
+    border-radius: 30px;
+    background: linear-gradient(135deg, #48c6ef, #6f86d6);
+    color: #fff;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.4);
+    transition: background 0.3s ease, transform 0.3s ease;
+    margin-top: 2rem;
+}
+
+.back-to-home-button:hover {
+    background: linear-gradient(135deg, #36d1dc, #5b86e5);
+    transform: translateY(-3px);
+}
+
+.back-to-home-button svg {
+    margin-right: 0.5rem;
+}
+
+.game-card-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 15px;
+}

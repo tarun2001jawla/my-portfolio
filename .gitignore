@@ -24,3 +24,6 @@ dist-ssr
 *.sw?
 
 .vercel
+# Ignore Terminal.tsx and Terminal.css
+src/Components/Terminal/Terminal.tsx
+src/Components/Terminal/Terminal.css

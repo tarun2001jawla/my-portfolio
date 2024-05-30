@@ -4,9 +4,12 @@
   text-decoration: none;
   color: black;
   transition: color 0.3s ease-in-out;
-  font-weight: bold;
+  font-weight:700;
   margin: 0 1rem;
   position: relative;
+  text-transform: uppercase;
+  
+  
 }
 
 /* Hover effect for all links except "My Portfolio" */
@@ -15,15 +18,16 @@
   display: block;
   width: 0;
   height: 2px;
-  background-color: #f2c94c;
+  background-color: transparent; /* Remove underline effect */
   position: absolute;
   bottom: -2px;
   left: 0;
   transition: width 0.3s ease-in-out;
+  
 }
 
-.nav-link:hover::after {
-  width: 100%;
+.nav-link:hover {
+  color:  #6a0dad; /* Change text color on hover */
 }
 
 .my-portfolio {
@@ -31,12 +35,23 @@
 }
 
 .my-portfolio:hover {
-  color: #f2c94c;
+  color: #6a0dad;
 }
 
 .my-portfolio:hover::after {
   content: none;
 }
+
 .nav-link {
   cursor: pointer;
+}
+.navbarContainer {
+  position: sticky;
+  top: 0;
+  z-index: 999; /* Ensure the navbar is on top of other elements */
+  background-color: rgb(255, 255, 255); /* Change this to your desired background color */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add a shadow effect */
+}
+.dropShadow {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
 }

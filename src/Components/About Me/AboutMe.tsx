@@ -60,15 +60,16 @@ const AboutMe: React.FC<{ id: string }> = ({ id }) => {
   ];
 
   return (
-    <Box py={20} className="about-section no-select" id={id}>
+    <Box py={20} className="about-section no-select" id={id} >
       <Box textAlign="center" mb={8}>
         <Heading
           as="h1"
           mb={4}
-          fontFamily="Poppins, sans-serif"
-          fontWeight="600"
+          fontFamily="Space Mono,monospace"
+        fontWeight="600" textDecoration= " 4px underline #67fd67 "
         >
-          About Me
+          
+          About me
         </Heading>
       </Box>
       <Flex
@@ -91,8 +92,8 @@ const AboutMe: React.FC<{ id: string }> = ({ id }) => {
           mr={{ base: 0, md: 8 }}
           mb={{ base: 8, md: 0 }}
         >
-          <Heading as="h3" mb={4} color="#333">
-            <Icon as={FaUser} color="#333" mr={2} />
+          <Heading as="h6" mb={4} color="#333" fontSize="1.5rem"  >
+          <Icon as={FaUser} color="#333" mr={2} />
             Personal Info
           </Heading>
           <Flex alignItems="center" mt={8}>
@@ -134,7 +135,7 @@ const AboutMe: React.FC<{ id: string }> = ({ id }) => {
           <Text
             mt={8}
             color="#333"
-            fontFamily="Nanum Gothic Coding, monospace"
+            
             fontWeight={700}
           >
             Hey there, I'm Tarun, a passionate technologist based in Jaipur. I
@@ -191,27 +192,31 @@ const AboutMe: React.FC<{ id: string }> = ({ id }) => {
             maxW={{ base: "100%", md: "600px" }}
             height="auto"
           >
-            <Heading as="h3" mb={4} color="#333">
+            <Heading as="h6" mb={4} color="#333" fontSize="1.5rem" >
               <Icon as={FaGithub} color="#333" mr={2} />
               Tech Stack
             </Heading>
             <Flex flexWrap="wrap" fontFamily="Inter, sans-serif">
               {skills.map((skill) => (
-                <Flex
-                  key={skill.name}
-                  mr={4}
-                  mb={4}
-                  className="skill-item"
-                  alignItems="center"
-                  bg="white"
-                  p={2}
-                  borderRadius="md"
-                  border="1px solid #ddd"
-                  boxShadow="sm"
-                  fontWeight={500}
-                  transition="background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out"
-                  _hover={{ bg: `${skill.color}20`, boxShadow: "md" }} // Hover color with 20% opacity
-                >
+                 <Flex
+                 key={skill.name}
+                 mr={4}
+                 mb={4}
+                 className="skill-item"
+                 alignItems="center"
+                 bg="white"
+                 p={2}
+                 borderRadius="md"
+                 border="1px solid #ddd"
+                 boxShadow="sm"
+                 fontWeight={500}
+                 transition="background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out"
+                 sx={{
+                   "@media (hover: hover) and (pointer: fine)": {
+                     _hover: { bg: `${skill.color}20`, boxShadow: "md" },
+                   },
+                 }}
+               >
                   <Icon
                     as={skill.icon}
                     boxSize={6}
@@ -237,11 +242,12 @@ const AboutMe: React.FC<{ id: string }> = ({ id }) => {
             height="auto"
           >
             <Heading
-              as="h3"
+              as="h6"
               mb={4}
               color="#333"
               display="flex"
               alignItems="center"
+              fontSize="1.5rem" 
             >
               <Icon as={FaGraduationCap} color="#333" mr={2} />
               Educational Background

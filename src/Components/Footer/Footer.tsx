@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { Link as RouterLink } from "react-router-dom";
 import {
   Box,
   Flex,
   Heading,
   Text,
-  Link,
+  Link ,
   IconButton,
   Icon,
   keyframes,
@@ -121,6 +122,9 @@ const Footer: React.FC = () => {
               rel="noopener noreferrer" mb={2}>
               Feedback Form
             </Link>
+            <RouterLink to="/games">
+              Play Games
+            </RouterLink>
           </Flex>
         </Box>
 

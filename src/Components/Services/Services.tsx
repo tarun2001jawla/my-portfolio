@@ -65,6 +65,8 @@ const ServicesSection: React.FC<{ id: string }> = ({ id }) => {
     window.open(whatsappLink, '_blank'); // Open in new tab
   };
 
+ 
+
   useEffect(() => {
     const handleCopy = (e: ClipboardEvent) => {
       e.preventDefault();
@@ -92,19 +94,33 @@ const ServicesSection: React.FC<{ id: string }> = ({ id }) => {
   }, []);
 
   return (
-    <Box py={16} className="services-section no-select" id={id}  mt="0.5em">
-      <Heading as="h2" textAlign="center" mb={8} fontFamily="Poppins, sans-serif" fontWeight="600"  mt="0.5em">
-        Our Services
+    <Box py={16} className="services-section no-select" id={id} mt="0.5em">
+      <Heading
+        as="h2"
+        textAlign="center"
+        mb={8}
+        fontFamily="Space Mono,monospace"
+        fontWeight="600" textDecoration= "  4px underline #67fd67 "
+        mt="0.5em"
+        
+        
+        className="paint-text"
+      >
+        My Services
       </Heading>
       <Flex flexWrap="wrap" justifyContent="center" fontFamily="Inter, sans-serif">
         <Flex flexWrap="wrap" justifyContent="center" width="100%">
           {servicesAbove.map((service, index) => (
             <Box
               key={index}
-              className="service-card"
+              className="service-card gradient-card"
               style={{ backgroundColor: service.color }}
-              maxW={{ base: '100%', md: '300px' }} // Adjusted max width
+              maxW={{ base: '100%', md: '300px' }}
               m={4}
+              boxShadow="lg"
+              borderRadius="lg"
+              transition="transform 0.3s ease-in-out"
+              _hover={{ transform: 'translateY(-5px)' }}
             >
               <Box className="service-icon" style={{ color: service.iconColor }}>
                 <service.icon size={48} />
@@ -120,10 +136,14 @@ const ServicesSection: React.FC<{ id: string }> = ({ id }) => {
           {servicesBelow.map((service, index) => (
             <Box
               key={index}
-              className="service-card"
+              className="service-card gradient-card"
               style={{ backgroundColor: service.color }}
-              maxW={{ base: '100%', md: '300px' }} // Adjusted max width
+              maxW={{ base: '100%', md: '300px' }}
               m={4}
+              boxShadow="lg"
+              borderRadius="lg"
+              transition="transform 0.3s ease-in-out"
+              _hover={{ transform: 'translateY(-5px)' }}
             >
               <Box className="service-icon" style={{ color: service.iconColor }}>
                 <service.icon size={48} />
@@ -143,7 +163,7 @@ const ServicesSection: React.FC<{ id: string }> = ({ id }) => {
           size="lg"
           variant="outline"
           _hover={{ bg: 'blue.500', color: 'white', transform: 'scale(1.05)' }}
-          onClick={handleScheduleCall} // Call the function when clicked
+          onClick={handleScheduleCall}
         >
           Schedule a Call
         </Button>
