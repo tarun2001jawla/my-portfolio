@@ -30,3 +30,12 @@ body {
   background-color: black;
   transform: translate(-50%, -50%);
 }
+
+/* Hide the custom cursor on mobile devices */
+@media (max-width: 767px) {
+  .cursor,
+  .cursor__ball,
+  .cursor__dot {
+    display: none;
+  }
+}
