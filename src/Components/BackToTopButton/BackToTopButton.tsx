@@ -6,12 +6,14 @@ const BackToTopButton: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   const handleScroll = () => {
-    if (window.pageYOffset > 300) {
+    const isMobile = window.matchMedia('(max-width: 768px)').matches; // Adjust the breakpoint as needed
+    if (!isMobile && window.pageYOffset > 300) {
       setIsVisible(true);
     } else {
       setIsVisible(false);
     }
   };
+  
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
