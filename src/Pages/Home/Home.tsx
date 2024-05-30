@@ -11,7 +11,10 @@ import ClientTestimonials from "../../Components/Testtimonials/Testimonial";
 import CodeEditor from "../../Components/CodeEditor/CodeEditor";
 import BlogSection from "../../Components/BlogSection/BlogSection";
 import FeedbackNotification from "../../Components/FeedbackNotification/FeedbackNotification";
+<<<<<<< HEAD
 import Navbar from "../../Components/Navbar/Navbar";
+=======
+>>>>>>> cf72b7f22c1a2edf2181d0b4369ef81d5a0db1e4
 import "./Home.css";
 
 const HomePage: React.FC<{ id: string }> = ({ id }) => {
@@ -24,7 +27,11 @@ const HomePage: React.FC<{ id: string }> = ({ id }) => {
       <ServicesSection id="services" />
       <ClientTestimonials />
       <CodeEditor />
+<<<<<<< HEAD
       
+=======
+    
+>>>>>>> cf72b7f22c1a2edf2181d0b4369ef81d5a0db1e4
       <BlogSection />
       <ContactForm id="contact" />
 
