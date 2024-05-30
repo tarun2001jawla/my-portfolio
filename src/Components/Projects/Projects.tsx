@@ -79,7 +79,9 @@ const ProjectsSection: React.FC<{ id: string }> = ({ id }) => {
 
   return (
     <Box id={id} py={16} className="projects-section no-select">
-      <Heading as="h2" textAlign="center" mb={8} fontFamily="Poppins, sans-serif" fontWeight="600" mt="0.5em">
+      <Heading as="h2" textAlign="center" mb={8} fontFamily="Space Mono,monospace"
+          fontWeight="600" textDecoration= "  4px underline #67fd67 " 
+          mt="0.5em">
         My Projects
       </Heading>
       <div className="glide">

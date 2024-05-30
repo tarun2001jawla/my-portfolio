@@ -13,7 +13,7 @@ const HeroSection: React.FC = () => {
     { language: "English", word: "Hello", color: "#FF6347" }, // Tomato
     { language: "French", word: "Bonjour", color: "#7B68EE" }, // MediumSlateBlue
     { language: "Japanese", word: "こんにちは", color: "#FFD700" }, // Gold
-    { language: "Hindi", word: "नमस्ते", color: "#F4C430" }, // PaleGreen
+    { language: "Hindi", word: "नमस्ते", color: "#FFA500" }, // PaleGreen
     { language: "Spanish", word: "Hola", color: "#FF69B4" }, // HotPink
     { language: "German", word: "Hallo", color: "#00BFFF" }, // DeepSkyBlue
     { language: "Italian", word: "Ciao", color: "#FF8C00" }, // DarkOrange
@@ -43,7 +43,7 @@ const HeroSection: React.FC = () => {
       typedRef.current?.destroy();
       clearInterval(interval);
     };
-  }, []);
+  }, [helloInDifferentLanguages.length]);
 
   const handleDownloadResume = () => {
     const link = document.createElement("a");
@@ -67,7 +67,7 @@ const HeroSection: React.FC = () => {
       color="black"
     >
       <Flex
-        direction={{ base: "column", md: "row" }}
+        direction={{ base: "column-reverse", md: "row" }}
         alignItems="center"
         justifyContent="space-between"
         zIndex={1}
@@ -77,10 +77,11 @@ const HeroSection: React.FC = () => {
         {/* Left side: Text, Heading, and Buttons */}
         <Box textAlign={{ base: "center", md: "left" }}>
           <Heading
+            size={{ base: "3xl", md: "4xl" }}
             as="h1"
-            size="4xl"
+            mb={{ base: 8, md: 0 }}
             fontWeight="bold"
-            mb={4}
+            
             fontFamily="Poppins, sans-serif"
             whiteSpace="nowrap"
           >
@@ -88,18 +89,29 @@ const HeroSection: React.FC = () => {
               className={`hello-animation ${isAnimating ? "animate" : ""}`}
               style={{
                 color: helloInDifferentLanguages[currentLanguageIndex].color,
+                
               }}
+              
             >
-              {helloInDifferentLanguages[currentLanguageIndex].word}!
+              {helloInDifferentLanguages[currentLanguageIndex].word}!  
             </span>{" "}
+            <span
+    className="wave-emoji"
+    role="img"
+    aria-label="Waving hand"
+    style={{ position: "absolute", top: "2.80em" }}
+  >
+    👋
+  </span>
             <br />
-            I'm <span className="colorful-name">Tarun Jawla</span>
+            I'm&nbsp;<span className="colorful-name">Tarun Jawla</span>
           </Heading>
           <Text
             fontSize="2xl"
             fontWeight="bold"
+            mb={{ base: 4, md: 8 }} 
             fontFamily="Poetsen One, sans-serif"
-            mb={4}
+            
           >
             I am a <span id="typed"></span>
           </Text>
@@ -149,35 +161,64 @@ const HeroSection: React.FC = () => {
           </Flex>
         </Box>
         {/* Right side: Colorful Shapes */}
-        <Box  mt={{ base: 8, md: 0 }} ml={{ base: 4, md: 12 }}>
-  <svg
-    width="600"
-    height="600"
-    viewBox="0 0 600 600"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    
-  >
-    
-    <rect x="50" y="350" width="300" height="150" fill="#FF6347" />
+   <Box mt={{ base: 8, md: 0 }} ml={{ base: 4, md: 12 }}>
+          <svg
+            width="600"
+            height="600"
+            viewBox="0 0 600 600"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect x="50" y="350" width="300" height="150" fill="url(#gradient1)" 
+             />
 
-    
-    <circle cx="400" cy="200" r="120" fill="#7B68EE" />
+            <circle cx="400" cy="200" r="120" fill="url(#gradient2)" />
 
-    
-    <rect x="50" y="50" width="300" height="150" fill="#FFD700" />
+            <rect x="50" y="50" width="300" height="150" fill="url(#gradient3)" />
 
-    
-    <circle cx="400" cy="400" r="120" fill="#F4C430" />
+            <circle  cx="400" cy="400" r="120"fill="url(#gradient4)"/>
 
+            <path
+              d="M150 300L300 450H0L150 300Z"
+              fill="url(#gradient5)"
+              transform="rotate(180 150 300)"
+            />
     
-    <path
-      d="M150 300L300 450H0L150 300Z"
-      fill="#FF69B4"
-      transform="rotate(180 150 300)"
-    />
+    {/* Gradients */}
+    <defs>
+      {/* Gradient 1 */}
+      <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#FF6347" />
+        <stop offset="100%" stop-color="#D63AF9" />
+      </linearGradient>
+      
+      {/* Gradient 2 */}
+      <radialGradient id="gradient2" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+        <stop offset="0%" stop-color="#7B68EE" />
+        <stop offset="100%" stop-color="#5715F9" />
+      </radialGradient>
+      
+      {/* Gradient 3 */}
+      <linearGradient id="gradient3" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#FFD700" />
+        <stop offset="100%" stop-color="#FFE01B" />
+      </linearGradient>
+      
+      {/* Gradient 4 */}
+      <radialGradient id="gradient4" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+        <stop offset="0%" stop-color="#F4C430" />
+        <stop offset="100%" stop-color="#E0A72D" />
+      </radialGradient>
+      
+      {/* Gradient 5 */}
+      <linearGradient id="gradient5" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#FF69B4" />
+        <stop offset="100%" stop-color="#E5389B" />
+      </linearGradient>
+    </defs>
   </svg>
 </Box>
+
       </Flex>
     </Box>
   );

@@ -1,0 +1,32 @@
+/* Hide the default cursor */
+body {
+  cursor: none;
+}
+
+/* Mouse cursor styles */
+.cursor {
+  position: fixed;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.cursor__ball {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,0,0,1) 0%, rgba(255,154,0,1) 25%, rgba(208,222,33,1) 50%, rgba(79,220,74,1) 75%, rgba(63,218,216,1) 100%);
+  transform: translate(-50%, -50%);
+  transition: left 0.15s ease-out, top 0.15s ease-out;
+}
+
+.cursor__dot {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: black;
+  transform: translate(-50%, -50%);
+}

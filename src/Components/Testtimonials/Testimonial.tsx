@@ -69,8 +69,6 @@ const Reviews: Review[] = [
   },
 ];
 
-
-
 // Function to get platform icon based on platform type
 const getPlatformIcon = (
   platform: "twitter" | "instagram" | "pinterest" | "facebook"
@@ -112,15 +110,14 @@ const ClientTestimonials: React.FC = () => {
   }, []);
 
   return (
-    <Box  mt="0.5em" fontFamily=  "Inter, sans-serif" >
+    <Box mt="0.5em" fontFamily="Inter, sans-serif">
       {/* Heading */}
-      <Heading  mt="1.2em"
-      fontFamily= "Poppins, sans-serif" 
+      <Heading
+        mt="1.2em"
         fontSize="4xl"
-        fontWeight = {700}
         textAlign="center"
-        color="blue.500"
-        textDecoration="underline"
+        fontFamily="Space Mono,monospace"
+        fontWeight="600" textDecoration= " 4px underline #67fd67 "
       >
         Hear what my clients say about me
       </Heading>
@@ -132,62 +129,82 @@ const ClientTestimonials: React.FC = () => {
             {Reviews.map((review, index) => (
               <li className="glide__slide" key={index}>
                 <Box
-  className="review-card"
-  bg={
-    review.platform === 'twitter'
-      ? 'rgba(29, 161, 242, 0.2)'
-      : review.platform === 'instagram'
-      ? 'rgba(193, 53, 132, 0.2)'
-      : review.platform === 'pinterest'
-      ? 'rgba(203, 32, 39, 0.2)'
-      : 'rgba(66, 103, 178, 0.2)'
-  }
-  border="2px solid black"
-  p={6}
-  m={4}
-  borderRadius="md"
-  boxShadow="md"
-  maxW="500px"
-  width={{ base: '90%', md: 'auto' }}
-  minHeight="400px"
->
-  <Flex alignItems="center" mb={4}>
-    <Box
-      border="2px solid black"
-      borderRadius="full"
-      overflow="hidden"
-      width="50px"
-      height="50px"
-      marginRight="1rem"
-    >
-      <Image src={review.profile} alt={review.name} className="review-profile" borderRadius="full" />
-    </Box>
-    <Flex flexDirection="column">
-      <Text fontWeight="bold" className="review-name" mb={1}>
-        {review.name}
-      </Text>
-      <Flex alignItems="center">
-        <Box className="review-platform" display="flex" alignItems="center" mr={1} mt={-3}>
-          {getPlatformIcon(review.platform)}
-        </Box>
-        <Text>{review.username}</Text>
-      </Flex>
-    </Flex>
-  </Flex>
-  <Flex alignItems="center" mb={4} className="review-rating">
-    {Array.from({ length: review.rating }, (_, i) => (
-      <Icon key={i} as={FaStar} color="yellow.500" boxSize={5} />
-    ))}
-    {Array.from({ length: 5 - review.rating }, (_, i) => (
-      <Icon key={i + review.rating} as={FaStar} color="gray.300" boxSize={5} />
-    ))}
-  </Flex>
-  <Text mb={4}>{review.review}</Text>
-  <Text fontStyle="italic" className="review-date">
-    {review.date}
-  </Text>
-</Box>
-
+                  className="review-card"
+                  bg={
+                    review.platform === "twitter"
+                      ? "rgba(29, 161, 242, 0.2)"
+                      : review.platform === "instagram"
+                      ? "rgba(193, 53, 132, 0.2)"
+                      : review.platform === "pinterest"
+                      ? "rgba(203, 32, 39, 0.2)"
+                      : "rgba(66, 103, 178, 0.2)"
+                  }
+                  border="2px solid black"
+                  p={6}
+                  m={4}
+                  borderRadius="md"
+                  boxShadow="md"
+                  maxW="500px"
+                  width={{ base: "90%", md: "auto" }}
+                  minHeight="400px"
+                >
+                  <Flex alignItems="center" mb={4}>
+                    <Box
+                      border="2px solid black"
+                      borderRadius="full"
+                      overflow="hidden"
+                      width="50px"
+                      height="50px"
+                      marginRight="1rem"
+                    >
+                      <Image
+                        src={review.profile}
+                        alt={review.name}
+                        className="review-profile"
+                        borderRadius="full"
+                      />
+                    </Box>
+                    <Flex flexDirection="column">
+                      <Text fontWeight="bold" className="review-name" mb={1}>
+                        {review.name}
+                      </Text>
+                      <Flex alignItems="center">
+                        <Box
+                          className="review-platform"
+                          display="flex"
+                          alignItems="center"
+                          mr={1}
+                          mt={-3}
+                        >
+                          {getPlatformIcon(review.platform)}
+                        </Box>
+                        <Text>{review.username}</Text>
+                      </Flex>
+                    </Flex>
+                  </Flex>
+                  <Flex alignItems="center" mb={4} className="review-rating">
+                    {Array.from({ length: review.rating }, (_, i) => (
+                      <Icon
+                        key={i}
+                        as={FaStar}
+                        color="yellow.500"
+                        boxSize={5}
+                      />
+                    ))}
+                    {Array.from({ length: 5 - review.rating }, (_, i) => (
+                      <Icon
+                        key={i + review.rating}
+                        as={FaStar}
+                        color="gray.300"
+                        boxSize={5}
+                      />
+                    ))}
+                  </Flex>
+                  <Text mb={4}>{review.review}</Text>
+                  <Text fontStyle="italic" className="review-date">
+                    {review.date}
+                  </Text>
+                </Box>
               </li>
             ))}
           </ul>
@@ -212,6 +229,3 @@ const ClientTestimonials: React.FC = () => {
 };
 
 export default ClientTestimonials;
-
-
-//lol 

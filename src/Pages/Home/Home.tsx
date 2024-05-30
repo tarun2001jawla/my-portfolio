@@ -11,19 +11,20 @@ import ClientTestimonials from "../../Components/Testtimonials/Testimonial";
 import CodeEditor from "../../Components/CodeEditor/CodeEditor";
 import BlogSection from "../../Components/BlogSection/BlogSection";
 import FeedbackNotification from "../../Components/FeedbackNotification/FeedbackNotification";
-import Terminal from "../../Components/Terminal/Terminal";
+import Navbar from "../../Components/Navbar/Navbar";
 import "./Home.css";
 
 const HomePage: React.FC<{ id: string }> = ({ id }) => {
   return (
     <Flex direction="column" minHeight="100vh" id={id} className="no-select">
+      <Navbar />
       <HeroSection />
       <AboutMe id="about" />
       <ProjectsSection id="projects" />
       <ServicesSection id="services" />
       <ClientTestimonials />
       <CodeEditor />
-      <Terminal />
+      
       <BlogSection />
       <ContactForm id="contact" />
 
