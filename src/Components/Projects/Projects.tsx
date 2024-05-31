@@ -49,39 +49,13 @@ const ProjectsSection: React.FC<{ id: string }> = ({ id }) => {
       autoplay: 1500,
       hoverpause: true,
       animationDuration: 1000,
-      animationTimingFunc: "cubic-bezier(0.165, 0.840, 0.440, 1.000)", // Cubic bezier curve for smoother animation
+      animationTimingFunc: "cubic-bezier(0.165, 0.840, 0.440, 1.000)",
     }).mount();
-
-    const handleCopy = (e: ClipboardEvent) => {
-      e.preventDefault();
-    };
-
-    const handleContextMenu = (e: MouseEvent) => {
-      e.preventDefault();
-    };
-
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.ctrlKey && (e.key === 'c' || e.key === 'C')) {
-        e.preventDefault();
-      }
-    };
-
-    document.addEventListener('copy', handleCopy);
-    document.addEventListener('contextmenu', handleContextMenu);
-    document.addEventListener('keydown', handleKeyDown);
-
-    return () => {
-      document.removeEventListener('copy', handleCopy);
-      document.removeEventListener('contextmenu', handleContextMenu);
-      document.removeEventListener('keydown', handleKeyDown);
-    };
   }, []);
 
   return (
-    <Box id={id} py={16} className="projects-section no-select">
-      <Heading as="h2" textAlign="center" mb={8} fontFamily="Space Mono,monospace"
-          fontWeight="600" textDecoration= "  4px underline #67fd67 " 
-          mt="0.5em">
+    <Box id={id} py={16} className="projects-section">
+      <Heading as="h2" textAlign="center" mb={8} mt="0.5em" fontSize="4xl" fontFamily="Poppins, sans-serif" fontWeight="600" color="#333">
         My Projects
       </Heading>
       <div className="glide">
@@ -89,19 +63,19 @@ const ProjectsSection: React.FC<{ id: string }> = ({ id }) => {
           <ul className="glide__slides">
             {projects.map((project, index) => (
               <li key={index} className="glide__slide">
-                <Box className="project-card" p={4} borderRadius="md" style={{ backgroundColor: project.bgColor }} fontFamily="Inter, sans-serif">
-                  <Image src={project.image} alt={project.title} borderRadius="md" mb={4} />
+                <Box className="project-card" p={4} borderRadius="lg" style={{ backgroundColor: project.bgColor }} boxShadow="md" transition="transform 0.3s, box-shadow 0.3s">
+                  <Image src={project.image} alt={project.title} borderRadius="lg" mb={4} />
                   <Box textAlign="left">
-                    <Heading as="h3" size="md" mb={2} color="#333">
+                    <Heading as="h3" size="md" mb={2} color="#333" fontFamily="Poppins, sans-serif" fontWeight="500">
                       {project.title}
                     </Heading>
-                    <Text color="#333" mb={2}>
+                    <Text color="#333" mb={2} fontFamily="Inter, sans-serif">
                       {project.description}
                     </Text>
-                    <Text color="#333" mb={2}>
+                    <Text color="#333" mb={2} fontFamily="Inter, sans-serif">
                       <strong>Tech Stack:</strong> {project.techStack}
                     </Text>
-                    <Link color="blue.500" href={project.githubLink} target="_blank" rel="noopener noreferrer">
+                    <Link color="blue.500" href={project.githubLink} target="_blank" rel="noopener noreferrer" fontFamily="Inter, sans-serif">
                       GitHub
                     </Link>
                   </Box>
@@ -124,3 +98,4 @@ const ProjectsSection: React.FC<{ id: string }> = ({ id }) => {
 };
 
 export default ProjectsSection;
+

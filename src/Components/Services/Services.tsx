@@ -99,8 +99,7 @@ const ServicesSection: React.FC<{ id: string }> = ({ id }) => {
         as="h2"
         textAlign="center"
         mb={8}
-        fontFamily="Space Mono,monospace"
-        fontWeight="600" textDecoration= "  4px underline #67fd67 "
+        fontFamily="Poppins, sans-serif" fontWeight="600"
         mt="0.5em"
         
         

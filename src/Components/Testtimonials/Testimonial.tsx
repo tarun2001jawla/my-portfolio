@@ -1,5 +1,3 @@
-// Testimonial.tsx
-
 import React, { useRef, useEffect } from "react";
 import { Box, Flex, Text, Icon, Image, Heading } from "@chakra-ui/react";
 import {
@@ -11,8 +9,8 @@ import {
   FaArrowLeft,
   FaArrowRight,
 } from "react-icons/fa";
-import "./Testimonial.css";
 import Glide from "@glidejs/glide";
+import "./Testimonial.css";
 
 // Customer reviews data
 interface Review {
@@ -25,7 +23,6 @@ interface Review {
   date: string;
 }
 
-// Customer reviews data
 const Reviews: Review[] = [
   {
     name: "Emma Parker",
@@ -101,7 +98,7 @@ const ClientTestimonials: React.FC = () => {
             perView: 1,
           },
         },
-        autoplay: 1000,
+        autoplay: 3000,
         hoverpause: true,
         animationDuration: 1000,
         animationTimingFunc: "cubic-bezier(0.165, 0.840, 0.440, 1.000)",
@@ -110,14 +107,15 @@ const ClientTestimonials: React.FC = () => {
   }, []);
 
   return (
-    <Box mt="0.5em" fontFamily="Inter, sans-serif">
+    <Box mt="1.5em" fontFamily="Inter, sans-serif">
       {/* Heading */}
       <Heading
         mt="1.2em"
         fontSize="4xl"
         textAlign="center"
-        fontFamily="Space Mono,monospace"
-        fontWeight="600" textDecoration= " 4px underline #67fd67 "
+        fontFamily="Poppins, sans-serif"
+        fontWeight="600"
+        color="#333"
       >
         Hear what my clients say about me
       </Heading>
@@ -132,25 +130,25 @@ const ClientTestimonials: React.FC = () => {
                   className="review-card"
                   bg={
                     review.platform === "twitter"
-                      ? "rgba(29, 161, 242, 0.2)"
+                      ? "rgba(29, 161, 242, 0.1)"
                       : review.platform === "instagram"
-                      ? "rgba(193, 53, 132, 0.2)"
+                      ? "rgba(193, 53, 132, 0.1)"
                       : review.platform === "pinterest"
-                      ? "rgba(203, 32, 39, 0.2)"
-                      : "rgba(66, 103, 178, 0.2)"
+                      ? "rgba(203, 32, 39, 0.1)"
+                      : "rgba(66, 103, 178, 0.1)"
                   }
-                  border="2px solid black"
                   p={6}
                   m={4}
-                  borderRadius="md"
-                  boxShadow="md"
+                  borderRadius="lg"
+                  boxShadow="xl"
                   maxW="500px"
                   width={{ base: "90%", md: "auto" }}
                   minHeight="400px"
+                  transition="all 0.3s ease"
+                  _hover={{ transform: "translateY(-10px)", boxShadow: "2xl" }}
                 >
                   <Flex alignItems="center" mb={4}>
                     <Box
-                      border="2px solid black"
                       borderRadius="full"
                       overflow="hidden"
                       width="50px"
@@ -200,8 +198,10 @@ const ClientTestimonials: React.FC = () => {
                       />
                     ))}
                   </Flex>
-                  <Text mb={4}>{review.review}</Text>
-                  <Text fontStyle="italic" className="review-date">
+                  <Text mb={4} fontFamily="Inter, sans-serif" color="#555">
+                    {review.review}
+                  </Text>
+                  <Text fontStyle="italic" className="review-date" color="#777">
                     {review.date}
                   </Text>
                 </Box>

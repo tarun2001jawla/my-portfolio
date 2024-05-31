@@ -44,9 +44,8 @@ const CodeEditor: React.FC = () => {
 
   return (
     <Flex direction="column" align="center" p={4}>
-      <Heading mb={4} mt="3em" fontSize="4xl"  textAlign="center"  fontFamily="Space Mono,monospace"
-          fontWeight="600"
-          textDecoration= "  4px underline #67fd67 ">
+      <Heading mb={4} mt="3em" fontSize="4xl"  textAlign="center"  fontFamily="Poppins, sans-serif" fontWeight="600">
+          
         Let's have some fun with coding...
       </Heading>
       <Flex w="100%" maxW="1200px" justify="flex-start" align="center" mt={10} direction={{ base: "column", md: "row" }}>
