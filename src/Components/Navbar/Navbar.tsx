@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, Flex, Heading, Button, Menu, MenuButton, MenuList, MenuItem } from '@chakra-ui/react';
+import { Box, Flex, Heading, Button, Menu, MenuButton, MenuList, MenuItem, Image as ChakraImage } from '@chakra-ui/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import { Link as ScrollLink } from 'react-scroll';
@@ -20,19 +20,28 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <Flex 
-     fontFamily="Poppins, sans-serif"
+    <Flex
+      fontFamily="Poppins, sans-serif"
       as="nav"
       align="center"
       justify="space-between"
       padding="1rem"
       className="navbar navbarContainer dropShadow"
       wrap="wrap"
-      borderRadius= "2px solid black"
-      
-      boxShadow="none" 
+      borderRadius="2px solid black"
+      boxShadow="none"
     >
-      <Heading as="h1" size="lg" letterSpacing={'-.1rem'} marginLeft="1rem" className="my-portfolio"  fontFamily="Poppins, sans-serif">
+      {/* Image Placeholder */}
+      <ChakraImage
+        src="/static/images/Clipped.svg" // Placeholder URL
+        alt="Profile Image"
+        borderRadius="full"
+        boxSize="50px"
+        marginRight="-1rem"
+        marginBottom="1.2rem"
+      />
+
+      <Heading as="h1" size="lg" letterSpacing={'-.1rem'} marginLeft="1rem" className="my-portfolio" fontFamily="Poppins, sans-serif">
         <ScrollLink
           to="home"
           spy={true}
@@ -40,7 +49,6 @@ const Navbar: React.FC = () => {
           offset={0} // Adjusted offset to 0
           duration={500}
           className="nav-link my-portfolio"
-          
         >
           Tarun Jawla
         </ScrollLink>

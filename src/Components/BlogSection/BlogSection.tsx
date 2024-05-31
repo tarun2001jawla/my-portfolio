@@ -79,8 +79,7 @@ const BlogSection: React.FC = () => {
     >
       <Heading
         mb={8}
-        fontFamily="Space Mono,monospace"
-        fontWeight="600" textDecoration= "  4px underline #67fd67 "
+        fontFamily="Poppins, sans-serif" fontWeight="600"
       >
         Check out the latest tech blogs
       </Heading>

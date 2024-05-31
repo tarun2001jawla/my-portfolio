@@ -65,8 +65,7 @@ const AboutMe: React.FC<{ id: string }> = ({ id }) => {
         <Heading
           as="h1"
           mb={4}
-          fontFamily="Space Mono,monospace"
-        fontWeight="600" textDecoration= " 4px underline #67fd67 "
+          fontFamily="Poppins, sans-serif" fontWeight="600"
         >
           
           About me
@@ -80,10 +79,10 @@ const AboutMe: React.FC<{ id: string }> = ({ id }) => {
         {/* Left side: Introduction */}
         <Box
           bg="rgba(0,255,0,0.2)"
-          border="2px solid black"
+          
           p={6}
           m={{ base: 2, md: 4 }}
-          borderRadius="md"
+          
           boxShadow="md"
           rounded="lg"
           className="card-content about-card"
@@ -100,7 +99,7 @@ const AboutMe: React.FC<{ id: string }> = ({ id }) => {
             <Image
               src="/static/images/pp4.JPG"
               alt="Profile Picture"
-              borderRadius="md"
+              
               boxSize="150px"
               objectFit="cover"
               mr={4}
@@ -182,10 +181,10 @@ const AboutMe: React.FC<{ id: string }> = ({ id }) => {
           {/* Skills and Tech Stack */}
           <Box
             bg="rgba(0,0,255,0.2)"
-            border="2px solid black"
+            
             p={6}
             m={{ base: 2, md: 4 }}
-            borderRadius="md"
+           
             boxShadow="md"
             rounded="lg"
             className="card-content skill-card"
@@ -231,10 +230,10 @@ const AboutMe: React.FC<{ id: string }> = ({ id }) => {
           {/* Educational Details */}
           <Box
             bg="rgba(255,165,0,0.2)"
-            border="2px solid black"
+            
             p={6}
             m={{ base: 2, md: 4 }}
-            borderRadius="md"
+           
             boxShadow="md"
             rounded="lg"
             className="card-content education-card"

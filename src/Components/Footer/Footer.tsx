@@ -14,9 +14,10 @@ import {
   FaGithub,
   FaInstagram,
   FaLinkedin,
-  FaTwitter,
+  
   FaHeart,
 } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import "./Footer.css";
 
 const pulse = keyframes`
@@ -122,7 +123,7 @@ const Footer: React.FC = () => {
               rel="noopener noreferrer" mb={2}>
               Feedback Form
             </Link>
-            <RouterLink to="/games">
+            <RouterLink to="/games" className="game-link">
               Play Games
             </RouterLink>
           </Flex>
@@ -168,7 +169,7 @@ const Footer: React.FC = () => {
             />
             <IconButton
               aria-label="Twitter"
-              icon={<FaTwitter />}
+              icon={<FaXTwitter />}
               variant="ghost"
               colorScheme="blue"
               as={Link}
@@ -213,6 +214,7 @@ const Footer: React.FC = () => {
             animation={`${pulse} 1.5s infinite`}
             onClick={handleHeartClick}
             cursor="pointer"
+            _hover={{ transform: "scale(1.2)", transition: "transform 0.2s ease" }}
           />{" "}
           By Tarun Jawla
         </Text>
