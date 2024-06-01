@@ -79,7 +79,9 @@ const BlogSection: React.FC = () => {
     >
       <Heading
         mb={8}
-        fontFamily="Poppins, sans-serif" fontWeight="600"
+        fontFamily="Poppins, sans-serif"
+        fontWeight="600"
+        textAlign="center"
       >
         Check out the latest tech blogs
       </Heading>
@@ -93,8 +95,8 @@ const BlogSection: React.FC = () => {
             overflow="hidden"
             m={4}
             boxShadow="lg"
-            transition="transform 0.3s"
-            _hover={{ transform: "scale(1.05)" }}
+            transition="transform 0.3s, box-shadow 0.3s"
+            _hover={{ transform: "scale(1.05)", boxShadow: "0 10px 20px rgba(0, 0, 0, 0.15)" }}
             bg={blog.color}
             className="blog-card"
           >
@@ -117,6 +119,8 @@ const BlogSection: React.FC = () => {
                 href={blog.link}
                 target="_blank"
                 rel="noopener noreferrer"
+                fontWeight="bold"
+                _hover={{ textDecoration: "underline", color: "blue.700" }}
               >
                 Read More
               </Link>
@@ -126,11 +130,11 @@ const BlogSection: React.FC = () => {
       </Flex>
       <Button
         rightIcon={<FaPlus />}
-        colorScheme="blue"
+        colorScheme="purple"
         size="lg"
         mt={8}
         className="read-more-button"
-        _hover={{ transform: "scale(1.05)" }}
+        _hover={{ transform: "scale(1.05)", bg: "purple.500", color: "white" }}
       >
         Read More Blogs
       </Button>

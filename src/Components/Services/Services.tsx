@@ -27,13 +27,13 @@ const ServicesSection: React.FC<{ id: string }> = ({ id }) => {
       description:
         'Visually stunning and user-friendly interfaces that leave a lasting impression.',
       color: '#FFFFCC', // Light Yellow
-      iconColor: 'red', // Lighter Yellow
+      iconColor: '#FFCC00', // Lighter Yellow
     },
     {
       icon: FaPencilAlt,
       title: 'Graphic Design',
       description:
-        'Captivating designs reflecting your brand identity. Get aweosome designed graphics',
+        'Captivating designs reflecting your brand identity. Get awesome designed graphics.',
       color: '#CCFFCC', // Light Green
       iconColor: '#66FF66', // Lighter Green
     },
@@ -64,8 +64,6 @@ const ServicesSection: React.FC<{ id: string }> = ({ id }) => {
     const whatsappLink = `https://wa.me/${phoneNumber}?text=${message}`;
     window.open(whatsappLink, '_blank'); // Open in new tab
   };
-
- 
 
   useEffect(() => {
     const handleCopy = (e: ClipboardEvent) => {
@@ -99,10 +97,9 @@ const ServicesSection: React.FC<{ id: string }> = ({ id }) => {
         as="h2"
         textAlign="center"
         mb={8}
-        fontFamily="Poppins, sans-serif" fontWeight="600"
+        fontFamily="Poppins, sans-serif"
+        fontWeight="600"
         mt="0.5em"
-        
-        
         className="paint-text"
       >
         My Services
@@ -112,19 +109,19 @@ const ServicesSection: React.FC<{ id: string }> = ({ id }) => {
           {servicesAbove.map((service, index) => (
             <Box
               key={index}
-              className="service-card gradient-card"
+              className="service-card"
               style={{ backgroundColor: service.color }}
               maxW={{ base: '100%', md: '300px' }}
               m={4}
               boxShadow="lg"
               borderRadius="lg"
               transition="transform 0.3s ease-in-out"
-              _hover={{ transform: 'translateY(-5px)' }}
+              _hover={{ transform: 'translateY(-5px)', boxShadow: '0 10px 20px rgba(0, 0, 0, 0.2)' }}
             >
               <Box className="service-icon" style={{ color: service.iconColor }}>
                 <service.icon size={48} />
               </Box>
-              <Heading as="h3" size="md" mt={4} mb={2} textAlign="center" color="black">
+              <Heading as="h3" size="md" mt={4} mb={2} textAlign="center" color="black"fontFamily="Poppins, sans-serif" fontWeight="600"  >
                 {service.title}
               </Heading>
               <Text textAlign="center" color="black">{service.description}</Text>
@@ -135,19 +132,19 @@ const ServicesSection: React.FC<{ id: string }> = ({ id }) => {
           {servicesBelow.map((service, index) => (
             <Box
               key={index}
-              className="service-card gradient-card"
+              className="service-card"
               style={{ backgroundColor: service.color }}
               maxW={{ base: '100%', md: '300px' }}
               m={4}
               boxShadow="lg"
               borderRadius="lg"
               transition="transform 0.3s ease-in-out"
-              _hover={{ transform: 'translateY(-5px)' }}
+              _hover={{ transform: 'translateY(-5px)', boxShadow: '0 10px 20px rgba(0, 0, 0, 0.2)' }}
             >
               <Box className="service-icon" style={{ color: service.iconColor }}>
                 <service.icon size={48} />
               </Box>
-              <Heading as="h3" size="md" mt={4} mb={2} textAlign="center" color="black">
+              <Heading as="h3" size="md" mt={4} mb={2} textAlign="center" color="black" fontFamily="Poppins, sans-serif" fontWeight="600">
                 {service.title}
               </Heading>
               <Text textAlign="center" color="black">{service.description}</Text>
@@ -160,8 +157,8 @@ const ServicesSection: React.FC<{ id: string }> = ({ id }) => {
           leftIcon={<FaPhoneAlt />}
           colorScheme="teal"
           size="lg"
-          variant="outline"
-          _hover={{ bg: 'blue.500', color: 'white', transform: 'scale(1.05)' }}
+          variant="solid"
+          _hover={{ bg: 'teal.500', transform: 'scale(1.05)' }}
           onClick={handleScheduleCall}
         >
           Schedule a Call
