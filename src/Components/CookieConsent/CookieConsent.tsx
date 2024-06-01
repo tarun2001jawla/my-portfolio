@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Button, Modal } from 'antd';
 import { FaCookie } from 'react-icons/fa';
 import './CookieConsent.css';
@@ -21,7 +21,7 @@ type UserData = {
 
 const CookieConsentPopup = () => {
   const [visible, setVisible] = useState(true);
-  const [userData, setUserData] = useState<UserData>(null); // Initialize userData with null
+  const [, setUserData] = useState<UserData>(null); // Initialize userData with null
 
   const handleAccept = () => {
     // Logic to handle accepting cookies
