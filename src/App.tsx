@@ -1,4 +1,4 @@
-import  { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ChakraProvider } from '@chakra-ui/react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import 'antd/dist/reset.css';
@@ -8,6 +8,7 @@ import './App.css';
 import './Scrollbar.css';
 import GamesPage from './Components/GamePage/GamePage';
 import SnakeGame from './Components/Games/SnakeGame';
+import CookieConsentPopup from './Components/CookieConsent/CookieConsent'; // Import the CookieConsent component
 
 const App =()=> {
   const [isLoading, setIsLoading] = useState(true);
@@ -85,13 +86,12 @@ const App =()=> {
           <LoadingBall />
         ) : (
           <>
-            
-            
+            <CookieConsentPopup /> {/* Render the CookieConsent component */}
             <Routes>
-  <Route path="/" element={<HomePage id="Home" />} />
-  <Route path="/games" element={<GamesPage />} />
-  <Route path="/games/snake" element={<SnakeGame />} />
-</Routes>
+              <Route path="/" element={<HomePage id="Home" />} />
+              <Route path="/games" element={<GamesPage />} />
+              <Route path="/games/snake" element={<SnakeGame />} />
+            </Routes>
           </>
         )}
       </ChakraProvider>
