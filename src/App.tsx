@@ -10,7 +10,7 @@ import GamesPage from './Components/GamePage/GamePage';
 import SnakeGame from './Components/Games/SnakeGame';
 import CookieConsentPopup from './Components/CookieConsent/CookieConsent'; // Import the CookieConsent component
 
-const App =()=> {
+const App:React.FC =()=> {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
