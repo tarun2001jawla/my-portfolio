@@ -50,7 +50,7 @@ const FeedbackNotification: React.FC = () => {
       bottom="20px"
       right="20px"
       p="6"
-      bgGradient="linear(to-r, blue.400, blue.600)"
+      bgGradient="linear(to-r, teal.400, teal.600)"
       color="white"
       borderRadius="lg"
       boxShadow="2xl"
@@ -58,14 +58,15 @@ const FeedbackNotification: React.FC = () => {
       maxW="350px"
       animation={`${show ? fadeInUp : fadeOut} 0.5s ease-out`}
       onAnimationEnd={!show ? handleClose : undefined}
-      style={{ opacity: show ? 1 : 0, visibility: show ? 'visible' : 'hidden' }}
+      opacity={show ? 1 : 0}
+      visibility={show ? 'visible' : 'hidden'}
     >
       <Flex alignItems="center" justifyContent="space-between">
         <Box>
-          <Text mb="2" fontSize="lg" fontWeight="bold">
+          <Text mb="2" fontSize="lg" fontWeight="bold" fontFamily="Poppins, sans-serif">
             Enjoying this website?
           </Text>
-          <Text mb="2" fontSize="md">
+          <Text mb="2" fontSize="md" fontFamily="Poppins, sans-serif">
             Take a moment to fill out the feedback form!
           </Text>
           <Link
@@ -73,6 +74,7 @@ const FeedbackNotification: React.FC = () => {
             target="_blank"
             color="yellow.300"
             fontWeight="bold"
+            fontFamily="Poppins, sans-serif"
             _hover={{ textDecoration: 'underline', color: 'yellow.400' }}
           >
             Fill Feedback Form
