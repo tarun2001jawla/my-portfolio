@@ -142,4 +142,23 @@ h3 {
     color: #ffffff; /* Maintain white color on hover */
   }
 }
+/* Add your keyframes and animation classes */
+@keyframes lift-from-below {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.lift-animation {
+  animation: lift-from-below 1s ease-out forwards;
+}
+
+.observed-heading {
+  opacity: 0; 
+}
 

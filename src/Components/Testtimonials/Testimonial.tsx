@@ -103,6 +103,29 @@ const ClientTestimonials: React.FC = () => {
         animationDuration: 1000,
         animationTimingFunc: "cubic-bezier(0.165, 0.840, 0.440, 1.000)",
       }).mount();
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("lift-animation");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+
+      const headingElement = glideRef.current.querySelector(".testimonials-heading") as HTMLElement;
+      if (headingElement) {
+        observer.observe(headingElement);
+      }
+
+      return () => {
+        if (headingElement) {
+          observer.unobserve(headingElement);
+        }
+      };
     }
   }, []);
 
@@ -116,6 +139,7 @@ const ClientTestimonials: React.FC = () => {
         fontFamily="Poppins, sans-serif"
         fontWeight="600"
         color="#333"
+        className="testimonials-heading"
       >
         Hear what my clients say about me
       </Heading>
@@ -147,7 +171,7 @@ const ClientTestimonials: React.FC = () => {
                   transition="all 0.3s ease"
                   _hover={{ transform: "translateY(-10px)", boxShadow: "2xl" }}
                 >
-                  <Flex alignItems="center" mb={4}>
+                   <Flex alignItems="center" mb={4}>
                     <Box
                       borderRadius="full"
                       overflow="hidden"

@@ -1,3 +1,25 @@
+
+
+@keyframes lift-from-below {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.lift-animation {
+  animation: lift-from-below 1s ease-out forwards;
+}
+
+.observed-heading {
+  opacity: 0; /* Initially hide the heading */
+}
+
+/* Existing styles */
 .blog-card {
   background-color: rgb(1, 148, 94);
   border: 1px solid #e2e8f0;
@@ -23,6 +45,7 @@
 .read-more-button:hover {
   transform: scale(1.05);
 }
+
 .no-select {
   user-select: none;
   -webkit-user-select: none; 

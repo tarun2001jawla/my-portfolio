@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button, Modal } from 'antd';
 import { FaCookie } from 'react-icons/fa';
 import './CookieConsent.css';
@@ -20,8 +20,15 @@ type UserData = {
 } | null;
 
 const CookieConsentPopup = () => {
-  const [visible, setVisible] = useState(true);
+  const [visible, setVisible] = useState(false);
   const [, setUserData] = useState<UserData>(null); // Initialize userData with null
+
+  useEffect(() => {
+    const cookieConsentGiven = localStorage.getItem('cookieConsentGiven');
+    if (!cookieConsentGiven) {
+      setVisible(true);
+    }
+  }, []);
 
   const handleAccept = () => {
     // Logic to handle accepting cookies
@@ -55,11 +62,16 @@ const CookieConsentPopup = () => {
         // Set userData to indicate that all cookies have been stored
         setUserData({ location: userLocation, browser: navigator.userAgent, visitedSites });
 
+        // Set a flag in localStorage to remember the user's choice
+        localStorage.setItem('cookieConsentGiven', 'true');
+
         setVisible(false); // Close the modal
       },
       (error) => {
         // Callback function to handle errors
         console.error('Error getting user location:', error);
+        // Set a flag in localStorage to remember the user's choice
+        localStorage.setItem('cookieConsentGiven', 'true');
         setVisible(false); // Close the modal even if there's an error
       }
     );
@@ -67,6 +79,8 @@ const CookieConsentPopup = () => {
 
   const handleReject = () => {
     // Logic to handle rejecting cookies
+    // Set a flag in localStorage to remember the user's choice
+    localStorage.setItem('cookieConsentGiven', 'true');
     setVisible(false);
   };
 
@@ -100,4 +114,3 @@ const CookieConsentPopup = () => {
 };
 
 export default CookieConsentPopup;
-//sed

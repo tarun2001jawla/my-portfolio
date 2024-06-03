@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Box, Flex, Heading, Text, Button } from '@chakra-ui/react';
 import { FaLaptopCode, FaPalette, FaMobileAlt, FaPencilAlt, FaChartBar, FaPhoneAlt } from 'react-icons/fa';
 import './Services.css';
@@ -65,35 +65,37 @@ const ServicesSection: React.FC<{ id: string }> = ({ id }) => {
     window.open(whatsappLink, '_blank'); // Open in new tab
   };
 
+  const headingRef = useRef<HTMLHeadingElement>(null);
+
   useEffect(() => {
-    const handleCopy = (e: ClipboardEvent) => {
-      e.preventDefault();
-    };
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('lift-animation');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
 
-    const handleContextMenu = (e: MouseEvent) => {
-      e.preventDefault();
-    };
-
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.ctrlKey && (e.key === 'c' || e.key === 'C')) {
-        e.preventDefault();
-      }
-    };
-
-    document.addEventListener('copy', handleCopy);
-    document.addEventListener('contextmenu', handleContextMenu);
-    document.addEventListener('keydown', handleKeyDown);
+    const headingElement = headingRef.current;
+    if (headingElement) {
+      observer.observe(headingElement);
+    }
 
     return () => {
-      document.removeEventListener('copy', handleCopy);
-      document.removeEventListener('contextmenu', handleContextMenu);
-      document.removeEventListener('keydown', handleKeyDown);
+      if (headingElement) {
+        observer.unobserve(headingElement);
+      }
     };
   }, []);
 
   return (
     <Box py={16} className="services-section no-select" id={id} mt="0.5em">
       <Heading
+        ref={headingRef}
         as="h2"
         textAlign="center"
         mb={8}
@@ -121,7 +123,7 @@ const ServicesSection: React.FC<{ id: string }> = ({ id }) => {
               <Box className="service-icon" style={{ color: service.iconColor }}>
                 <service.icon size={48} />
               </Box>
-              <Heading as="h3" size="md" mt={4} mb={2} textAlign="center" color="black"fontFamily="Poppins, sans-serif" fontWeight="600"  >
+              <Heading as="h3" size="md" mt={4} mb={2} textAlign="center" color="black" fontFamily="Poppins, sans-serif" fontWeight="600">
                 {service.title}
               </Heading>
               <Text textAlign="center" color="black">{service.description}</Text>

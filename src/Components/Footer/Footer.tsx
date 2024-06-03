@@ -173,7 +173,7 @@ const Footer: React.FC = () => {
               variant="ghost"
               colorScheme="blue"
               as={Link}
-              href="https://twitter.com/tarun_jawla"
+              href="https://x.com/tarun_jawla"
               target="_blank"
               rel="noopener noreferrer"
             />
@@ -187,7 +187,7 @@ const Footer: React.FC = () => {
           <Text mb={2}>Jaipur, Rajasthan, India</Text>
           <Text mb={2}>Phone: +91-8279202574</Text>
           <Text mb={2}>
-            Email:{" "}
+            Email:{" "}  
             <Link href="mailto:tarunjawla2@gmail.com" target="_blank"
               rel="noopener noreferrer" mb={2}>tarunjawla2@gmail.com</Link>
           </Text>

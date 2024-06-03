@@ -1,7 +1,9 @@
+/* eslint-disable no-mixed-spaces-and-tabs */
 import React, { useEffect, useRef, useState } from "react";
 import { Box, Flex, Heading, Text, Button } from "@chakra-ui/react";
 import { FaCloudDownloadAlt } from "react-icons/fa";
 import Typed from "typed.js";
+import { getCalApi } from "@calcom/embed-react";
 import "./HeroSection.css";
 
 const HeroSection: React.FC = () => {
@@ -55,6 +57,12 @@ const HeroSection: React.FC = () => {
     link.click();
     document.body.removeChild(link);
   };
+  useEffect(()=>{
+	  (async function () {
+		const cal = await getCalApi({});
+		cal("ui", {"styles":{"branding":{"brandColor":"#000000"}},"hideEventTypeDetails":false,"layout":"month_view"});
+	  })();
+	}, [])
 
   return (
     <Box
@@ -156,6 +164,9 @@ const HeroSection: React.FC = () => {
                 },
                 transition: "all 0.3s ease",
               }}
+              data-cal-link="tarunjawla2001/15min"
+    
+              data-cal-config='{"layout":"month_view"}'
             >
               Download Resume
             </Button>

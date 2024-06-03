@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { Box, Heading, Text, Image, Link } from "@chakra-ui/react";
 import Glide from "@glidejs/glide";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
@@ -33,6 +33,8 @@ const projects = [
 ];
 
 const ProjectsSection: React.FC<{ id: string }> = ({ id }) => {
+  const headingRef = useRef<HTMLHeadingElement>(null);
+
   useEffect(() => {
     new Glide(".glide", {
       type: "carousel",
@@ -51,11 +53,44 @@ const ProjectsSection: React.FC<{ id: string }> = ({ id }) => {
       animationDuration: 1000,
       animationTimingFunc: "cubic-bezier(0.165, 0.840, 0.440, 1.000)",
     }).mount();
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("lift-animation");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    const headingElement = headingRef.current;
+    if (headingElement) {
+      observer.observe(headingElement);
+    }
+
+    return () => {
+      if (headingElement) {
+        observer.unobserve(headingElement);
+      }
+    };
   }, []);
 
   return (
     <Box id={id} py={16} className="projects-section">
-      <Heading as="h2" textAlign="center" mb={8} mt="0.5em" fontSize="4xl" fontFamily="Poppins, sans-serif" fontWeight="600" color="#333">
+      <Heading
+        ref={headingRef}
+        as="h2"
+        textAlign="center"
+        mb={8}
+        mt="0.5em"
+        fontSize="4xl"
+        fontFamily="Poppins, sans-serif"
+        fontWeight="600"
+        color="#333"
+      >
         My Projects
       </Heading>
       <div className="glide">
@@ -63,7 +98,14 @@ const ProjectsSection: React.FC<{ id: string }> = ({ id }) => {
           <ul className="glide__slides">
             {projects.map((project, index) => (
               <li key={index} className="glide__slide">
-                <Box className="project-card" p={4} borderRadius="lg" style={{ backgroundColor: project.bgColor }} boxShadow="md" transition="transform 0.3s, box-shadow 0.3s">
+                <Box
+                  className="project-card"
+                  p={4}
+                  borderRadius="lg"
+                  style={{ backgroundColor: project.bgColor }}
+                  boxShadow="md"
+                  transition="transform 0.3s, box-shadow 0.3s"
+                >
                   <Image src={project.image} alt={project.title} borderRadius="lg" mb={4} />
                   <Box textAlign="left">
                     <Heading as="h3" size="md" mb={2} color="#333" fontFamily="Poppins, sans-serif" fontWeight="500">
@@ -98,4 +140,3 @@ const ProjectsSection: React.FC<{ id: string }> = ({ id }) => {
 };
 
 export default ProjectsSection;
-
