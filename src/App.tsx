@@ -8,6 +8,7 @@ import './App.css';
 import './Scrollbar.css';
 import GamesPage from './Components/GamePage/GamePage';
 import SnakeGame from './Components/Games/SnakeGame';
+import Error404 from './Components/Error404Page/Error404Page';
 import CookieConsentPopup from './Components/CookieConsent/CookieConsent'; // Import the CookieConsent component
 
 const App:React.FC =()=> {
@@ -91,6 +92,7 @@ const App:React.FC =()=> {
               <Route path="/" element={<HomePage id="Home" />} />
               <Route path="/games" element={<GamesPage />} />
               <Route path="/games/snake" element={<SnakeGame />} />
+              <Route path="*" element={<Error404 />} />
             </Routes>
           </>
         )}
