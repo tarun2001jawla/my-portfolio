@@ -70,7 +70,7 @@ const FeedbackNotification: React.FC = () => {
             Take a moment to fill out the feedback form!
           </Text>
           <Link
-            href="https://forms.gle/r7JLzzxafUJ7Lfg1A"
+            href="https://z6oh3qa8k3u.typeform.com/to/DYHumylD"
             target="_blank"
             color="yellow.300"
             fontWeight="bold"

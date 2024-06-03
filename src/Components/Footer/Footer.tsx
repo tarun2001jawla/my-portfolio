@@ -119,7 +119,7 @@ const Footer: React.FC = () => {
             <Link href="#projects" mb={2}>
               Projects
             </Link>
-            <Link href="https://forms.gle/r7JLzzxafUJ7Lfg1A" target="_blank"
+            <Link href="https://z6oh3qa8k3u.typeform.com/to/DYHumylD" target="_blank"
               rel="noopener noreferrer" mb={2}>
               Feedback Form
             </Link>
