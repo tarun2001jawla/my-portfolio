@@ -1,43 +1,42 @@
 /* Error404.css */
 .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin-top: 50px; /* Reduced margin */
-    font-family: 'Poppins', sans-serif;
-  }
-  
-  .heading {
-    font-size: 2.5rem; /* Increased font size */
-    margin-bottom: 0.5em; /* Reduced bottom margin */
-  }
-  
-  .subheading {
-    font-size: 1.5rem; /* Increased font size */
-    margin-bottom: 1.5em; /* Reduced bottom margin */
-  }
-  
-  .image {
-    margin-bottom: 1.5em; /* Reduced bottom margin */
-  }
-  
-  .button {
-    margin-top: 1.5em; /* Reduced top margin */
-    font-family: 'Poppins', sans-serif;
-    font-weight: bold;
-    background-color: #4f93ff;
-    color: #fff;
-    border: none;
-    padding: 12px 24px;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-  }
-  
-  .button:hover {
-    background-color: #0156ff;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
-  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin-top: 50px; /* Reduced margin */
+  font-family: 'Poppins', sans-serif;
+}
+
+.heading {
+  font-size: 2.5rem; /* Increased font size */
+  margin-bottom: 0.5em; /* Reduced bottom margin */
+}
+
+.subheading {
+  font-size: 1.5rem; /* Increased font size */
+  margin-bottom: 1.5em; /* Reduced bottom margin */
+}
+
+.image {
+  margin-bottom: 1.5em; /* Reduced bottom margin */
+}
+
+.button {
+  margin-top: 1.5em; /* Reduced top margin */
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  background-color: #4f93ff;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.button:hover {
+  background-color: #0156ff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}

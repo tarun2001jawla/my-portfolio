@@ -1,3 +1,0 @@
-```sh {"id":"01HZ4JCPRV3SRCBA9MQ2MEG5HC"}
-
-```

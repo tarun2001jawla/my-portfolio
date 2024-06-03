@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { Box, Flex, Heading, Text, Link, Button } from "@chakra-ui/react";
 import { FaPlus } from "react-icons/fa";
 import "./BlogSection.css";
@@ -43,6 +43,8 @@ const blogs: Blog[] = [
 ];
 
 const BlogSection: React.FC = () => {
+  const headingRef = useRef<HTMLHeadingElement>(null);
+
   useEffect(() => {
     const handleCopy = (e: ClipboardEvent) => {
       e.preventDefault();
@@ -69,6 +71,31 @@ const BlogSection: React.FC = () => {
     };
   }, []);
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("lift-animation");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 } 
+    );
+
+    const headingElement = headingRef.current;
+    if (headingElement) {
+      observer.observe(headingElement);
+    }
+
+    return () => {
+      if (headingElement) {
+        observer.unobserve(headingElement);
+      }
+    };
+  }, []);
+
   return (
     <Flex
       direction="column"
@@ -82,6 +109,8 @@ const BlogSection: React.FC = () => {
         fontFamily="Poppins, sans-serif"
         fontWeight="600"
         textAlign="center"
+        ref={headingRef}
+        className="observed-heading"
       >
         Check out the latest tech blogs
       </Heading>

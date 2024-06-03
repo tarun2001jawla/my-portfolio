@@ -23,7 +23,7 @@ const Error404: React.FC = () => {
       {/* Image */}
       <Image src="/static/images/Work at home.svg" alt="Placeholder" />
 
-      {/* Button */}
+      {/* Buttons */}
       <Box textAlign="center" mt="1em">
         <Button
           as={Link}

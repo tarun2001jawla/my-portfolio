@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Editor from "@monaco-editor/react";
 import { Button, Box, Flex, Textarea, VStack, Heading, Select, Text } from "@chakra-ui/react";
 import { FaPlay, FaCloudDownloadAlt, FaJs } from "react-icons/fa";
+import "./CodeEditor.css"; // Ensure you import the CSS file
 
 const CodeEditor: React.FC = () => {
   const [code, setCode] = useState("console.log('👋 Hello World!');");
@@ -9,6 +10,7 @@ const CodeEditor: React.FC = () => {
   const [fontSize, setFontSize] = useState(16);
   const [fontFamily, setFontFamily] = useState("Courier New");
   const [theme, setTheme] = useState("vs-dark");
+  const headingRef = useRef<HTMLHeadingElement>(null);
 
   const runCode = () => {
     let capturedOutput = "";
@@ -42,10 +44,43 @@ const CodeEditor: React.FC = () => {
     element.click();
   };
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("lift-animation");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    const headingElement = headingRef.current;
+    if (headingElement) {
+      observer.observe(headingElement);
+    }
+
+    return () => {
+      if (headingElement) {
+        observer.unobserve(headingElement);
+      }
+    };
+  }, []);
+
   return (
     <Flex direction="column" align="center" p={4}>
-      <Heading mb={4} mt="3em" fontSize="4xl"  textAlign="center"  fontFamily="Poppins, sans-serif" fontWeight="600">
-          
+      <Heading
+        ref={headingRef}
+        mb={4}
+        mt="3em"
+        fontSize="4xl"
+        textAlign="center"
+        fontFamily="Poppins, sans-serif"
+        fontWeight="600"
+        className="code-editor-heading"
+      >
         Let's have some fun with coding...
       </Heading>
       <Flex w="100%" maxW="1200px" justify="flex-start" align="center" mt={10} direction={{ base: "column", md: "row" }}>
