@@ -254,19 +254,19 @@ const AboutMe: React.FC<{ id: string }> = ({ id }) => {
               Education
             </Heading>
             <Box fontFamily="Inter, sans-serif">
-              <Text fontWeight="bold" mb={2}>
-                BTech in Information Technology
-              </Text>
-              <Text mb={2}>XYZ University, 2019-2023</Text>
-              <Text fontWeight="bold" mb={2}>
-                Key Subjects:
-              </Text>
-              <Flex flexDirection="column">
-                <Text mb={1}>Java Programming</Text>
-                <Text mb={1}>Web Development (MERN Stack)</Text>
-                <Text mb={1}>UI/UX Design</Text>
-                <Text mb={1}>Database Management Systems</Text>
-              </Flex>
+            <Text mb={2} fontFamily="Inter, sans-serif">
+              <strong>Degree:</strong> B.Tech.
+            </Text>
+            <Text mb={2} fontFamily="Inter, sans-serif">
+              <strong>University:</strong> Galgotias College Of Engineering &
+              Technology
+            </Text>
+            <Text mb={2} fontFamily="Inter, sans-serif">
+              <strong>Graduation Year:</strong> 2023
+            </Text>
+            <Text fontFamily="Inter, sans-serif">
+              <strong>Specialization:</strong> Information Technology
+            </Text>
             </Box>
           </Box>
         </Box>
