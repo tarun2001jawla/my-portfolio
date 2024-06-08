@@ -8,15 +8,17 @@ import {
   FaGithub,
   FaPython,
   FaInstagram,
-  FaTwitter,
+  
   FaLinkedin,
 } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import {
   SiJavascript,
   SiReact,
   SiMongodb,
   SiTypescript,
   SiGithub,
+  SiMysql,
 } from "react-icons/si";
 
 import "./AboutMe.css";
@@ -76,14 +78,15 @@ const AboutMe: React.FC<{ id: string }> = ({ id }) => {
   }, []);
 
   const skills = [
-    { name: "Java", icon: FaJava, color: "#007396" },
-    { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" },
-    { name: "React", icon: SiReact, color: "#61DAFB" },
-    { name: "MongoDB", icon: SiMongodb, color: "#47A248" },
-    { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
-    { name: "Node.js", icon: FaNodeJs, color: "#339933" },
-    { name: "Git and GitHub", icon: SiGithub, color: "#181717" },
-    { name: "Python", icon: FaPython, color: "#3776AB" },
+    { name: "Java", icon: FaJava, color: "#007396", url: "https://docs.oracle.com/en/java/" },
+    { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E", url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript" },
+    { name: "React", icon: SiReact, color: "#61DAFB", url: "https://reactjs.org/docs/getting-started.html" },
+    { name: "MongoDB", icon: SiMongodb, color: "#47A248", url: "https://docs.mongodb.com/" },
+    { name: "TypeScript", icon: SiTypescript, color: "#3178C6", url: "https://www.typescriptlang.org/docs/" },
+    { name: "Node.js", icon: FaNodeJs, color: "#339933", url: "https://nodejs.org/en/docs/" },
+    { name: "Git and GitHub", icon: SiGithub, color: "#181717", url: "https://docs.github.com/en" },
+    { name: "Python", icon: FaPython, color: "#3776AB", url: "https://docs.python.org/3/" },
+    { name: "MySQL", icon: SiMysql, color: "#ffA500", url: "https://dev.mysql.com/doc/" },
   ];
 
   return (
@@ -128,6 +131,7 @@ const AboutMe: React.FC<{ id: string }> = ({ id }) => {
               alt="Profile Picture"
               boxSize="150px"
               objectFit="cover"
+              borderRadius="8px"
               mr={4}
             />
             <Box lineHeight="1.2">
@@ -167,23 +171,19 @@ const AboutMe: React.FC<{ id: string }> = ({ id }) => {
             culinary creations.
           </Text>
           <Flex mt={8}>
-            <Box mr={4} className="social-icon">
+            <Box mr={2} className="social-icon">
               <a href="https://github.com/tarun2001jawla" target="blank">
                 <Icon as={FaGithub} boxSize={8} style={{ color: "#333" }} />
               </a>
             </Box>
-            <Box mr={4} className="social-icon">
+            <Box mr={2} className="social-icon">
               <a href="https://www.instagram.com/tarun_jawla/" target="blank">
-                <Icon
-                  as={FaInstagram}
-                  boxSize={8}
-                  style={{ color: "#833ab4" }}
-                />
+                <Icon as={FaInstagram} boxSize={8} style={{ color: "#833ab4" }} />
               </a>
             </Box>
-            <Box mr={4} className="social-icon">
-              <a href="https://twitter.com/tarun_jawla" target="blank">
-                <Icon as={FaTwitter} boxSize={8} style={{ color: "#1da1f2" }} />
+            <Box mr={2} className="social-icon">
+              <a href="https://x.com/tarun_jawla" target="blank">
+                <Icon as={FaXTwitter} boxSize={8} style={{ color: "#000000" }} />
               </a>
             </Box>
             <Box className="social-icon">
@@ -212,29 +212,31 @@ const AboutMe: React.FC<{ id: string }> = ({ id }) => {
             </Heading>
             <Flex flexWrap="wrap" fontFamily="Inter, sans-serif">
               {skills.map((skill) => (
-                <Flex
-                  key={skill.name}
-                  mr={4}
-                  mb={4}
-                  className="skill-item"
-                  alignItems="center"
-                  bg="white"
-                  p={2}
-                  borderRadius="md"
-                  border="1px solid #ddd"
-                  boxShadow="sm"
-                  fontWeight={500}
-                  _hover={{ boxShadow: "md" }}
-                  transition="box-shadow 0.2s"
-                >
-                  <Icon
-                    as={skill.icon}
-                    boxSize={6}
-                    color={skill.color}
-                    mr={2}
-                  />
-                  <Text>{skill.name}</Text>
-                </Flex>
+                <a key={skill.name} href={skill.url} target="_blank" rel="noopener noreferrer">
+                  <Flex
+                    key={skill.name}
+                    mr={4}
+                    mb={4}
+                    className="skill-item"
+                    alignItems="center"
+                    bg="white"
+                    p={2}
+                    borderRadius="md"
+                    border="1px solid #ddd"
+                    boxShadow="sm"
+                    fontWeight={500}
+                    _hover={{ boxShadow: "md" }}
+                    transition="box-shadow 0.2s"
+                  >
+                    <Icon
+                      as={skill.icon}
+                      boxSize={6}
+                      color={skill.color}
+                      mr={2}
+                    />
+                    <Text>{skill.name}</Text>
+                  </Flex>
+                </a>
               ))}
             </Flex>
           </Box>
@@ -254,19 +256,19 @@ const AboutMe: React.FC<{ id: string }> = ({ id }) => {
               Education
             </Heading>
             <Box fontFamily="Inter, sans-serif">
-              <Text fontWeight="bold" mb={2}>
-                BTech in Information Technology
+              <Text mb={2} fontFamily="Inter, sans-serif">
+                <strong>Degree:</strong> B.Tech.
               </Text>
-              <Text mb={2}>XYZ University, 2019-2023</Text>
-              <Text fontWeight="bold" mb={2}>
-                Key Subjects:
+              <Text mb={2} fontFamily="Inter, sans-serif">
+                <strong>University:</strong> Galgotias College Of Engineering &
+                Technology
               </Text>
-              <Flex flexDirection="column">
-                <Text mb={1}>Java Programming</Text>
-                <Text mb={1}>Web Development (MERN Stack)</Text>
-                <Text mb={1}>UI/UX Design</Text>
-                <Text mb={1}>Database Management Systems</Text>
-              </Flex>
+              <Text mb={2} fontFamily="Inter, sans-serif">
+                <strong>Graduation Year:</strong> 2023
+              </Text>
+              <Text fontFamily="Inter, sans-serif">
+                <strong>Specialization:</strong> Information Technology
+              </Text>
             </Box>
           </Box>
         </Box>
