@@ -256,7 +256,6 @@ const AboutMe: React.FC<{ id: string }> = ({ id }) => {
               Education
             </Heading>
             <Box fontFamily="Inter, sans-serif">
-
               <Text mb={2} fontFamily="Inter, sans-serif">
                 <strong>Degree:</strong> B.Tech.
               </Text>
@@ -270,21 +269,6 @@ const AboutMe: React.FC<{ id: string }> = ({ id }) => {
               <Text fontFamily="Inter, sans-serif">
                 <strong>Specialization:</strong> Information Technology
               </Text>
-
-            <Text mb={2} fontFamily="Inter, sans-serif">
-              <strong>Degree:</strong> B.Tech.
-            </Text>
-            <Text mb={2} fontFamily="Inter, sans-serif">
-              <strong>University:</strong> Galgotias College Of Engineering &
-              Technology
-            </Text>
-            <Text mb={2} fontFamily="Inter, sans-serif">
-              <strong>Graduation Year:</strong> 2023
-            </Text>
-            <Text fontFamily="Inter, sans-serif">
-              <strong>Specialization:</strong> Information Technology
-            </Text>
-
             </Box>
           </Box>
         </Box>
