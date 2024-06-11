@@ -25,8 +25,8 @@ const HeroSection: React.FC = () => {
   useEffect(() => {
     const options = {
       strings: ["Full Stack Developer", "UX/UI Designer", "Web Designer"],
-      typeSpeed: 50,
-      backSpeed: 50,
+      typeSpeed: 100,
+      backSpeed: 100,
       loop: true,
       
     };
@@ -144,6 +144,9 @@ const HeroSection: React.FC = () => {
                 transition: "all 0.3s ease",
                 boxShadow: "0 0 10px 5px rgba(128, 0, 128, 0.3)",
               }}
+              data-cal-link="tarunjawla2001/15min"
+    
+              data-cal-config='{"layout":"month_view"}'
             >
               Contact Me
             </Button>
@@ -164,9 +167,7 @@ const HeroSection: React.FC = () => {
                 },
                 transition: "all 0.3s ease",
               }}
-              data-cal-link="tarunjawla2001/15min"
-    
-              data-cal-config='{"layout":"month_view"}'
+            
             >
               Download Resume
             </Button>
