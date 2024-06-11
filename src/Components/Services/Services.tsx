@@ -156,6 +156,7 @@ const ServicesSection: React.FC<{ id: string }> = ({ id }) => {
       </Flex>
       <Flex justifyContent="center" alignItems="center" mt={8}>
         <Button
+        className='btn'
           leftIcon={<FaPhoneAlt />}
           colorScheme="teal"
           size="lg"

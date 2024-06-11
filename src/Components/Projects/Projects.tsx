@@ -1,14 +1,14 @@
 import React, { useEffect, useRef } from "react";
-import { Box, Heading, Text, Image, Link } from "@chakra-ui/react";
+import { Box, Heading, Text, Image, Link, Badge } from "@chakra-ui/react";
 import Glide from "@glidejs/glide";
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import { FaArrowLeft, FaArrowRight, FaArrowUp } from "react-icons/fa";
 import "./Projects.css";
 
 const projects = [
   {
     title: "Car Rental App",
     description: "This web app allows users to easily search for and rent cars of different categories without the hassle of traditional methods. It provides a user-friendly interface for renting cars, managing bookings, and exploring various car options",
-    techStack: "React,Chakra UI, NodeJs, Express, MongoDb",
+    techStack: ["React", "Chakra UI", "NodeJs", "Express", "MongoDb"],
     githubLink: "https://github.com/tarun2001jawla/Car_Rental_App.git",
     image: "/static/images/Screenshot (184).png",
     bgColor: "#ffe680", // Light Yellow
@@ -16,7 +16,7 @@ const projects = [
   {
     title: "GitStream",
     description: "GitHub Activity Tracker is a web application that allows users to track the recent activity of GitHub users. It provides information about the user's repositories, gists, followers, and following, along with their most recent GitHub events.",
-    techStack: "React , GitHub API, CSS",
+    techStack: ["React", "GitHub API", "CSS"],
     githubLink: "https://tarun2001jawla.github.io/github-activity-tracker/",
     image: "/static/images/gitstare .png",
     bgColor: "#b2fab4", // Light Green
@@ -24,14 +24,13 @@ const projects = [
   {
     title: "Smart Attendance System",
     description: "This Smart Attendance System system is designed to streamline the process of attendance management in universities. It provides a comprehensive portal for both teachers and students, utilizing modern web technologies.",
-    techStack: "NodeJs, ExpressJs, MongoDB, ReactJs",
+    techStack: ["NodeJs", "ExpressJs", "MongoDB", "ReactJs"],
     githubLink: "https://github.com/tarun2001jawla/smart-attendance-system.git",
     image: "/static/images/Screenshot (210).png",
     bgColor: "#c0e0f4", // Light Blue
   },
   // Add more projects as needed
 ];
-
 const ProjectsSection: React.FC<{ id: string }> = ({ id }) => {
   const headingRef = useRef<HTMLHeadingElement>(null);
 
@@ -114,11 +113,23 @@ const ProjectsSection: React.FC<{ id: string }> = ({ id }) => {
                     <Text color="#333" mb={2} fontFamily="Inter, sans-serif">
                       {project.description}
                     </Text>
-                    <Text color="#333" mb={2} fontFamily="Inter, sans-serif">
-                      <strong>Tech Stack:</strong> {project.techStack}
-                    </Text>
-                    <Link color="blue.500" href={project.githubLink} target="_blank" rel="noopener noreferrer" fontFamily="Inter, sans-serif">
-                      GitHub
+                    <Box mb={2}>
+                      {project.techStack.map((skill, index) => (
+                        <Badge
+                          key={index}
+                          colorScheme={index % 3 === 0 ? "purple" : index % 3 === 1 ? "orange" : "green"}
+                          fontSize="0.8rem"
+                          px={3}
+                          py={1}
+                          mr={2}
+                          mb={1}
+                        >
+                          {skill}
+                        </Badge>
+                      ))}
+                    </Box>
+                    <Link color="blue.400" href={project.githubLink} target="_blank" rel="noopener noreferrer" fontFamily="Inter, sans-serif" display="flex" alignItems="center">
+                      GitHub <FaArrowUp style={{ transform: "rotate(45deg)", marginLeft: "0.5rem" }} />
                     </Link>
                   </Box>
                 </Box>
