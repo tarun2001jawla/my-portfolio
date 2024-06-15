@@ -1,24 +1,33 @@
 import React, { useEffect, useState } from "react";
 import { Link as RouterLink } from "react-router-dom";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import {
   Box,
   Flex,
   Heading,
   Text,
-  Link ,
+  Link,
   IconButton,
   Icon,
   keyframes,
+  Popover,
+  PopoverTrigger,
+  PopoverContent,
+  PopoverBody,
+  PopoverArrow,
+  PopoverCloseButton,
 } from "@chakra-ui/react";
 import {
   FaGithub,
   FaInstagram,
   FaLinkedin,
-  
   FaHeart,
+  FaTimes,
 } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import "./Footer.css";
+
+import "leaflet/dist/leaflet.css";
 
 const pulse = keyframes`
   0% { transform: scale(1); }
@@ -40,26 +49,31 @@ interface HeartPosition {
 const Footer: React.FC = () => {
   const [showHeartRain, setShowHeartRain] = useState<boolean>(false);
   const [heartPositions, setHeartPositions] = useState<HeartPosition[]>([]);
+  const [isMapOpen, setIsMapOpen] = useState(false);
+
+  const handleMapOpen = () => {
+    setIsMapOpen(true);
+  };
+
+  const handleMapClose = () => {
+    setIsMapOpen(false);
+  };
 
   const handleHeartClick = () => {
     setShowHeartRain(true);
-  
-    // Generate multiple heart positions
+
     const newHeartPositions: HeartPosition[] = Array.from(
-      { length: 100 }, // Increase the number of hearts here
+      { length: 100 },
       () => ({
         x: Math.random() * window.innerWidth,
-        y: -50 - Math.random() * 500, // Spread hearts across the screen
+        y: -50 - Math.random() * 500,
       })
     );
-  
-    // Set heart positions
+
     setHeartPositions(newHeartPositions);
-  
-    // Hide heart rain after 3 seconds
+
     setTimeout(() => setShowHeartRain(false), 3000);
   };
-  
 
   useEffect(() => {
     const handleCopy = (e: ClipboardEvent) => {
@@ -88,12 +102,7 @@ const Footer: React.FC = () => {
   }, []);
 
   return (
-    <Box
-      className="footer no-select"
-      py={12}
-      fontFamily="Poppins, sans-serif"
-      position="relative"
-    >
+    <Box className="footer no-select" py={12} fontFamily="Poppins, sans-serif" position="relative">
       <Flex
         className="footer-container"
         maxW="1200px"
@@ -119,8 +128,7 @@ const Footer: React.FC = () => {
             <Link href="#projects" mb={2}>
               Projects
             </Link>
-            <Link href="https://z6oh3qa8k3u.typeform.com/to/DYHumylD" target="_blank"
-              rel="noopener noreferrer" mb={2}>
+            <Link href="https://z6oh3qa8k3u.typeform.com/to/DYHumylD" target="_blank" rel="noopener noreferrer" mb={2}>
               Feedback Form
             </Link>
             <RouterLink to="/games" className="game-link">
@@ -184,12 +192,58 @@ const Footer: React.FC = () => {
           <Heading as="h4" size="md" mb={4}>
             Contact
           </Heading>
-          <Text mb={2}>Jaipur, Rajasthan, India</Text>
+          <Popover isOpen={isMapOpen} onClose={handleMapClose} placement="top" isLazy>
+            <PopoverTrigger>
+              <Text onClick={handleMapOpen} style={{ cursor: "pointer" }}>
+                Jaipur, Rajasthan, India
+              </Text>
+            </PopoverTrigger>
+            <PopoverContent
+              boxShadow="lg"
+              borderRadius="lg"
+              overflow="hidden"
+              width="400px"
+              maxWidth="90%"
+              marginTop="5"
+            >
+              <PopoverArrow />
+              <PopoverCloseButton />
+              <PopoverBody padding={0}>
+                <MapContainer style={{ height: "300px", width: "100%" }} center={[26.9124, 75.7873]} zoom={13}>
+                  <TileLayer
+                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                  />
+                  <Marker position={[26.9124, 75.7873]} >
+                    <Popup>
+                      <Box>
+                        <Flex justify="space-between" align="center" mb={2}>
+                          <Heading as="h6" size="sm">
+                            Welcome to Jaipur!
+                          </Heading>
+                          <IconButton
+                            aria-label="Close"
+                            icon={<FaTimes />}
+                            onClick={handleMapClose}
+                            variant="ghost"
+                            colorScheme="blue"
+                            size="sm"
+                          />
+                        </Flex>
+                        <Text>This is a beautiful city in Rajasthan, India.</Text>
+                      </Box>
+                    </Popup>
+                  </Marker>
+                </MapContainer>
+              </PopoverBody>
+            </PopoverContent>
+          </Popover>
           <Text mb={2}>Phone: +91-8279202574</Text>
           <Text mb={2}>
-            Email:{" "}  
-            <Link href="mailto:tarunjawla2@gmail.com" target="_blank"
-              rel="noopener noreferrer" mb={2}>tarunjawla2@gmail.com</Link>
+            Email:{" "}
+            <Link href="mailto:tarunjawla2@gmail.com" target="_blank" rel="noopener noreferrer" mb={2}>
+              tarunjawla2@gmail.com
+            </Link>
           </Text>
         </Box>
       </Flex>
@@ -201,7 +255,6 @@ const Footer: React.FC = () => {
         maxW="1200px"
         mx="auto"
       >
-        
         <Text display="flex" alignItems="center" fontWeight={500}>
           Made with{" "}
           <Icon
@@ -218,7 +271,6 @@ const Footer: React.FC = () => {
           />{" "}
           By Tarun Jawla
         </Text>
-        
       </Flex>
 
       {showHeartRain && (
