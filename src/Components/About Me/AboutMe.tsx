@@ -8,6 +8,7 @@ import {
   FaInstagram,
   FaLinkedin,
   FaEnvelope,
+  FaBehance,
 } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import {
@@ -95,6 +96,7 @@ const AboutMe: React.FC<{ id: string }> = ({ id }) => {
     { name: "Twitter", icon: FaXTwitter, color: "#000", bgColor: "#e6e6e6", url: "https://x.com/tarun_jawla" },
     { name: "LinkedIn", icon: FaLinkedin, color: "#0077b5", bgColor: "#e6f5ff", url: "https://www.linkedin.com/in/tarunjawlajaipur/" },
     { name: "Email", icon: FaEnvelope, color: "#EA4335", bgColor: "#fff3ee", url: "mailto:tarunjawla2@gmail.com" },
+    { name: "Behance", icon: FaBehance, color: "#0000FF", bgColor: "#FFFFED", url: "https://www.behance.net/tarunjawla1" },
   ];
 
   return (
