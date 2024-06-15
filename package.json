@@ -25,6 +25,8 @@
     "@monaco-editor/react": "^4.6.0",
     "@mui/icons-material": "^5.15.19",
     "@react-md/menu": "^5.1.6",
+    "@react-three/drei": "^9.106.0",
+    "@react-three/fiber": "^8.16.8",
     "@uiw/codemirror-theme-vscode": "^4.22.1",
     "@uiw/react-codemirror": "^4.22.1",
     "@vercel/speed-insights": "^1.0.11",

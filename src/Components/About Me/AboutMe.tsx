@@ -1,15 +1,13 @@
 import React, { useEffect, useRef } from "react";
-import { Box, Flex, Heading, Text, Icon, Image } from "@chakra-ui/react";
+import { Box, Flex, Heading, Text, Icon, Image, Badge, Link } from "@chakra-ui/react";
 import {
   FaJava,
   FaNodeJs,
-  FaUser,
-  FaGraduationCap,
   FaGithub,
   FaPython,
   FaInstagram,
-  
   FaLinkedin,
+  FaEnvelope,
 } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import {
@@ -17,8 +15,9 @@ import {
   SiReact,
   SiMongodb,
   SiTypescript,
-  SiGithub,
   SiMysql,
+  SiGithub,
+  SiFigma,
 } from "react-icons/si";
 
 import "./AboutMe.css";
@@ -87,10 +86,19 @@ const AboutMe: React.FC<{ id: string }> = ({ id }) => {
     { name: "Git and GitHub", icon: SiGithub, color: "#181717", url: "https://docs.github.com/en" },
     { name: "Python", icon: FaPython, color: "#3776AB", url: "https://docs.python.org/3/" },
     { name: "MySQL", icon: SiMysql, color: "#ffA500", url: "https://dev.mysql.com/doc/" },
+    { name: "Figma", icon: SiFigma, color: "#F24E1E", url: "https://www.figma.com/" },
+  ];
+
+  const socialIcons = [
+    { name: "GitHub", icon: FaGithub, color: "#333", bgColor: "#FFF8E3", url: "https://github.com/tarun2001jawla" },
+    { name: "Instagram", icon: FaInstagram, color: "#833ab4", bgColor: "#f9e9fa", url: "https://www.instagram.com/tarun_jawla/" },
+    { name: "Twitter", icon: FaXTwitter, color: "#000", bgColor: "#e6e6e6", url: "https://x.com/tarun_jawla" },
+    { name: "LinkedIn", icon: FaLinkedin, color: "#0077b5", bgColor: "#e6f5ff", url: "https://www.linkedin.com/in/tarunjawlajaipur/" },
+    { name: "Email", icon: FaEnvelope, color: "#EA4335", bgColor: "#fff3ee", url: "mailto:tarunjawla2@gmail.com" },
   ];
 
   return (
-    <Box py={20} className="about-section no-select" id={id}>
+    <Box py={20} className="about-section no-select" id={id} fontFamily="Poppins, sans-serif">
       <Box textAlign="center" mb={8}>
         <Heading
           as="h1"
@@ -122,7 +130,6 @@ const AboutMe: React.FC<{ id: string }> = ({ id }) => {
           mb={{ base: 8, md: 0 }}
         >
           <Heading as="h6" mb={4} color="#333" fontSize="1.5rem">
-            <Icon as={FaUser} color="#333" mr={2} />
             Personal Info
           </Heading>
           <Flex alignItems="center" mt={8}>
@@ -134,7 +141,7 @@ const AboutMe: React.FC<{ id: string }> = ({ id }) => {
               borderRadius="8px"
               mr={4}
             />
-            <Box lineHeight="1.2">
+            <Box lineHeight="1.2" mt={5}>
               <Flex alignItems="center">
                 <Text fontWeight="bold" mr={2}>
                   Name:
@@ -161,7 +168,7 @@ const AboutMe: React.FC<{ id: string }> = ({ id }) => {
               </Flex>
             </Box>
           </Flex>
-          <Text mt={8} color="#333" fontWeight={700}>
+          <Text mt={12} color="#333" fontWeight={600}>
             Hey there, I'm Tarun, a passionate technologist based in Jaipur. I
             recently graduated with a BTech in Information Technology,
             specializing in Java, MERN development, and UX/UI design, from the
@@ -170,28 +177,6 @@ const AboutMe: React.FC<{ id: string }> = ({ id }) => {
             enjoying a good game of cricket, and experimenting with various
             culinary creations.
           </Text>
-          <Flex mt={8}>
-            <Box mr={2} className="social-icon">
-              <a href="https://github.com/tarun2001jawla" target="blank">
-                <Icon as={FaGithub} boxSize={8} style={{ color: "#333" }} />
-              </a>
-            </Box>
-            <Box mr={2} className="social-icon">
-              <a href="https://www.instagram.com/tarun_jawla/" target="blank">
-                <Icon as={FaInstagram} boxSize={8} style={{ color: "#833ab4" }} />
-              </a>
-            </Box>
-            <Box mr={2} className="social-icon">
-              <a href="https://x.com/tarun_jawla" target="blank">
-                <Icon as={FaXTwitter} boxSize={8} style={{ color: "#000000" }} />
-              </a>
-            </Box>
-            <Box className="social-icon">
-              <a href="https://www.linkedin.com/in/tarunjawlajaipur/" target="blank">
-                <Icon as={FaLinkedin} boxSize={8} style={{ color: "#0077b5" }} />
-              </a>
-            </Box>
-          </Flex>
         </Box>
         {/* Right side: Skills and Education */}
         <Box>
@@ -207,36 +192,32 @@ const AboutMe: React.FC<{ id: string }> = ({ id }) => {
             height="auto"
           >
             <Heading as="h6" mb={4} color="#333" fontSize="1.5rem">
-              <Icon as={FaGithub} color="#333" mr={2} />
-              Tech Stack
+              My Toolkit
             </Heading>
-            <Flex flexWrap="wrap" fontFamily="Inter, sans-serif">
+            <Flex flexWrap="wrap" >
               {skills.map((skill) => (
-                <a key={skill.name} href={skill.url} target="_blank" rel="noopener noreferrer">
-                  <Flex
-                    key={skill.name}
-                    mr={4}
-                    mb={4}
-                    className="skill-item"
+                <Link
+                  key={skill.name}
+                  href={skill.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  _hover={{ textDecoration: "none" }}
+                >
+                  <Badge
+                    display="flex"
                     alignItems="center"
-                    bg="white"
-                    p={2}
+                    colorScheme="blue"
+                    p={3}
                     borderRadius="md"
-                    border="1px solid #ddd"
-                    boxShadow="sm"
-                    fontWeight={500}
-                    _hover={{ boxShadow: "md" }}
-                    transition="box-shadow 0.2s"
+                    m={1}
+                    fontSize="1em"
+                    bg={skill.color}
+                    color="white"
                   >
-                    <Icon
-                      as={skill.icon}
-                      boxSize={6}
-                      color={skill.color}
-                      mr={2}
-                    />
-                    <Text>{skill.name}</Text>
-                  </Flex>
-                </a>
+                    <Icon as={skill.icon} boxSize={5} mr={1} />
+                    {skill.name}
+                  </Badge>
+                </Link>
               ))}
             </Flex>
           </Box>
@@ -251,30 +232,93 @@ const AboutMe: React.FC<{ id: string }> = ({ id }) => {
             maxW={{ base: "100%", md: "600px" }}
             height="auto"
           >
-            <Heading as="h6" mb={4} color="#333" fontSize="1.5rem">
-              <Icon as={FaGraduationCap} color="#333" mr={2} />
+              <Heading as="h6" mb={4} color="#333" fontSize="1.5rem">
               Education
             </Heading>
-            <Box fontFamily="Inter, sans-serif">
-              <Text mb={2} fontFamily="Inter, sans-serif">
+            <Box>
+              <Text mb={2}>
                 <strong>Degree:</strong> B.Tech.
               </Text>
-              <Text mb={2} fontFamily="Inter, sans-serif">
+              <Text mb={2}>
                 <strong>University:</strong> Galgotias College Of Engineering &
                 Technology
               </Text>
-              <Text mb={2} fontFamily="Inter, sans-serif">
+              <Text mb={2}>
                 <strong>Graduation Year:</strong> 2023
               </Text>
-              <Text fontFamily="Inter, sans-serif">
+              <Text>
                 <strong>Specialization:</strong> Information Technology
               </Text>
             </Box>
           </Box>
         </Box>
       </Flex>
+      {/* Social Icons Section */}
+<Flex
+  flexDirection="column"
+  alignItems="center"
+ 
+  justifyContent="center"
+  p={8}
+  mt={12}
+   fontFamily="Poppins, sans-serif"
+>
+  <Heading as="h2" mb={4} fontSize="1.5rem"  fontFamily="Poppins, sans-serif"
+          fontWeight="600" textAlign="center" mt={10}>
+    Let's Connect
+  </Heading>
+  <Flex justify="center">
+    {socialIcons.map((social) => (
+      <Box
+        key={social.name}
+        m={4}
+        textAlign="center"
+        transition="all 0.3s"
+        _hover={{
+          transform: "scale(1.1)",
+        }}
+      >
+                <Box
+          bg={social.bgColor}
+          p={6}
+          boxShadow="md"
+          rounded="lg"
+          width={{ base: "150px", md: "200px" }}
+          display="inline-flex"
+          alignItems="center"
+          justifyContent="center"
+          flexDirection="column"
+          transition="all 0.3s"
+          _hover={{
+            boxShadow: "xl",
+          }}
+        >
+
+          <a
+            href={social.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ textDecoration: "none", color: "inherit" }}
+          >
+           <Icon
+              as={social.icon}
+              boxSize={{ base: 10, md: 16 }}
+              color={social.color}
+              mb={2}
+            />
+            <Text fontSize={{ base: "sm", md: "lg" }}>
+              {social.name} {/*Responsive font size*/}
+            </Text>
+          </a>
+        </Box>
+      </Box>
+    ))}
+  </Flex>
+</Flex>
+      
     </Box>
   );
 };
 
 export default AboutMe;
+
