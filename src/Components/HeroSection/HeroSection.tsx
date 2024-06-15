@@ -148,7 +148,7 @@ const HeroSection: React.FC = () => {
     
               data-cal-config='{"layout":"month_view"}'
             >
-              Contact Me
+             Let's Talk
             </Button>
             <Button
               variant="outline"
