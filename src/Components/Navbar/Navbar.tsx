@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Box, Flex, Heading, Button, Menu, MenuButton, MenuList, MenuItem, Image as ChakraImage } from '@chakra-ui/react';
+import { Box, Flex, Heading, Button, Menu, MenuButton, MenuList, MenuItem, Image as ChakraImage, Link as ChakraLink } from '@chakra-ui/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { faBars, faCoffee } from '@fortawesome/free-solid-svg-icons';
 import { Link as ScrollLink } from 'react-scroll';
 
 import './Navbar.css';
@@ -181,27 +181,44 @@ const Navbar: React.FC = () => {
               </ScrollLink>
             </MenuItem>
             <MenuItem>
-              <Button variant="outline" width="100%" onClick={() => toggleMenu('login')}>
-                Login
-              </Button>
-            </MenuItem>
-            <MenuItem>
-              <Button variant="solid" colorScheme="purple" width="100%" onClick={() => toggleMenu('signup')}>
-                Sign Up
-              </Button>
+              <ChakraLink
+                href="https://buymeacoffee.com/tarunjawla"
+                isExternal
+                display="flex"
+                alignItems="center"
+                backgroundColor="#FFDD00"
+                color="#333"
+                padding="10px 15px"
+                borderRadius="5px"
+                boxShadow="0px 4px 8px rgba(0, 0, 0, 0.2)"
+                _hover={{ textDecoration: 'none', backgroundColor: "#F7C600" }}
+                width="100%"
+              >
+                <FontAwesomeIcon icon={faCoffee} style={{ marginRight: '8px' }} />
+                Buy Me a Coffee
+              </ChakraLink>
             </MenuItem>
           </MenuList>
         </Menu>
       </Box>
 
-      {/* Login and Signup buttons */}
+      {/* Buy Me a Coffee Link for larger screens */}
       <Box display={{ base: 'none', md: 'flex' }} alignItems="center">
-        <Button className="nav-button login-button" variant="outline" marginRight="0.5rem">
-          Login
-        </Button>
-        <Button className="nav-button signup-button" variant="solid" colorScheme="purple">
-          Sign Up
-        </Button>
+        <ChakraLink
+          href="https://buymeacoffee.com/tarunjawla"
+          isExternal
+          display="flex"
+          alignItems="center"
+          backgroundColor="#FFDD00"
+          color="#333"
+          padding="10px 15px"
+          borderRadius="5px"
+          boxShadow="0px 4px 8px rgba(0, 0, 0, 0.2)"
+          _hover={{ textDecoration: 'none', backgroundColor: "#F7C600" }}
+        >
+          <FontAwesomeIcon icon={faCoffee} style={{ marginRight: '8px' }} />
+          Buy Me a Coffee
+        </ChakraLink>
       </Box>
     </Flex>
   );
