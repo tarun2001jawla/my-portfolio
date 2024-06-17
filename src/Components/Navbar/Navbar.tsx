@@ -41,7 +41,7 @@ const Navbar: React.FC = () => {
         marginBottom="1.2rem"
       />
 
-      <Heading as="h1" size="lg" letterSpacing={'-.1rem'} marginLeft="1rem" className="my-portfolio" fontFamily="Poppins, sans-serif">
+      <Heading as="h2" size="lg" letterSpacing={'-.1rem'} marginLeft="1rem" className="my-portfolio" fontFamily="Poppins, sans-serif">
         <ScrollLink
           to="home"
           spy={true}
@@ -109,7 +109,7 @@ const Navbar: React.FC = () => {
         </Flex>
       </Box>
 
-      <Box display={{ base: 'block', md: 'none' }}>
+      <Box display={{ base: 'flex', md: 'none' }}>
         <Menu>
           <MenuButton as={Button} bg="transparent" color="black">
             <FontAwesomeIcon icon={faBars} />
@@ -143,6 +143,19 @@ const Navbar: React.FC = () => {
             </MenuItem>
             <MenuItem>
               <ScrollLink
+                to="services"
+                spy={true}
+                smooth={true}
+                offset={0} // Adjusted offset to 0
+                duration={500}
+                className="nav-link"
+                onClick={() => toggleMenu('services')}
+              >
+                Services
+              </ScrollLink>
+            </MenuItem>
+            <MenuItem>
+              <ScrollLink
                 to="projects"
                 spy={true}
                 smooth={true}
@@ -167,8 +180,28 @@ const Navbar: React.FC = () => {
                 Contact Me
               </ScrollLink>
             </MenuItem>
+            <MenuItem>
+              <Button variant="outline" width="100%" onClick={() => toggleMenu('login')}>
+                Login
+              </Button>
+            </MenuItem>
+            <MenuItem>
+              <Button variant="solid" colorScheme="purple" width="100%" onClick={() => toggleMenu('signup')}>
+                Sign Up
+              </Button>
+            </MenuItem>
           </MenuList>
         </Menu>
+      </Box>
+
+      {/* Login and Signup buttons */}
+      <Box display={{ base: 'none', md: 'flex' }} alignItems="center">
+        <Button className="nav-button login-button" variant="outline" marginRight="0.5rem">
+          Login
+        </Button>
+        <Button className="nav-button signup-button" variant="solid" colorScheme="purple">
+          Sign Up
+        </Button>
       </Box>
     </Flex>
   );

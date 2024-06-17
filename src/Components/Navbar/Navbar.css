@@ -1,50 +1,51 @@
-/* Navbar.css */
-
 .nav-link {
   text-decoration: none;
-  color: black;
+  color: #333; /* Darker initial color for better contrast */
   transition: color 0.3s ease-in-out;
-  font-weight:700;
+  font-weight: 700;
   margin: 0 1rem;
   position: relative;
   text-transform: uppercase;
-  
-  
+  cursor: pointer;
 }
 
-/* Hover effect for all links except "My Portfolio" */
-.nav-link:not(.my-portfolio)::after {
+/* Underline effect */
+.nav-link::after {
   content: '';
   display: block;
   width: 0;
   height: 2px;
-  background-color: transparent; /* Remove underline effect */
+  background-color: #6a0dad; /* Underline color */
   position: absolute;
-  bottom: -2px;
-  left: 0;
-  transition: width 0.3s ease-in-out;
-  
+  bottom: -5px; /* Space between text and underline */
+  left: 50%;
+  transition: width 0.3s ease, left 0.3s ease;
+  transform: scaleX(0); /* Initially scaled down */
+  transform-origin: left;
 }
 
+/* Hover effect */
 .nav-link:hover {
-  color: #fee440; /* Change text color on hover */
+  color: #6a0dad; /* Change text color on hover */
 }
 
+.nav-link:hover::after {
+  transform: scaleX(1); /* Scale up underline */
+  transform-origin: right;
+  width: 100%;
+  left: 0;
+}
+
+/* Specific styles for "My Portfolio" */
 .my-portfolio {
   color: black;
 }
 
-.my-portfolio:hover {
-  color: #6a0dad;
-}
-
-.my-portfolio:hover::after {
+/* Remove underline effect for "My Portfolio" */
+.my-portfolio::after {
   content: none;
 }
 
-.nav-link {
-  cursor: pointer;
-}
 .navbarContainer {
   position: sticky;
   top: 0;
@@ -52,6 +53,25 @@
   background-color: rgb(255, 255, 255); /* Change this to your desired background color */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add a shadow effect */
 }
+
 .dropShadow {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.nav-button {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  border-radius: 25px;
+  padding: 0.5rem 1.5rem;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .navbarContainer {
+    justify-content: space-between;
+  }
+
+  .nav-link {
+    margin: 0.5rem 0;
+  }
 }
