@@ -9,7 +9,7 @@ import './Scrollbar.css';
 import GamesPage from './Components/GamePage/GamePage';
 import SnakeGame from './Components/Games/SnakeGame';
 import Error404 from './Components/Error404Page/Error404Page';
-import CookieConsentPopup from './Components/CookieConsent/CookieConsent'; // Import the CookieConsent component
+
 
 const App:React.FC =()=> {
   const [isLoading, setIsLoading] = useState(true);
@@ -87,7 +87,7 @@ const App:React.FC =()=> {
           <LoadingBall />
         ) : (
           <>
-            <CookieConsentPopup /> {/* Render the CookieConsent component */}
+            
             <Routes>
               <Route path="/" element={<HomePage id="Home" />} />
               <Route path="/games" element={<GamesPage />} />
