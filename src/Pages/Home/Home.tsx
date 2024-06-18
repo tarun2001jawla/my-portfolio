@@ -13,7 +13,7 @@ import BlogSection from "../../Components/BlogSection/BlogSection";
 import FeedbackNotification from "../../Components/FeedbackNotification/FeedbackNotification";
 import HobbiesSection from "../../Components/Hobbies/Hobbies";
 import Navbar from "../../Components/Navbar/Navbar";
-import RollingBall from "../../Components/BallRolling/BallRolling";
+
 
 import "./Home.css";
 
@@ -28,7 +28,7 @@ const HomePage: React.FC<{ id: string }> = ({ id }) => {
       <ServicesSection id="services" />
       <ClientTestimonials />
       <CodeEditor />
-   <RollingBall/>
+   
       <BlogSection />
       <ContactForm id="contact" />
       

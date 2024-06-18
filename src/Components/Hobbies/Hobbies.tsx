@@ -3,12 +3,10 @@ import React from "react";
 import { Box, Text, Heading, Flex, Badge } from "@chakra-ui/react";
 import {
   FaCode,
-
   FaPlane,
   FaGamepad,
   FaCamera,
   FaBookOpen,
- 
   FaUtensils,
   FaDumbbell,
   FaMusic,
@@ -51,17 +49,20 @@ const HobbiesSection: React.FC<{ id: string }> = ({ id }) => {
         as="h2"
         size="xl"
         mb={6}
-        textAlign="center"
         className="hobbies-heading"
+        textAlign="center"
+        fontWeight= {600}
       >
-        Explore My Passions
+        Do What You Love
+        <br />
+        <Text as="span" display="inline-block" ml={10} fontWeight= {600}>
+          Love What You Do
+        </Text>
       </Heading>
-
       <Flex
         className="hobbies-container"
         overflow="hidden"
         flexDirection="column"
-       
       >
         <Flex className="hobbies-track left-to-right" mb={8}>
           {hobbies.slice(0, 5).map((hobby) => (
@@ -75,10 +76,13 @@ const HobbiesSection: React.FC<{ id: string }> = ({ id }) => {
               mx={4}
               display="flex"
               alignItems="center"
-             
             >
               <hobby.icon style={{ fontSize: "32px", marginRight: "12px" }} />
-              <Text fontSize="lg" fontWeight="bold" style={{ textTransform: "capitalize" }}>
+              <Text
+                fontSize="lg"
+                fontWeight="bold"
+                style={{ textTransform: "capitalize" }}
+              >
                 {hobby.name.toLowerCase()}
               </Text>
             </Badge>
@@ -101,7 +105,11 @@ const HobbiesSection: React.FC<{ id: string }> = ({ id }) => {
               }}
             >
               <hobby.icon style={{ fontSize: "32px", marginRight: "12px" }} />
-              <Text fontSize="lg" fontWeight="bold" style={{ textTransform: "capitalize" }}>
+              <Text
+                fontSize="lg"
+                fontWeight="bold"
+                style={{ textTransform: "capitalize" }}
+              >
                 {hobby.name.toLowerCase()}
               </Text>
             </Badge>
@@ -124,7 +132,11 @@ const HobbiesSection: React.FC<{ id: string }> = ({ id }) => {
               }}
             >
               <hobby.icon style={{ fontSize: "32px", marginRight: "12px" }} />
-              <Text fontSize="lg" fontWeight="bold" style={{ textTransform: "capitalize" }}>
+              <Text
+                fontSize="lg"
+                fontWeight="bold"
+                style={{ textTransform: "capitalize" }}
+              >
                 {hobby.name.toLowerCase()}
               </Text>
             </Badge>
@@ -149,7 +161,11 @@ const HobbiesSection: React.FC<{ id: string }> = ({ id }) => {
               }}
             >
               <hobby.icon style={{ fontSize: "32px", marginRight: "12px" }} />
-              <Text fontSize="lg" fontWeight="bold" style={{ textTransform: "capitalize" }}>
+              <Text
+                fontSize="lg"
+                fontWeight="bold"
+                style={{ textTransform: "capitalize" }}
+              >
                 {hobby.name.toLowerCase()}
               </Text>
             </Badge>
@@ -172,7 +188,11 @@ const HobbiesSection: React.FC<{ id: string }> = ({ id }) => {
               }}
             >
               <hobby.icon style={{ fontSize: "32px", marginRight: "12px" }} />
-              <Text fontSize="lg" fontWeight="bold" style={{ textTransform: "capitalize" }}>
+              <Text
+                fontSize="lg"
+                fontWeight="bold"
+                style={{ textTransform: "capitalize" }}
+              >
                 {hobby.name.toLowerCase()}
               </Text>
             </Badge>
@@ -195,7 +215,11 @@ const HobbiesSection: React.FC<{ id: string }> = ({ id }) => {
               }}
             >
               <hobby.icon style={{ fontSize: "32px", marginRight: "12px" }} />
-              <Text fontSize="lg" fontWeight="bold" style={{ textTransform: "capitalize" }}>
+              <Text
+                fontSize="lg"
+                fontWeight="bold"
+                style={{ textTransform: "capitalize" }}
+              >
                 {hobby.name.toLowerCase()}
               </Text>
             </Badge>
@@ -220,7 +244,11 @@ const HobbiesSection: React.FC<{ id: string }> = ({ id }) => {
               }}
             >
               <hobby.icon style={{ fontSize: "32px", marginRight: "12px" }} />
-              <Text fontSize="lg" fontWeight="bold" style={{ textTransform: "capitalize" }}>
+              <Text
+                fontSize="lg"
+                fontWeight="bold"
+                style={{ textTransform: "capitalize" }}
+              >
                 {hobby.name.toLowerCase()}
               </Text>
             </Badge>
@@ -243,7 +271,11 @@ const HobbiesSection: React.FC<{ id: string }> = ({ id }) => {
               }}
             >
               <hobby.icon style={{ fontSize: "32px", marginRight: "12px" }} />
-              <Text fontSize="lg" fontWeight="bold" style={{ textTransform: "capitalize" }}>
+              <Text
+                fontSize="lg"
+                fontWeight="bold"
+                style={{ textTransform: "capitalize" }}
+              >
                 {hobby.name.toLowerCase()}
               </Text>
             </Badge>
@@ -266,7 +298,11 @@ const HobbiesSection: React.FC<{ id: string }> = ({ id }) => {
               }}
             >
               <hobby.icon style={{ fontSize: "32px", marginRight: "12px" }} />
-              <Text fontSize="lg" fontWeight="bold" style={{ textTransform: "capitalize" }}>
+              <Text
+                fontSize="lg"
+                fontWeight="bold"
+                style={{ textTransform: "capitalize" }}
+              >
                 {hobby.name.toLowerCase()}
               </Text>
             </Badge>
