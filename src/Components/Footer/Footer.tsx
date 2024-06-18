@@ -134,6 +134,7 @@ const Footer: React.FC = () => {
             <RouterLink to="/games" className="game-link">
               Play Games
             </RouterLink>
+            
           </Flex>
         </Box>
 
