@@ -1,7 +1,8 @@
-/* BallRolling.css */
 .rolling-ball-container {
+    margin-top: 50px;
+    margin-bottom: 50px;
     width: 100%;
-    height: 60px;
+    height: 100px; /* Increased height */
     display: flex;
     justify-content: center;
     align-items: flex-end;
@@ -10,40 +11,42 @@
   }
   
   .rolling-ball-rod {
-    width: 80%;
-    height: 10px;
+    width: 60%; /* Reduced width */
+    height: 20px;
     background-color: #e0e0e0;
+    border-radius: 10px;
     position: relative;
     z-index: 1;
   }
   
   .rolling-ball-wrapper {
     position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 40px;
+    bottom: 18px; /* Adjusted position */
+    left: 20%; /* Adjusted position */
+    width: 60%; /* Reduced width */
+    height: 80px; /* Increased height */
     display: flex;
     justify-content: flex-start;
-    animation: roll 8s linear infinite alternate; /* Added 'alternate' */
+    animation: roll 15s linear infinite alternate;
     z-index: 2;
+    overflow: hidden;
   }
   
   .rolling-ball {
-    width: 40px;
-    height: 40px;
+    width: 80px; /* Increased size */
+    height: 80px; /* Increased size */
     border-radius: 50%;
     background-color: #007bff;
   }
   
   @keyframes roll {
     0% {
-      transform: translateX(0); /* Start from the left edge */
+      transform: translateX(0);
     }
     50% {
-      transform: translateX(calc(100% - 40px)); /* Move ball to the right edge */
+      transform: translateX(calc(60% - 80px)); /* Adjusted for larger ball size and reduced width */
     }
     100% {
-      transform: translateX(0); /* Move back to the left edge */
+      transform: translateX(0);
     }
   }

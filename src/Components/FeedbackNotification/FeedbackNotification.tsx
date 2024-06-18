@@ -54,14 +54,15 @@ const FeedbackNotification: React.FC = () => {
       color="white"
       borderRadius="lg"
       boxShadow="2xl"
-      zIndex="1000"
+      zIndex="11000"  // Increased z-index to be above hobbies section
       maxW="350px"
       animation={`${show ? fadeInUp : fadeOut} 0.5s ease-out`}
       onAnimationEnd={!show ? handleClose : undefined}
       opacity={show ? 1 : 0}
       visibility={show ? 'visible' : 'hidden'}
+      className='feedback-box'
     >
-      <Flex alignItems="center" justifyContent="space-between">
+      <Flex alignItems="center" justifyContent="space-between" >
         <Box>
           <Text mb="2" fontSize="lg" fontWeight="bold" fontFamily="Poppins, sans-serif">
             Enjoying this website?

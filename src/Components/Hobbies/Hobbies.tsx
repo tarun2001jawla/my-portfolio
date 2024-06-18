@@ -51,11 +51,11 @@ const HobbiesSection: React.FC<{ id: string }> = ({ id }) => {
         mb={6}
         className="hobbies-heading"
         textAlign="center"
-        fontWeight= {600}
+        fontWeight= {700}
       >
         Do What You Love
         <br />
-        <Text as="span" display="inline-block" ml={10} fontWeight= {600}>
+        <Text as="span" display="inline-block" ml={15} fontWeight= {700}>
           Love What You Do
         </Text>
       </Heading>
