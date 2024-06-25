@@ -45,20 +45,33 @@ const HobbiesSection: React.FC<{ id: string }> = ({ id }) => {
       className="hobbies-section"
       fontFamily="Poppins, sans-serif"
     >
-      <Heading
-        as="h2"
-        size="xl"
-        mb={6}
-        className="hobbies-heading"
-        textAlign="center"
-        fontWeight= {700}
-      >
-        Do What You Love
-        <br />
-        <Text as="span" display="inline-block" ml={15} fontWeight= {700}>
-          Love What You Do
-        </Text>
-      </Heading>
+  <Heading
+  as="h1"
+  size="xl"
+  mb={6}
+  className="hobbies-heading"
+  textAlign="center"
+  fontWeight={700}
+  fontFamily="Cedarville Cursive ,cursive"
+  
+>
+  Do What You <Text as="span" color="#FF1493">Love</Text>
+  <br />
+  <Text
+    as="span"
+    display="inline-block"
+    ml={35}
+    fontWeight={700}
+    sx={{
+      position: 'relative',
+      left: '1%',
+      transform: 'translateX(1%)',
+    }}
+  >
+    <Text as="span" color="#FF1493">Love</Text> What You Do
+  </Text>
+</Heading>
+
       <Flex
         className="hobbies-container"
         overflow="hidden"
