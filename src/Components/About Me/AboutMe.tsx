@@ -3,14 +3,11 @@ import { Box, Flex, Heading, Text, Icon, Image, Badge, Link } from "@chakra-ui/r
 import {
   FaJava,
   FaNodeJs,
-  FaGithub,
+
   FaPython,
-  FaInstagram,
-  FaLinkedin,
-  FaEnvelope,
-  FaBehance,
+  
 } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
+
 import {
   SiJavascript,
   SiReact,
@@ -90,14 +87,7 @@ const AboutMe: React.FC<{ id: string }> = ({ id }) => {
     { name: "Figma", icon: SiFigma, color: "#F24E1E", url: "https://www.figma.com/" },
   ];
 
-  const socialIcons = [
-    { name: "GitHub", icon: FaGithub, color: "#333", bgColor: "#FFF8E3", url: "https://github.com/tarun2001jawla" },
-    { name: "Instagram", icon: FaInstagram, color: "#833ab4", bgColor: "#f9e9fa", url: "https://www.instagram.com/tarun_jawla/" },
-    { name: "Twitter", icon: FaXTwitter, color: "#000", bgColor: "#e6e6e6", url: "https://x.com/tarun_jawla" },
-    { name: "LinkedIn", icon: FaLinkedin, color: "#0077b5", bgColor: "#e6f5ff", url: "https://www.linkedin.com/in/tarunjawlajaipur/" },
-    { name: "Email", icon: FaEnvelope, color: "#EA4335", bgColor: "#fff3ee", url: "mailto:tarunjawla2@gmail.com" },
-    { name: "Behance", icon: FaBehance, color: "#0000FF", bgColor: "#FFFFED", url: "https://www.behance.net/tarunjawla1" },
-  ];
+ 
 
   return (
     <Box py={20} className="about-section no-select" id={id} fontFamily="Poppins, sans-serif">
@@ -255,68 +245,7 @@ const AboutMe: React.FC<{ id: string }> = ({ id }) => {
           </Box>
         </Box>
       </Flex>
-      {/* Social Icons Section */}
-<Flex
-  flexDirection="column"
-  alignItems="center"
- 
-  justifyContent="center"
-  p={8}
-  mt={12}
-   fontFamily="Poppins, sans-serif"
->
-  <Heading as="h2" mb={4} fontSize="1.5rem"  fontFamily="Poppins, sans-serif"
-          fontWeight="600" textAlign="center" mt={10}>
-    Let's Connect
-  </Heading>
-  <Flex justify="center">
-    {socialIcons.map((social) => (
-      <Box
-        key={social.name}
-        m={4}
-        textAlign="center"
-        transition="all 0.3s"
-        _hover={{
-          transform: "scale(1.1)",
-        }}
-      >
-                <Box
-          bg={social.bgColor}
-          p={6}
-          boxShadow="md"
-          rounded="lg"
-          width={{ base: "150px", md: "200px" }}
-          display="inline-flex"
-          alignItems="center"
-          justifyContent="center"
-          flexDirection="column"
-          transition="all 0.3s"
-          _hover={{
-            boxShadow: "xl",
-          }}
-        >
 
-          <a
-            href={social.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ textDecoration: "none", color: "inherit" }}
-          >
-           <Icon
-              as={social.icon}
-              boxSize={{ base: 10, md: 16 }}
-              color={social.color}
-              mb={2}
-            />
-            <Text fontSize={{ base: "sm", md: "lg" }}>
-              {social.name} {/*Responsive font size*/}
-            </Text>
-          </a>
-        </Box>
-      </Box>
-    ))}
-  </Flex>
-</Flex>
       
     </Box>
   );

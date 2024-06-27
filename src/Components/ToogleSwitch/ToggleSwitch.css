@@ -1,0 +1,40 @@
+.theme-toggle-container {
+    width: 60px;
+    height: 30px;
+    background-color: #e0e0e0;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    transition: background-color 0.3s ease;
+  }
+  
+  .theme-toggle-container .toggle-switch {
+    width: 26px;
+    height: 26px;
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    transition: left 0.3s ease;
+  }
+  
+  .theme-toggle-container .toggle-switch.dark {
+    left: 32px;
+    background-color: #4a4a4a;
+  }
+  
+  .theme-toggle-container .toggle-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #ffcd3c; /* Sun color */
+  }
+  
+  .theme-toggle-container .toggle-switch.dark .toggle-icon {
+    color: #f39c12; /* Moon color */
+  }
+  

@@ -7,6 +7,38 @@ import { getCalApi } from "@calcom/embed-react";
 import "./HeroSection.css";
 
 const HeroSection: React.FC = () => {
+  
+  const GridOverlay = () => (
+    <svg
+      style={{
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        pointerEvents: 'none',
+        zIndex: 0,
+      }}
+    >
+      <defs>
+        <pattern id="smallGrid" width="10" height="10" patternUnits="userSpaceOnUse">
+          <path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(0,0,0,0.1)" strokeWidth="0.5" />
+        </pattern>
+      </defs>
+      
+      {/* Top-left corner */}
+      <rect x="0" y="0" width="200" height="200" fill="url(#smallGrid)" />
+      
+      {/* Top-right corner */}
+      <rect x="calc(100% - 200px)" y="0" width="200" height="200" fill="url(#smallGrid)" />
+      
+      {/* Bottom-left corner */}
+      <rect x="0" y="calc(100% - 200px)" width="200" height="200" fill="url(#smallGrid)" />
+      
+      {/* Bottom-right corner */}
+      <rect x="calc(100% - 200px)" y="calc(100% - 200px)" width="200" height="200" fill="url(#smallGrid)" />
+    </svg>
+  );
   const typedRef = useRef<Typed | null>(null);
   const [currentLanguageIndex, setCurrentLanguageIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
@@ -65,6 +97,7 @@ const HeroSection: React.FC = () => {
 	}, [])
 
   return (
+    
     <Box
       fontFamily="Poppins, sans-serif"
       className="hero-section"
@@ -76,7 +109,9 @@ const HeroSection: React.FC = () => {
       position="relative"
       color="black"
       
+      
     >
+      
       <Flex
         direction={{ base: "column-reverse", md: "row" }}
         alignItems="center"
@@ -85,6 +120,7 @@ const HeroSection: React.FC = () => {
         width="80%"
         mx="auto"
       >
+        <GridOverlay />
         {/* Left side: Text, Heading, and Buttons */}
         <Box textAlign={{ base: "center", md: "left" }} mb={{ base: 8, md: 0 }}>
           <Heading
@@ -272,28 +308,7 @@ const HeroSection: React.FC = () => {
               </linearGradient>
             </defs>
 
-            {/* CSS Animations
-            <style>{`
-              @keyframes slide-up {
-                0% { transform: translateY(50px); }
-                100% { transform: translateY(-50px); }
-              }
-
-              @keyframes slide-right {
-                0% { transform: translateX(-50px); }
-                100% { transform: translateX(50px); }
-              }
-
-              @keyframes rotate {
-                0% { transform: rotate(0deg); }
-                100% { transform: rotate(360deg); }
-              }
-
-              @keyframes scale {
-                0% { transform: scale(1); }
-                100% { transform: scale(1.2); }
-              }
-            `}</style> */}
+            
           </svg>
         </Box>
       </Flex>
