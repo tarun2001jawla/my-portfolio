@@ -3,7 +3,7 @@ import { Flex, Icon, Link, Box } from "@chakra-ui/react";
 import { FaGithub, FaInstagram, FaLinkedin, FaEnvelope, FaBehance } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 
-const SocialIcons = () => {
+const SocialIcons:React.FC = () => {
   const socialIcons = [
     { name: "GitHub", icon: FaGithub, color: "#333", url: "https://github.com/tarun2001jawla" },
     { name: "Instagram", icon: FaInstagram, color: "#833ab4", url: "https://www.instagram.com/tarun_jawla/" },

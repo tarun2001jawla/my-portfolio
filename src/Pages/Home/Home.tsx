@@ -49,7 +49,7 @@ const HomePage: React.FC<{ id: string }> = ({ id }) => {
   //     {/* Bottom-right corner */}
   //     <rect x="calc(100% - 200px)" y="calc(100% - 200px)" width="200" height="200" fill="url(#smallGrid)" />
   //   </svg>
-  // );
+  //wdd );
   return (
     <Flex direction="column" minHeight="100vh" id={id} className="no-select">
     <Navbar />

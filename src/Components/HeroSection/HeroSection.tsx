@@ -121,6 +121,7 @@ const HeroSection: React.FC = () => {
         mx="auto"
       >
         <GridOverlay />
+        
         {/* Left side: Text, Heading, and Buttons */}
         <Box textAlign={{ base: "center", md: "left" }} mb={{ base: 8, md: 0 }}>
           <Heading
