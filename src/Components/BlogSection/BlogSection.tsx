@@ -103,6 +103,7 @@ const BlogSection: React.FC = () => {
       p={8}
       className="no-select"
       fontFamily="Inter, sans-serif"
+      mt={10}
     >
       <Heading
         mb={8}
