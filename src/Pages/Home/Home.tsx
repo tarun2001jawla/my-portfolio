@@ -14,7 +14,7 @@ import FeedbackNotification from "../../Components/FeedbackNotification/Feedback
 import HobbiesSection from "../../Components/Hobbies/Hobbies";
 import Navbar from "../../Components/Navbar/Navbar";
 import SocialIcons from "../../Components/SocialSection/SocialSection";
-import LinkedInPosts from "../../Components/LinkedinPosts/LinkedInPosts";
+
 
 import "./Home.css";
 
@@ -49,7 +49,7 @@ const HomePage: React.FC<{ id: string }> = ({ id }) => {
   //     {/* Bottom-right corner */}
   //     <rect x="calc(100% - 200px)" y="calc(100% - 200px)" width="200" height="200" fill="url(#smallGrid)" />
   //   </svg>
-  //wdd );
+  //wdd );  
   return (
     <Flex direction="column" minHeight="100vh" id={id} className="no-select">
     <Navbar />
@@ -61,7 +61,7 @@ const HomePage: React.FC<{ id: string }> = ({ id }) => {
       <ServicesSection id="services" />
       <ClientTestimonials />
       <CodeEditor />
-      <LinkedInPosts/>
+    
    
       <BlogSection />
       <ContactForm id="contact" />
